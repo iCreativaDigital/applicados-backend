@@ -136,8 +136,8 @@ model UserAccount {
 model Session {
   id            String   @id @default(uuid())
   user_id       String
-  token         String   @unique // Token de sesión (JWT)
-  refresh_token String?  @unique // Token de refresco (opcional)
+  token         String   @db.VarChar(1000) @unique // Token de sesión (JWT)
+  refresh_token String?  @db.VarChar(1000) @unique // Token de refresco (opcional)
   ip_address    String?  // Dirección IP desde donde se inició sesión
   user_agent    String?  // Navegador/dispositivo usado
   expires_at    DateTime // Fecha de expiración

@@ -46,21 +46,32 @@ export default function ApiDocsPage() {
               }}
               response={{
                 success: "boolean",
+                user: {
+                  id: "string",
+                  username: "string",
+                  email: "string",
+                  name: "string (opcional)"
+                },
                 token: "string (JWT token)",
-                refreshToken: "string",
+                refresh_token: "string",
+                expires_in: "number (segundos)",
+                token_type: "string (Bearer)",
                 error: "string (si hay error)"
               }}
             />
             
             <EndpointCard
               title="POST /api/v1/auth/logout"
-              description="Cierra la sesión actual"
+              description="Cierra la sesión actual del usuario"
               requestBody={{
-                token: "string (opcional, token actual)"
+                token: "string (opcional, se puede omitir si se envía el token en el encabezado Authorization)"
               }}
               response={{
-                success: "boolean"
+                success: "boolean",
+                message: "string (mensaje de éxito)",
+                error: "string (si hay error)"
               }}
+              endpoint="/api/v1/auth/logout"
             />
             
             <EndpointCard

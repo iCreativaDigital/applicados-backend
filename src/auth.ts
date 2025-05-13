@@ -29,6 +29,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     signIn: "/auth/login",
     error: "/auth/error",
   },
+  // Configuración para permitir hosts de desarrollo
+  trustHost: true,
   providers: [
     Credentials({
       name: "credentials",
