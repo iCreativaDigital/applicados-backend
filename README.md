@@ -1,36 +1,151 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Auth Microservice
 
-## Getting Started
+Un servicio de autenticación completo construido con Next.js, NextAuth, Prisma y TypeScript. Esta aplicación proporciona una solución robusta de autenticación y gestión de usuarios que puede integrarse fácilmente con otras aplicaciones a través de su API RESTful.
 
-First, run the development server:
+## Características
+
+- **Autenticación completa**
+  - Registro de usuarios
+  - Inicio de sesión (email/username + contraseña)
+  - Cierre de sesión
+  - Recuperación de contraseña
+  - Verificación de email
+  - Tokens JWT y refresh tokens
+
+- **Gestión de usuarios**
+  - CRUD completo para usuarios
+  - Perfiles de usuario personalizables
+  - Roles y permisos
+
+- **API Keys**
+  - Generación y gestión de API Keys
+  - Autenticación basada en API Keys
+  - Límites de uso y caducidad
+
+- **Analíticas**
+  - Seguimiento de eventos de autenticación
+  - Estadísticas de uso del sistema
+  - Visualización de datos con gráficos
+  - Monitoreo de sesiones activas
+
+- **Dashboard administrativo**
+  - Interfaz de usuario moderna y responsiva
+  - Estadísticas en tiempo real
+  - Gestión de usuarios y API Keys
+  - Visualización de logs y eventos
+
+## Tecnologías
+
+- **Frontend**: Next.js 15, React 19, Tailwind CSS, Shadcn UI
+- **Backend**: Next.js API Routes, NextAuth v5
+- **Base de datos**: PostgreSQL con Prisma ORM
+- **Autenticación**: JWT, Refresh Tokens, API Keys
+- **Despliegue**: Compatible con Vercel, Docker
+
+## Requisitos previos
+
+- Node.js 18.x o superior
+- PostgreSQL (o cualquier base de datos compatible con Prisma)
+- Variables de entorno configuradas (ver `.example.env`)
+
+## Instalación
+
+1. Clona el repositorio
+
+```bash
+git clone https://github.com/tu-usuario/auth-microservice.git
+cd auth-microservice
+```
+
+2. Instala las dependencias
+
+```bash
+npm install
+```
+
+3. Configura las variables de entorno
+
+```bash
+cp .example.env .env.local
+# Edita .env.local con tus configuraciones
+```
+
+4. Configura la base de datos
+
+```bash
+npx prisma migrate dev
+```
+
+5. Inicia el servidor de desarrollo
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Uso de la API
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Autenticación
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **POST /api/v1/auth/register** - Registrar un nuevo usuario
+- **POST /api/v1/auth/login** - Iniciar sesión
+- **POST /api/v1/auth/logout** - Cerrar sesión
+- **POST /api/v1/auth/refresh-token** - Renovar token de acceso
+- **POST /api/v1/auth/verify-email** - Verificar email
+- **POST /api/v1/auth/forgot-password** - Solicitar restablecimiento de contraseña
+- **POST /api/v1/auth/reset-password** - Restablecer contraseña
 
-## Learn More
+### Usuarios
 
-To learn more about Next.js, take a look at the following resources:
+- **GET /api/v1/users** - Listar usuarios
+- **GET /api/v1/users/:id** - Obtener usuario por ID
+- **PUT /api/v1/users/:id** - Actualizar usuario
+- **DELETE /api/v1/users/:id** - Eliminar usuario
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Analíticas
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **GET /api/v1/analytics/auth-events** - Obtener eventos de autenticación
+- **GET /api/v1/analytics/usage** - Obtener métricas de uso del sistema
 
-## Deploy on Vercel
+## Dashboard
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Accede al dashboard administrativo en `/dashboard` después de iniciar sesión como administrador.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+El dashboard incluye:
+
+- **Vista general**: Estadísticas clave del sistema (API Keys, Usuarios, Sesiones activas, Eventos)
+- **Usuarios**: Gestión completa de usuarios
+- **API Keys**: Creación y gestión de API Keys
+- **Analíticas**: Visualización de eventos y métricas
+- **Perfil**: Gestión del perfil de usuario
+
+## Seguridad
+
+- Todas las contraseñas se almacenan con hash
+- Autenticación con JWT y refresh tokens
+- Protección CSRF
+- Rate limiting para prevenir ataques de fuerza bruta
+- Validación de datos en todas las rutas de API
+
+## Despliegue
+
+### Vercel
+
+```bash
+npm run build
+vercel deploy
+```
+
+### Docker
+
+```bash
+docker build -t auth-microservice .
+docker run -p 3000:3000 auth-microservice
+```
+
+## Contribuciones
+
+Las contribuciones son bienvenidas. Por favor, abre un issue o pull request para sugerencias o mejoras.
+
+## Licencia
+
+MIT
