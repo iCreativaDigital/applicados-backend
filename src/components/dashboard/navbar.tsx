@@ -39,6 +39,12 @@ export function Navbar({ user }: NavbarProps) {
             <Link href="/dashboard" className="text-gray-600 hover:text-blue-600">
               Dashboard
             </Link>
+            <Link href="/dashboard/users" className="text-gray-600 hover:text-blue-600">
+              Usuarios
+            </Link>
+            <Link href="/dashboard/analytics" className="text-gray-600 hover:text-blue-600">
+              Analíticas
+            </Link>
             <Link href="/dashboard/profile" className="text-gray-600 hover:text-blue-600">
               Mi Perfil
             </Link>

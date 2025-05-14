@@ -1,8 +1,10 @@
 import { redirect } from "next/navigation";
 import { auth } from "@/auth";
 import { getUserApiKeys } from "@/actions/auth";
+import { getSystemStats } from "@/actions/analytics";
 import { ApiKeyList } from "@/components/dashboard/api-key-list";
 import { CreateApiKeyForm } from "@/components/dashboard/create-api-key-form";
+import { StatCards } from "@/components/dashboard/analytics/stat-cards";
 
 export default async function DashboardPage() {
   // Verificar autenticación
@@ -16,9 +18,21 @@ export default async function DashboardPage() {
   // Obtener las API Keys del usuario
   const apiKeysResult = await getUserApiKeys(session.user.id);
   
+  // Obtener estadísticas del sistema
+  const systemStatsResult = await getSystemStats();
+  const systemStats = systemStatsResult.success ? systemStatsResult.data : {
+    apiKeysCount: 0,
+    usersCount: 0,
+    activeSessionsCount: 0,
+    authEventsCount: 0,
+  };
+  
   return (
     <div className="container mx-auto py-10">
-      <h1 className="text-3xl font-bold mb-8">Dashboard</h1>
+      <h1 className="text-3xl font-bold mb-8">Dashboard</ h1>
+      
+      {/* Tarjetas de estadísticas */}
+      <StatCards systemStats={systemStats} />
       
       <div className="grid gap-8 md:grid-cols-2">
         <div>
