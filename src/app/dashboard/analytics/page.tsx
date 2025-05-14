@@ -1,5 +1,17 @@
-import { getSystemStats, getAuthEventsByType, getAuthEventsByDay, getActiveSessions, getUserStatsByApiKey, getAuthLogs } from "@/actions/analytics";
+import { auth } from "@/auth";
+import { redirect } from "next/navigation";
 import { AnalyticsPageClient } from "@/components/dashboard/analytics/analytics-page-client";
+import {
+  getSystemStats,
+  getAuthEventsByType,
+  getAuthEventsByDay,
+  getActiveSessions,
+  getUserStatsByApiKey,
+  getAuthLogs
+} from "@/actions/analytics";
+
+export const dynamic = 'force-dynamic';
+export const fetchCache = 'force-no-store';
 
 export default async function AnalyticsPage() {
   // Obtener estadísticas del sistema

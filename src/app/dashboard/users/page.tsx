@@ -3,6 +3,9 @@ import { auth } from "@/auth";
 import { getUserApiKeys } from "@/actions/auth";
 import { UsersPageClient } from "@/components/dashboard/users/users-page-client";
 
+export const dynamic = 'force-dynamic';
+export const fetchCache = 'force-no-store';
+
 export default async function UsersPage() {
   // Verificar autenticación
   const session = await auth();

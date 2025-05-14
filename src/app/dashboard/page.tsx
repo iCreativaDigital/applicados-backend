@@ -6,6 +6,9 @@ import { ApiKeyList } from "@/components/dashboard/api-key-list";
 import { CreateApiKeyForm } from "@/components/dashboard/create-api-key-form";
 import { StatCards } from "@/components/dashboard/analytics/stat-cards";
 
+export const dynamic = 'force-dynamic';
+export const fetchCache = 'force-no-store';
+
 export default async function DashboardPage() {
   // Verificar autenticación
   const session = await auth();
