@@ -4,12 +4,15 @@ import Link from "next/link"
 import { logout } from "@/actions/auth"
 import { useRouter } from "next/navigation"
 import { toast } from "sonner"
+import { SidebarTrigger } from "@/components/ui/sidebar"
+import { LogOut, Bell } from "lucide-react"
 
 interface NavbarProps {
   user: {
     name?: string | null
     email?: string | null
     username?: string
+    image?: string | null
   }
 }
 
@@ -28,42 +31,26 @@ export function Navbar({ user }: NavbarProps) {
   }
   
   return (
-    <nav className="fixed top-0 left-0 right-0 bg-white shadow-sm z-10">
-      <div className="container mx-auto px-4 py-3 flex items-center justify-between">
+    <nav className="fixed top-0 right-0 left-0 bg-white shadow-sm z-10">
+      <div className="px-4 py-3 flex items-center justify-between">
         <div className="flex items-center">
+          <SidebarTrigger className="md:hidden mr-2" />
           <Link href="/dashboard" className="text-xl font-bold text-blue-600">
-            Auth Microservice
+            Applicados
           </Link>
-          
-          <div className="hidden md:flex ml-10 space-x-6">
-            <Link href="/dashboard" className="text-gray-600 hover:text-blue-600">
-              Dashboard
-            </Link>
-            <Link href="/dashboard/users" className="text-gray-600 hover:text-blue-600">
-              Usuarios
-            </Link>
-            <Link href="/dashboard/analytics" className="text-gray-600 hover:text-blue-600">
-              Analíticas
-            </Link>
-            <Link href="/dashboard/profile" className="text-gray-600 hover:text-blue-600">
-              Mi Perfil
-            </Link>
-            <Link href="/dashboard/api-docs" className="text-gray-600 hover:text-blue-600">
-              Documentación API
-            </Link>
-          </div>
         </div>
         
         <div className="flex items-center space-x-4">
-          <Link href="/dashboard/profile" className="flex items-center text-sm text-gray-600 hover:text-blue-600">
-            <span className="mr-2">{user.name || user.username || user.email}</span>
-          </Link>
+          <button className="p-2 text-gray-500 hover:text-blue-600 rounded-full hover:bg-gray-100">
+            <Bell className="h-5 w-5" />
+          </button>
           
           <button
             onClick={handleLogout}
-            className="px-4 py-2 bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200"
+            className="p-2 text-gray-500 hover:text-red-600 rounded-full hover:bg-gray-100"
+            title="Cerrar sesión"
           >
-            Cerrar sesión
+            <LogOut className="h-5 w-5" />
           </button>
         </div>
       </div>

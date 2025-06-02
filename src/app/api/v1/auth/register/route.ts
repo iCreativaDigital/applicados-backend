@@ -1,24 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
 import { registerUser } from "@/actions/user-register";
-
-// Función para validar la API Key
-async function validateApiKey(apiKey: string | null) {
-  if (!apiKey) {
-    return false;
-  }
-  
-  // La validación real se hace en la función registerUser
-  // Aquí solo verificamos que se haya proporcionado
-  return true;
-}
+import { validateApiKeyPresence, getApiKeyFromRequest } from "@/lib/api-key-validator";
 
 // Endpoint para registrar un usuario
 export async function POST(request: NextRequest) {
   try {
     // Verificar que se proporcione una API Key
-    const apiKey = request.headers.get("X-API-Key");
+    const apiKey = getApiKeyFromRequest(request);
     
-    if (!await validateApiKey(apiKey)) {
+    if (!await validateApiKeyPresence(apiKey)) {
       return NextResponse.json(
         { success: false, error: "API Key no proporcionada" },
         { status: 401 }

@@ -47,8 +47,10 @@ model ApiKey {
   expires_at   DateTime?
 
   // Relaciones
-  app_user AppUser @relation(fields: [app_user_id], references: [id], onDelete: Cascade)
-  users    User[] // Usuarios creados con esta API Key
+  app_user   AppUser    @relation(fields: [app_user_id], references: [id], onDelete: Cascade)
+  users      User[] // Usuarios creados con esta API Key
+  test_types TestType[] // Tipos de prueba asociados a esta API Key
+  subjects   Subject[] // Materias asociadas a esta API Key
 
   @@index([app_user_id])
 }
@@ -202,15 +204,14 @@ model PasswordReset {
 
 // Eventos de autenticación
 model AuthEvent {
-  id          String   @id @default(uuid())
-  app_user_id String
-  event_type  String // Tipo de evento (login, logout, password_reset, etc.)
-  ip_address  String? // Dirección IP
-  user_agent  String? // Navegador/dispositivo
-  details     String?  @db.Text // Detalles adicionales (JSON)
-  created_at  DateTime @default(now())
+  id              String   @id @default(uuid())
+  app_user_id     String
+  event_type      String // login, logout, password_reset, etc.
+  ip_address      String?
+  user_agent      String?
+  created_at      DateTime @default(now())
+  additional_info Json?
 
-  // Relaciones
   app_user AppUser @relation(fields: [app_user_id], references: [id], onDelete: Cascade)
 
   @@index([app_user_id])
@@ -234,4 +235,134 @@ enum AuthEventType {
 enum AuthEventStatus {
   SUCCESS
   FAILURE
+}
+
+// Tipos de Pruebas (ej. Saber 11, Presaber)
+model TestType {
+  id          String  @id @default(uuid())
+  name        String // Nombre de la prueba, ej: "Saber 11", "Presaber"
+  description String? // Descripción opcional de la prueba
+  api_key_id  String? // ID de la API Key asociada (opcional para compatibilidad con datos existentes)
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  // Relaciones
+  api_key      ApiKey?       @relation(fields: [api_key_id], references: [id], onDelete: SetNull)
+  testSubjects TestSubject[] // Relación a la tabla de unión TestSubject
+
+  // Índice compuesto para garantizar que el nombre sea único por API Key (o globalmente si no hay API Key)
+  @@unique([name, api_key_id])
+  // Índice para mejorar el rendimiento de las consultas por api_key_id
+  @@index([api_key_id])
+}
+
+// Materias (ej. Matemáticas, Lectura Crítica)
+model Subject {
+  id                        String  @id @default(uuid())
+  name                      String // Nombre de la materia, ej: "Matemáticas", "Lectura Crítica"
+  description               String // Descripción de la materia, puede contener HTML enriquecido
+  slug_materia              String  @unique // Slug para URLs amigables, ej: "matematicas-saber-11"
+  approximate_total_minutes Int // Número total de minutos estimado para completar todos los niveles
+  total_questions           Int // Número total de preguntas en todos los niveles
+  order                     Int // Orden de aparición en el frontend
+  api_key_id                String? // ID de la API Key asociada (opcional)
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  // Relaciones
+  api_key        ApiKey?        @relation(fields: [api_key_id], references: [id], onDelete: SetNull)
+  subject_detail SubjectDetail?
+  subject_levels SubjectLevel[]
+  testSubjects   TestSubject[] // Relación a la tabla de unión TestSubject
+
+  // Índices y restricciones
+  @@unique([name, api_key_id]) // Nombre único por API Key
+  @@index([api_key_id])
+}
+
+// Detalles visuales y de presentación para una materia
+model SubjectDetail {
+  id                   String  @id @default(uuid())
+  background_image_url String? // URL de la imagen de fondo
+  title                String // Título a mostrar en la vista de detalle
+  title_color          String? // Color para el título, ej: "#FFFFFF"
+  subtitle             String? // Subtítulo para la vista de detalle
+  primary_color_hex    String? // Color principal en formato hexadecimal, ej: "#4A90E2"
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  // Relación uno a uno con Subject
+  subject_id String  @unique // Clave foránea para Subject
+  subject    Subject @relation(fields: [subject_id], references: [id], onDelete: Cascade)
+}
+
+// Niveles de una materia
+model SubjectLevel {
+  id                       String  @id @default(uuid())
+  reference_title          String? // Título de referencia descriptivo
+  title                    String // Título corto del nivel
+  order                    Int // Orden de aparición dentro de su materia
+  number_of_questions      Int // Número de preguntas estimadas
+  approximate_time_minutes Int // Tiempo estimado en minutos
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  // Relación con Subject
+  subject_id String // Clave foránea para Subject
+  subject    Subject @relation(fields: [subject_id], references: [id], onDelete: Cascade)
+
+  // Relación con Questionnaire (comentada por ahora)
+  // questionnaire_id        String?
+  // questionnaire           Questionnaire? @relation(fields: [questionnaire_id], references: [id])
+
+  // Índices
+  @@index([subject_id])
+}
+
+// Tabla de unión entre TestType y Subject
+model TestSubject {
+  test_type_id          String // Parte de la clave primaria compuesta
+  subject_id            String // Parte de la clave primaria compuesta
+  assigned_at           DateTime @default(now()) // Cuándo se asignó esta materia a esta prueba
+  subject_order_in_test Int? // Orden de la materia específico para cada prueba (opcional)
+
+  // Relaciones
+  test_type TestType @relation(fields: [test_type_id], references: [id], onDelete: Cascade)
+  subject   Subject  @relation(fields: [subject_id], references: [id], onDelete: Cascade)
+
+  // Clave primaria compuesta
+  @@id([test_type_id, subject_id])
+}
+
+// Categorías del glosario
+model GlossaryCategory {
+  id          String   @id @default(uuid())
+  name        String   @unique
+  description String?  @db.Text
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+  active      Boolean  @default(true)
+
+  // Relaciones
+  terms GlossaryTerm[]
+}
+
+// Términos del glosario
+model GlossaryTerm {
+  id          String   @id @default(uuid())
+  word        String   @unique
+  description String   @db.Text
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+  active      Boolean  @default(true)
+
+  // Relaciones
+  category_id String
+  category    GlossaryCategory @relation(fields: [category_id], references: [id])
+
+  @@index([category_id])
 }

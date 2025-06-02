@@ -68,6 +68,41 @@ export type PasswordReset = $Result.DefaultSelection<Prisma.$PasswordResetPayloa
  * 
  */
 export type AuthEvent = $Result.DefaultSelection<Prisma.$AuthEventPayload>
+/**
+ * Model TestType
+ * 
+ */
+export type TestType = $Result.DefaultSelection<Prisma.$TestTypePayload>
+/**
+ * Model Subject
+ * 
+ */
+export type Subject = $Result.DefaultSelection<Prisma.$SubjectPayload>
+/**
+ * Model SubjectDetail
+ * 
+ */
+export type SubjectDetail = $Result.DefaultSelection<Prisma.$SubjectDetailPayload>
+/**
+ * Model SubjectLevel
+ * 
+ */
+export type SubjectLevel = $Result.DefaultSelection<Prisma.$SubjectLevelPayload>
+/**
+ * Model TestSubject
+ * 
+ */
+export type TestSubject = $Result.DefaultSelection<Prisma.$TestSubjectPayload>
+/**
+ * Model GlossaryCategory
+ * 
+ */
+export type GlossaryCategory = $Result.DefaultSelection<Prisma.$GlossaryCategoryPayload>
+/**
+ * Model GlossaryTerm
+ * 
+ */
+export type GlossaryTerm = $Result.DefaultSelection<Prisma.$GlossaryTermPayload>
 
 /**
  * Enums
@@ -339,6 +374,76 @@ export class PrismaClient<
     * ```
     */
   get authEvent(): Prisma.AuthEventDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.testType`: Exposes CRUD operations for the **TestType** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more TestTypes
+    * const testTypes = await prisma.testType.findMany()
+    * ```
+    */
+  get testType(): Prisma.TestTypeDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.subject`: Exposes CRUD operations for the **Subject** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Subjects
+    * const subjects = await prisma.subject.findMany()
+    * ```
+    */
+  get subject(): Prisma.SubjectDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.subjectDetail`: Exposes CRUD operations for the **SubjectDetail** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more SubjectDetails
+    * const subjectDetails = await prisma.subjectDetail.findMany()
+    * ```
+    */
+  get subjectDetail(): Prisma.SubjectDetailDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.subjectLevel`: Exposes CRUD operations for the **SubjectLevel** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more SubjectLevels
+    * const subjectLevels = await prisma.subjectLevel.findMany()
+    * ```
+    */
+  get subjectLevel(): Prisma.SubjectLevelDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.testSubject`: Exposes CRUD operations for the **TestSubject** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more TestSubjects
+    * const testSubjects = await prisma.testSubject.findMany()
+    * ```
+    */
+  get testSubject(): Prisma.TestSubjectDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.glossaryCategory`: Exposes CRUD operations for the **GlossaryCategory** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more GlossaryCategories
+    * const glossaryCategories = await prisma.glossaryCategory.findMany()
+    * ```
+    */
+  get glossaryCategory(): Prisma.GlossaryCategoryDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.glossaryTerm`: Exposes CRUD operations for the **GlossaryTerm** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more GlossaryTerms
+    * const glossaryTerms = await prisma.glossaryTerm.findMany()
+    * ```
+    */
+  get glossaryTerm(): Prisma.GlossaryTermDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -789,7 +894,14 @@ export namespace Prisma {
     AuthLog: 'AuthLog',
     EmailVerification: 'EmailVerification',
     PasswordReset: 'PasswordReset',
-    AuthEvent: 'AuthEvent'
+    AuthEvent: 'AuthEvent',
+    TestType: 'TestType',
+    Subject: 'Subject',
+    SubjectDetail: 'SubjectDetail',
+    SubjectLevel: 'SubjectLevel',
+    TestSubject: 'TestSubject',
+    GlossaryCategory: 'GlossaryCategory',
+    GlossaryTerm: 'GlossaryTerm'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -808,7 +920,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "appUser" | "apiKey" | "appSession" | "user" | "account" | "userAccount" | "session" | "authLog" | "emailVerification" | "passwordReset" | "authEvent"
+      modelProps: "appUser" | "apiKey" | "appSession" | "user" | "account" | "userAccount" | "session" | "authLog" | "emailVerification" | "passwordReset" | "authEvent" | "testType" | "subject" | "subjectDetail" | "subjectLevel" | "testSubject" | "glossaryCategory" | "glossaryTerm"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1538,6 +1650,468 @@ export namespace Prisma {
           }
         }
       }
+      TestType: {
+        payload: Prisma.$TestTypePayload<ExtArgs>
+        fields: Prisma.TestTypeFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.TestTypeFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TestTypePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.TestTypeFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TestTypePayload>
+          }
+          findFirst: {
+            args: Prisma.TestTypeFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TestTypePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.TestTypeFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TestTypePayload>
+          }
+          findMany: {
+            args: Prisma.TestTypeFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TestTypePayload>[]
+          }
+          create: {
+            args: Prisma.TestTypeCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TestTypePayload>
+          }
+          createMany: {
+            args: Prisma.TestTypeCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.TestTypeDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TestTypePayload>
+          }
+          update: {
+            args: Prisma.TestTypeUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TestTypePayload>
+          }
+          deleteMany: {
+            args: Prisma.TestTypeDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.TestTypeUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.TestTypeUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TestTypePayload>
+          }
+          aggregate: {
+            args: Prisma.TestTypeAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateTestType>
+          }
+          groupBy: {
+            args: Prisma.TestTypeGroupByArgs<ExtArgs>
+            result: $Utils.Optional<TestTypeGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.TestTypeCountArgs<ExtArgs>
+            result: $Utils.Optional<TestTypeCountAggregateOutputType> | number
+          }
+        }
+      }
+      Subject: {
+        payload: Prisma.$SubjectPayload<ExtArgs>
+        fields: Prisma.SubjectFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.SubjectFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SubjectPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.SubjectFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SubjectPayload>
+          }
+          findFirst: {
+            args: Prisma.SubjectFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SubjectPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.SubjectFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SubjectPayload>
+          }
+          findMany: {
+            args: Prisma.SubjectFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SubjectPayload>[]
+          }
+          create: {
+            args: Prisma.SubjectCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SubjectPayload>
+          }
+          createMany: {
+            args: Prisma.SubjectCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.SubjectDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SubjectPayload>
+          }
+          update: {
+            args: Prisma.SubjectUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SubjectPayload>
+          }
+          deleteMany: {
+            args: Prisma.SubjectDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.SubjectUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.SubjectUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SubjectPayload>
+          }
+          aggregate: {
+            args: Prisma.SubjectAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateSubject>
+          }
+          groupBy: {
+            args: Prisma.SubjectGroupByArgs<ExtArgs>
+            result: $Utils.Optional<SubjectGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.SubjectCountArgs<ExtArgs>
+            result: $Utils.Optional<SubjectCountAggregateOutputType> | number
+          }
+        }
+      }
+      SubjectDetail: {
+        payload: Prisma.$SubjectDetailPayload<ExtArgs>
+        fields: Prisma.SubjectDetailFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.SubjectDetailFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SubjectDetailPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.SubjectDetailFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SubjectDetailPayload>
+          }
+          findFirst: {
+            args: Prisma.SubjectDetailFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SubjectDetailPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.SubjectDetailFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SubjectDetailPayload>
+          }
+          findMany: {
+            args: Prisma.SubjectDetailFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SubjectDetailPayload>[]
+          }
+          create: {
+            args: Prisma.SubjectDetailCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SubjectDetailPayload>
+          }
+          createMany: {
+            args: Prisma.SubjectDetailCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.SubjectDetailDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SubjectDetailPayload>
+          }
+          update: {
+            args: Prisma.SubjectDetailUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SubjectDetailPayload>
+          }
+          deleteMany: {
+            args: Prisma.SubjectDetailDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.SubjectDetailUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.SubjectDetailUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SubjectDetailPayload>
+          }
+          aggregate: {
+            args: Prisma.SubjectDetailAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateSubjectDetail>
+          }
+          groupBy: {
+            args: Prisma.SubjectDetailGroupByArgs<ExtArgs>
+            result: $Utils.Optional<SubjectDetailGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.SubjectDetailCountArgs<ExtArgs>
+            result: $Utils.Optional<SubjectDetailCountAggregateOutputType> | number
+          }
+        }
+      }
+      SubjectLevel: {
+        payload: Prisma.$SubjectLevelPayload<ExtArgs>
+        fields: Prisma.SubjectLevelFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.SubjectLevelFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SubjectLevelPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.SubjectLevelFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SubjectLevelPayload>
+          }
+          findFirst: {
+            args: Prisma.SubjectLevelFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SubjectLevelPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.SubjectLevelFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SubjectLevelPayload>
+          }
+          findMany: {
+            args: Prisma.SubjectLevelFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SubjectLevelPayload>[]
+          }
+          create: {
+            args: Prisma.SubjectLevelCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SubjectLevelPayload>
+          }
+          createMany: {
+            args: Prisma.SubjectLevelCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.SubjectLevelDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SubjectLevelPayload>
+          }
+          update: {
+            args: Prisma.SubjectLevelUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SubjectLevelPayload>
+          }
+          deleteMany: {
+            args: Prisma.SubjectLevelDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.SubjectLevelUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.SubjectLevelUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SubjectLevelPayload>
+          }
+          aggregate: {
+            args: Prisma.SubjectLevelAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateSubjectLevel>
+          }
+          groupBy: {
+            args: Prisma.SubjectLevelGroupByArgs<ExtArgs>
+            result: $Utils.Optional<SubjectLevelGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.SubjectLevelCountArgs<ExtArgs>
+            result: $Utils.Optional<SubjectLevelCountAggregateOutputType> | number
+          }
+        }
+      }
+      TestSubject: {
+        payload: Prisma.$TestSubjectPayload<ExtArgs>
+        fields: Prisma.TestSubjectFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.TestSubjectFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TestSubjectPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.TestSubjectFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TestSubjectPayload>
+          }
+          findFirst: {
+            args: Prisma.TestSubjectFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TestSubjectPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.TestSubjectFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TestSubjectPayload>
+          }
+          findMany: {
+            args: Prisma.TestSubjectFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TestSubjectPayload>[]
+          }
+          create: {
+            args: Prisma.TestSubjectCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TestSubjectPayload>
+          }
+          createMany: {
+            args: Prisma.TestSubjectCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.TestSubjectDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TestSubjectPayload>
+          }
+          update: {
+            args: Prisma.TestSubjectUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TestSubjectPayload>
+          }
+          deleteMany: {
+            args: Prisma.TestSubjectDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.TestSubjectUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.TestSubjectUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TestSubjectPayload>
+          }
+          aggregate: {
+            args: Prisma.TestSubjectAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateTestSubject>
+          }
+          groupBy: {
+            args: Prisma.TestSubjectGroupByArgs<ExtArgs>
+            result: $Utils.Optional<TestSubjectGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.TestSubjectCountArgs<ExtArgs>
+            result: $Utils.Optional<TestSubjectCountAggregateOutputType> | number
+          }
+        }
+      }
+      GlossaryCategory: {
+        payload: Prisma.$GlossaryCategoryPayload<ExtArgs>
+        fields: Prisma.GlossaryCategoryFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.GlossaryCategoryFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GlossaryCategoryPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.GlossaryCategoryFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GlossaryCategoryPayload>
+          }
+          findFirst: {
+            args: Prisma.GlossaryCategoryFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GlossaryCategoryPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.GlossaryCategoryFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GlossaryCategoryPayload>
+          }
+          findMany: {
+            args: Prisma.GlossaryCategoryFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GlossaryCategoryPayload>[]
+          }
+          create: {
+            args: Prisma.GlossaryCategoryCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GlossaryCategoryPayload>
+          }
+          createMany: {
+            args: Prisma.GlossaryCategoryCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.GlossaryCategoryDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GlossaryCategoryPayload>
+          }
+          update: {
+            args: Prisma.GlossaryCategoryUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GlossaryCategoryPayload>
+          }
+          deleteMany: {
+            args: Prisma.GlossaryCategoryDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.GlossaryCategoryUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.GlossaryCategoryUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GlossaryCategoryPayload>
+          }
+          aggregate: {
+            args: Prisma.GlossaryCategoryAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateGlossaryCategory>
+          }
+          groupBy: {
+            args: Prisma.GlossaryCategoryGroupByArgs<ExtArgs>
+            result: $Utils.Optional<GlossaryCategoryGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.GlossaryCategoryCountArgs<ExtArgs>
+            result: $Utils.Optional<GlossaryCategoryCountAggregateOutputType> | number
+          }
+        }
+      }
+      GlossaryTerm: {
+        payload: Prisma.$GlossaryTermPayload<ExtArgs>
+        fields: Prisma.GlossaryTermFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.GlossaryTermFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GlossaryTermPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.GlossaryTermFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GlossaryTermPayload>
+          }
+          findFirst: {
+            args: Prisma.GlossaryTermFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GlossaryTermPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.GlossaryTermFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GlossaryTermPayload>
+          }
+          findMany: {
+            args: Prisma.GlossaryTermFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GlossaryTermPayload>[]
+          }
+          create: {
+            args: Prisma.GlossaryTermCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GlossaryTermPayload>
+          }
+          createMany: {
+            args: Prisma.GlossaryTermCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.GlossaryTermDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GlossaryTermPayload>
+          }
+          update: {
+            args: Prisma.GlossaryTermUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GlossaryTermPayload>
+          }
+          deleteMany: {
+            args: Prisma.GlossaryTermDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.GlossaryTermUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.GlossaryTermUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GlossaryTermPayload>
+          }
+          aggregate: {
+            args: Prisma.GlossaryTermAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateGlossaryTerm>
+          }
+          groupBy: {
+            args: Prisma.GlossaryTermGroupByArgs<ExtArgs>
+            result: $Utils.Optional<GlossaryTermGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.GlossaryTermCountArgs<ExtArgs>
+            result: $Utils.Optional<GlossaryTermCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1633,6 +2207,13 @@ export namespace Prisma {
     emailVerification?: EmailVerificationOmit
     passwordReset?: PasswordResetOmit
     authEvent?: AuthEventOmit
+    testType?: TestTypeOmit
+    subject?: SubjectOmit
+    subjectDetail?: SubjectDetailOmit
+    subjectLevel?: SubjectLevelOmit
+    testSubject?: TestSubjectOmit
+    glossaryCategory?: GlossaryCategoryOmit
+    glossaryTerm?: GlossaryTermOmit
   }
 
   /* Types for Logging */
@@ -1777,10 +2358,14 @@ export namespace Prisma {
 
   export type ApiKeyCountOutputType = {
     users: number
+    test_types: number
+    subjects: number
   }
 
   export type ApiKeyCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     users?: boolean | ApiKeyCountOutputTypeCountUsersArgs
+    test_types?: boolean | ApiKeyCountOutputTypeCountTest_typesArgs
+    subjects?: boolean | ApiKeyCountOutputTypeCountSubjectsArgs
   }
 
   // Custom InputTypes
@@ -1799,6 +2384,20 @@ export namespace Prisma {
    */
   export type ApiKeyCountOutputTypeCountUsersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: UserWhereInput
+  }
+
+  /**
+   * ApiKeyCountOutputType without action
+   */
+  export type ApiKeyCountOutputTypeCountTest_typesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: TestTypeWhereInput
+  }
+
+  /**
+   * ApiKeyCountOutputType without action
+   */
+  export type ApiKeyCountOutputTypeCountSubjectsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SubjectWhereInput
   }
 
 
@@ -1879,6 +2478,108 @@ export namespace Prisma {
    */
   export type AccountCountOutputTypeCountUser_accountsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: UserAccountWhereInput
+  }
+
+
+  /**
+   * Count Type TestTypeCountOutputType
+   */
+
+  export type TestTypeCountOutputType = {
+    testSubjects: number
+  }
+
+  export type TestTypeCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    testSubjects?: boolean | TestTypeCountOutputTypeCountTestSubjectsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * TestTypeCountOutputType without action
+   */
+  export type TestTypeCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TestTypeCountOutputType
+     */
+    select?: TestTypeCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * TestTypeCountOutputType without action
+   */
+  export type TestTypeCountOutputTypeCountTestSubjectsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: TestSubjectWhereInput
+  }
+
+
+  /**
+   * Count Type SubjectCountOutputType
+   */
+
+  export type SubjectCountOutputType = {
+    subject_levels: number
+    testSubjects: number
+  }
+
+  export type SubjectCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    subject_levels?: boolean | SubjectCountOutputTypeCountSubject_levelsArgs
+    testSubjects?: boolean | SubjectCountOutputTypeCountTestSubjectsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * SubjectCountOutputType without action
+   */
+  export type SubjectCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SubjectCountOutputType
+     */
+    select?: SubjectCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * SubjectCountOutputType without action
+   */
+  export type SubjectCountOutputTypeCountSubject_levelsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SubjectLevelWhereInput
+  }
+
+  /**
+   * SubjectCountOutputType without action
+   */
+  export type SubjectCountOutputTypeCountTestSubjectsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: TestSubjectWhereInput
+  }
+
+
+  /**
+   * Count Type GlossaryCategoryCountOutputType
+   */
+
+  export type GlossaryCategoryCountOutputType = {
+    terms: number
+  }
+
+  export type GlossaryCategoryCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    terms?: boolean | GlossaryCategoryCountOutputTypeCountTermsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * GlossaryCategoryCountOutputType without action
+   */
+  export type GlossaryCategoryCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GlossaryCategoryCountOutputType
+     */
+    select?: GlossaryCategoryCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * GlossaryCategoryCountOutputType without action
+   */
+  export type GlossaryCategoryCountOutputTypeCountTermsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: GlossaryTermWhereInput
   }
 
 
@@ -3228,6 +3929,8 @@ export namespace Prisma {
     expires_at?: boolean
     app_user?: boolean | AppUserDefaultArgs<ExtArgs>
     users?: boolean | ApiKey$usersArgs<ExtArgs>
+    test_types?: boolean | ApiKey$test_typesArgs<ExtArgs>
+    subjects?: boolean | ApiKey$subjectsArgs<ExtArgs>
     _count?: boolean | ApiKeyCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["apiKey"]>
 
@@ -3249,6 +3952,8 @@ export namespace Prisma {
   export type ApiKeyInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     app_user?: boolean | AppUserDefaultArgs<ExtArgs>
     users?: boolean | ApiKey$usersArgs<ExtArgs>
+    test_types?: boolean | ApiKey$test_typesArgs<ExtArgs>
+    subjects?: boolean | ApiKey$subjectsArgs<ExtArgs>
     _count?: boolean | ApiKeyCountOutputTypeDefaultArgs<ExtArgs>
   }
 
@@ -3257,6 +3962,8 @@ export namespace Prisma {
     objects: {
       app_user: Prisma.$AppUserPayload<ExtArgs>
       users: Prisma.$UserPayload<ExtArgs>[]
+      test_types: Prisma.$TestTypePayload<ExtArgs>[]
+      subjects: Prisma.$SubjectPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -3610,6 +4317,8 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     app_user<T extends AppUserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, AppUserDefaultArgs<ExtArgs>>): Prisma__AppUserClient<$Result.GetResult<Prisma.$AppUserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     users<T extends ApiKey$usersArgs<ExtArgs> = {}>(args?: Subset<T, ApiKey$usersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    test_types<T extends ApiKey$test_typesArgs<ExtArgs> = {}>(args?: Subset<T, ApiKey$test_typesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TestTypePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    subjects<T extends ApiKey$subjectsArgs<ExtArgs> = {}>(args?: Subset<T, ApiKey$subjectsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SubjectPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -4012,6 +4721,54 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: UserScalarFieldEnum | UserScalarFieldEnum[]
+  }
+
+  /**
+   * ApiKey.test_types
+   */
+  export type ApiKey$test_typesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TestType
+     */
+    select?: TestTypeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TestType
+     */
+    omit?: TestTypeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TestTypeInclude<ExtArgs> | null
+    where?: TestTypeWhereInput
+    orderBy?: TestTypeOrderByWithRelationInput | TestTypeOrderByWithRelationInput[]
+    cursor?: TestTypeWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: TestTypeScalarFieldEnum | TestTypeScalarFieldEnum[]
+  }
+
+  /**
+   * ApiKey.subjects
+   */
+  export type ApiKey$subjectsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Subject
+     */
+    select?: SubjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Subject
+     */
+    omit?: SubjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SubjectInclude<ExtArgs> | null
+    where?: SubjectWhereInput
+    orderBy?: SubjectOrderByWithRelationInput | SubjectOrderByWithRelationInput[]
+    cursor?: SubjectWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: SubjectScalarFieldEnum | SubjectScalarFieldEnum[]
   }
 
   /**
@@ -11877,7 +12634,6 @@ export namespace Prisma {
     event_type: string | null
     ip_address: string | null
     user_agent: string | null
-    details: string | null
     created_at: Date | null
   }
 
@@ -11887,7 +12643,6 @@ export namespace Prisma {
     event_type: string | null
     ip_address: string | null
     user_agent: string | null
-    details: string | null
     created_at: Date | null
   }
 
@@ -11897,8 +12652,8 @@ export namespace Prisma {
     event_type: number
     ip_address: number
     user_agent: number
-    details: number
     created_at: number
+    additional_info: number
     _all: number
   }
 
@@ -11909,7 +12664,6 @@ export namespace Prisma {
     event_type?: true
     ip_address?: true
     user_agent?: true
-    details?: true
     created_at?: true
   }
 
@@ -11919,7 +12673,6 @@ export namespace Prisma {
     event_type?: true
     ip_address?: true
     user_agent?: true
-    details?: true
     created_at?: true
   }
 
@@ -11929,8 +12682,8 @@ export namespace Prisma {
     event_type?: true
     ip_address?: true
     user_agent?: true
-    details?: true
     created_at?: true
+    additional_info?: true
     _all?: true
   }
 
@@ -12012,8 +12765,8 @@ export namespace Prisma {
     event_type: string
     ip_address: string | null
     user_agent: string | null
-    details: string | null
     created_at: Date
+    additional_info: JsonValue | null
     _count: AuthEventCountAggregateOutputType | null
     _min: AuthEventMinAggregateOutputType | null
     _max: AuthEventMaxAggregateOutputType | null
@@ -12039,8 +12792,8 @@ export namespace Prisma {
     event_type?: boolean
     ip_address?: boolean
     user_agent?: boolean
-    details?: boolean
     created_at?: boolean
+    additional_info?: boolean
     app_user?: boolean | AppUserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["authEvent"]>
 
@@ -12052,11 +12805,11 @@ export namespace Prisma {
     event_type?: boolean
     ip_address?: boolean
     user_agent?: boolean
-    details?: boolean
     created_at?: boolean
+    additional_info?: boolean
   }
 
-  export type AuthEventOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "app_user_id" | "event_type" | "ip_address" | "user_agent" | "details" | "created_at", ExtArgs["result"]["authEvent"]>
+  export type AuthEventOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "app_user_id" | "event_type" | "ip_address" | "user_agent" | "created_at" | "additional_info", ExtArgs["result"]["authEvent"]>
   export type AuthEventInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     app_user?: boolean | AppUserDefaultArgs<ExtArgs>
   }
@@ -12072,8 +12825,8 @@ export namespace Prisma {
       event_type: string
       ip_address: string | null
       user_agent: string | null
-      details: string | null
       created_at: Date
+      additional_info: Prisma.JsonValue | null
     }, ExtArgs["result"]["authEvent"]>
     composites: {}
   }
@@ -12449,8 +13202,8 @@ export namespace Prisma {
     readonly event_type: FieldRef<"AuthEvent", 'String'>
     readonly ip_address: FieldRef<"AuthEvent", 'String'>
     readonly user_agent: FieldRef<"AuthEvent", 'String'>
-    readonly details: FieldRef<"AuthEvent", 'String'>
     readonly created_at: FieldRef<"AuthEvent", 'DateTime'>
+    readonly additional_info: FieldRef<"AuthEvent", 'Json'>
   }
     
 
@@ -12813,6 +13566,6982 @@ export namespace Prisma {
 
 
   /**
+   * Model TestType
+   */
+
+  export type AggregateTestType = {
+    _count: TestTypeCountAggregateOutputType | null
+    _min: TestTypeMinAggregateOutputType | null
+    _max: TestTypeMaxAggregateOutputType | null
+  }
+
+  export type TestTypeMinAggregateOutputType = {
+    id: string | null
+    name: string | null
+    description: string | null
+    api_key_id: string | null
+    created_at: Date | null
+    updated_at: Date | null
+  }
+
+  export type TestTypeMaxAggregateOutputType = {
+    id: string | null
+    name: string | null
+    description: string | null
+    api_key_id: string | null
+    created_at: Date | null
+    updated_at: Date | null
+  }
+
+  export type TestTypeCountAggregateOutputType = {
+    id: number
+    name: number
+    description: number
+    api_key_id: number
+    created_at: number
+    updated_at: number
+    _all: number
+  }
+
+
+  export type TestTypeMinAggregateInputType = {
+    id?: true
+    name?: true
+    description?: true
+    api_key_id?: true
+    created_at?: true
+    updated_at?: true
+  }
+
+  export type TestTypeMaxAggregateInputType = {
+    id?: true
+    name?: true
+    description?: true
+    api_key_id?: true
+    created_at?: true
+    updated_at?: true
+  }
+
+  export type TestTypeCountAggregateInputType = {
+    id?: true
+    name?: true
+    description?: true
+    api_key_id?: true
+    created_at?: true
+    updated_at?: true
+    _all?: true
+  }
+
+  export type TestTypeAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which TestType to aggregate.
+     */
+    where?: TestTypeWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TestTypes to fetch.
+     */
+    orderBy?: TestTypeOrderByWithRelationInput | TestTypeOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: TestTypeWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TestTypes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TestTypes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned TestTypes
+    **/
+    _count?: true | TestTypeCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: TestTypeMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: TestTypeMaxAggregateInputType
+  }
+
+  export type GetTestTypeAggregateType<T extends TestTypeAggregateArgs> = {
+        [P in keyof T & keyof AggregateTestType]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateTestType[P]>
+      : GetScalarType<T[P], AggregateTestType[P]>
+  }
+
+
+
+
+  export type TestTypeGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: TestTypeWhereInput
+    orderBy?: TestTypeOrderByWithAggregationInput | TestTypeOrderByWithAggregationInput[]
+    by: TestTypeScalarFieldEnum[] | TestTypeScalarFieldEnum
+    having?: TestTypeScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: TestTypeCountAggregateInputType | true
+    _min?: TestTypeMinAggregateInputType
+    _max?: TestTypeMaxAggregateInputType
+  }
+
+  export type TestTypeGroupByOutputType = {
+    id: string
+    name: string
+    description: string | null
+    api_key_id: string | null
+    created_at: Date
+    updated_at: Date
+    _count: TestTypeCountAggregateOutputType | null
+    _min: TestTypeMinAggregateOutputType | null
+    _max: TestTypeMaxAggregateOutputType | null
+  }
+
+  type GetTestTypeGroupByPayload<T extends TestTypeGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<TestTypeGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof TestTypeGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], TestTypeGroupByOutputType[P]>
+            : GetScalarType<T[P], TestTypeGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type TestTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    description?: boolean
+    api_key_id?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+    api_key?: boolean | TestType$api_keyArgs<ExtArgs>
+    testSubjects?: boolean | TestType$testSubjectsArgs<ExtArgs>
+    _count?: boolean | TestTypeCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["testType"]>
+
+
+
+  export type TestTypeSelectScalar = {
+    id?: boolean
+    name?: boolean
+    description?: boolean
+    api_key_id?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+  }
+
+  export type TestTypeOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "api_key_id" | "created_at" | "updated_at", ExtArgs["result"]["testType"]>
+  export type TestTypeInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    api_key?: boolean | TestType$api_keyArgs<ExtArgs>
+    testSubjects?: boolean | TestType$testSubjectsArgs<ExtArgs>
+    _count?: boolean | TestTypeCountOutputTypeDefaultArgs<ExtArgs>
+  }
+
+  export type $TestTypePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "TestType"
+    objects: {
+      api_key: Prisma.$ApiKeyPayload<ExtArgs> | null
+      testSubjects: Prisma.$TestSubjectPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      name: string
+      description: string | null
+      api_key_id: string | null
+      created_at: Date
+      updated_at: Date
+    }, ExtArgs["result"]["testType"]>
+    composites: {}
+  }
+
+  type TestTypeGetPayload<S extends boolean | null | undefined | TestTypeDefaultArgs> = $Result.GetResult<Prisma.$TestTypePayload, S>
+
+  type TestTypeCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<TestTypeFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: TestTypeCountAggregateInputType | true
+    }
+
+  export interface TestTypeDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['TestType'], meta: { name: 'TestType' } }
+    /**
+     * Find zero or one TestType that matches the filter.
+     * @param {TestTypeFindUniqueArgs} args - Arguments to find a TestType
+     * @example
+     * // Get one TestType
+     * const testType = await prisma.testType.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends TestTypeFindUniqueArgs>(args: SelectSubset<T, TestTypeFindUniqueArgs<ExtArgs>>): Prisma__TestTypeClient<$Result.GetResult<Prisma.$TestTypePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one TestType that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {TestTypeFindUniqueOrThrowArgs} args - Arguments to find a TestType
+     * @example
+     * // Get one TestType
+     * const testType = await prisma.testType.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends TestTypeFindUniqueOrThrowArgs>(args: SelectSubset<T, TestTypeFindUniqueOrThrowArgs<ExtArgs>>): Prisma__TestTypeClient<$Result.GetResult<Prisma.$TestTypePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first TestType that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TestTypeFindFirstArgs} args - Arguments to find a TestType
+     * @example
+     * // Get one TestType
+     * const testType = await prisma.testType.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends TestTypeFindFirstArgs>(args?: SelectSubset<T, TestTypeFindFirstArgs<ExtArgs>>): Prisma__TestTypeClient<$Result.GetResult<Prisma.$TestTypePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first TestType that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TestTypeFindFirstOrThrowArgs} args - Arguments to find a TestType
+     * @example
+     * // Get one TestType
+     * const testType = await prisma.testType.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends TestTypeFindFirstOrThrowArgs>(args?: SelectSubset<T, TestTypeFindFirstOrThrowArgs<ExtArgs>>): Prisma__TestTypeClient<$Result.GetResult<Prisma.$TestTypePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more TestTypes that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TestTypeFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all TestTypes
+     * const testTypes = await prisma.testType.findMany()
+     * 
+     * // Get first 10 TestTypes
+     * const testTypes = await prisma.testType.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const testTypeWithIdOnly = await prisma.testType.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends TestTypeFindManyArgs>(args?: SelectSubset<T, TestTypeFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TestTypePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a TestType.
+     * @param {TestTypeCreateArgs} args - Arguments to create a TestType.
+     * @example
+     * // Create one TestType
+     * const TestType = await prisma.testType.create({
+     *   data: {
+     *     // ... data to create a TestType
+     *   }
+     * })
+     * 
+     */
+    create<T extends TestTypeCreateArgs>(args: SelectSubset<T, TestTypeCreateArgs<ExtArgs>>): Prisma__TestTypeClient<$Result.GetResult<Prisma.$TestTypePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many TestTypes.
+     * @param {TestTypeCreateManyArgs} args - Arguments to create many TestTypes.
+     * @example
+     * // Create many TestTypes
+     * const testType = await prisma.testType.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends TestTypeCreateManyArgs>(args?: SelectSubset<T, TestTypeCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a TestType.
+     * @param {TestTypeDeleteArgs} args - Arguments to delete one TestType.
+     * @example
+     * // Delete one TestType
+     * const TestType = await prisma.testType.delete({
+     *   where: {
+     *     // ... filter to delete one TestType
+     *   }
+     * })
+     * 
+     */
+    delete<T extends TestTypeDeleteArgs>(args: SelectSubset<T, TestTypeDeleteArgs<ExtArgs>>): Prisma__TestTypeClient<$Result.GetResult<Prisma.$TestTypePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one TestType.
+     * @param {TestTypeUpdateArgs} args - Arguments to update one TestType.
+     * @example
+     * // Update one TestType
+     * const testType = await prisma.testType.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends TestTypeUpdateArgs>(args: SelectSubset<T, TestTypeUpdateArgs<ExtArgs>>): Prisma__TestTypeClient<$Result.GetResult<Prisma.$TestTypePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more TestTypes.
+     * @param {TestTypeDeleteManyArgs} args - Arguments to filter TestTypes to delete.
+     * @example
+     * // Delete a few TestTypes
+     * const { count } = await prisma.testType.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends TestTypeDeleteManyArgs>(args?: SelectSubset<T, TestTypeDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more TestTypes.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TestTypeUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many TestTypes
+     * const testType = await prisma.testType.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends TestTypeUpdateManyArgs>(args: SelectSubset<T, TestTypeUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one TestType.
+     * @param {TestTypeUpsertArgs} args - Arguments to update or create a TestType.
+     * @example
+     * // Update or create a TestType
+     * const testType = await prisma.testType.upsert({
+     *   create: {
+     *     // ... data to create a TestType
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the TestType we want to update
+     *   }
+     * })
+     */
+    upsert<T extends TestTypeUpsertArgs>(args: SelectSubset<T, TestTypeUpsertArgs<ExtArgs>>): Prisma__TestTypeClient<$Result.GetResult<Prisma.$TestTypePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of TestTypes.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TestTypeCountArgs} args - Arguments to filter TestTypes to count.
+     * @example
+     * // Count the number of TestTypes
+     * const count = await prisma.testType.count({
+     *   where: {
+     *     // ... the filter for the TestTypes we want to count
+     *   }
+     * })
+    **/
+    count<T extends TestTypeCountArgs>(
+      args?: Subset<T, TestTypeCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], TestTypeCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a TestType.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TestTypeAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends TestTypeAggregateArgs>(args: Subset<T, TestTypeAggregateArgs>): Prisma.PrismaPromise<GetTestTypeAggregateType<T>>
+
+    /**
+     * Group by TestType.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TestTypeGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends TestTypeGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: TestTypeGroupByArgs['orderBy'] }
+        : { orderBy?: TestTypeGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, TestTypeGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetTestTypeGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the TestType model
+   */
+  readonly fields: TestTypeFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for TestType.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__TestTypeClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    api_key<T extends TestType$api_keyArgs<ExtArgs> = {}>(args?: Subset<T, TestType$api_keyArgs<ExtArgs>>): Prisma__ApiKeyClient<$Result.GetResult<Prisma.$ApiKeyPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    testSubjects<T extends TestType$testSubjectsArgs<ExtArgs> = {}>(args?: Subset<T, TestType$testSubjectsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TestSubjectPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the TestType model
+   */
+  interface TestTypeFieldRefs {
+    readonly id: FieldRef<"TestType", 'String'>
+    readonly name: FieldRef<"TestType", 'String'>
+    readonly description: FieldRef<"TestType", 'String'>
+    readonly api_key_id: FieldRef<"TestType", 'String'>
+    readonly created_at: FieldRef<"TestType", 'DateTime'>
+    readonly updated_at: FieldRef<"TestType", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * TestType findUnique
+   */
+  export type TestTypeFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TestType
+     */
+    select?: TestTypeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TestType
+     */
+    omit?: TestTypeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TestTypeInclude<ExtArgs> | null
+    /**
+     * Filter, which TestType to fetch.
+     */
+    where: TestTypeWhereUniqueInput
+  }
+
+  /**
+   * TestType findUniqueOrThrow
+   */
+  export type TestTypeFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TestType
+     */
+    select?: TestTypeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TestType
+     */
+    omit?: TestTypeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TestTypeInclude<ExtArgs> | null
+    /**
+     * Filter, which TestType to fetch.
+     */
+    where: TestTypeWhereUniqueInput
+  }
+
+  /**
+   * TestType findFirst
+   */
+  export type TestTypeFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TestType
+     */
+    select?: TestTypeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TestType
+     */
+    omit?: TestTypeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TestTypeInclude<ExtArgs> | null
+    /**
+     * Filter, which TestType to fetch.
+     */
+    where?: TestTypeWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TestTypes to fetch.
+     */
+    orderBy?: TestTypeOrderByWithRelationInput | TestTypeOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for TestTypes.
+     */
+    cursor?: TestTypeWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TestTypes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TestTypes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of TestTypes.
+     */
+    distinct?: TestTypeScalarFieldEnum | TestTypeScalarFieldEnum[]
+  }
+
+  /**
+   * TestType findFirstOrThrow
+   */
+  export type TestTypeFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TestType
+     */
+    select?: TestTypeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TestType
+     */
+    omit?: TestTypeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TestTypeInclude<ExtArgs> | null
+    /**
+     * Filter, which TestType to fetch.
+     */
+    where?: TestTypeWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TestTypes to fetch.
+     */
+    orderBy?: TestTypeOrderByWithRelationInput | TestTypeOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for TestTypes.
+     */
+    cursor?: TestTypeWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TestTypes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TestTypes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of TestTypes.
+     */
+    distinct?: TestTypeScalarFieldEnum | TestTypeScalarFieldEnum[]
+  }
+
+  /**
+   * TestType findMany
+   */
+  export type TestTypeFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TestType
+     */
+    select?: TestTypeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TestType
+     */
+    omit?: TestTypeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TestTypeInclude<ExtArgs> | null
+    /**
+     * Filter, which TestTypes to fetch.
+     */
+    where?: TestTypeWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TestTypes to fetch.
+     */
+    orderBy?: TestTypeOrderByWithRelationInput | TestTypeOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing TestTypes.
+     */
+    cursor?: TestTypeWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TestTypes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TestTypes.
+     */
+    skip?: number
+    distinct?: TestTypeScalarFieldEnum | TestTypeScalarFieldEnum[]
+  }
+
+  /**
+   * TestType create
+   */
+  export type TestTypeCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TestType
+     */
+    select?: TestTypeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TestType
+     */
+    omit?: TestTypeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TestTypeInclude<ExtArgs> | null
+    /**
+     * The data needed to create a TestType.
+     */
+    data: XOR<TestTypeCreateInput, TestTypeUncheckedCreateInput>
+  }
+
+  /**
+   * TestType createMany
+   */
+  export type TestTypeCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many TestTypes.
+     */
+    data: TestTypeCreateManyInput | TestTypeCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * TestType update
+   */
+  export type TestTypeUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TestType
+     */
+    select?: TestTypeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TestType
+     */
+    omit?: TestTypeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TestTypeInclude<ExtArgs> | null
+    /**
+     * The data needed to update a TestType.
+     */
+    data: XOR<TestTypeUpdateInput, TestTypeUncheckedUpdateInput>
+    /**
+     * Choose, which TestType to update.
+     */
+    where: TestTypeWhereUniqueInput
+  }
+
+  /**
+   * TestType updateMany
+   */
+  export type TestTypeUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update TestTypes.
+     */
+    data: XOR<TestTypeUpdateManyMutationInput, TestTypeUncheckedUpdateManyInput>
+    /**
+     * Filter which TestTypes to update
+     */
+    where?: TestTypeWhereInput
+    /**
+     * Limit how many TestTypes to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * TestType upsert
+   */
+  export type TestTypeUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TestType
+     */
+    select?: TestTypeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TestType
+     */
+    omit?: TestTypeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TestTypeInclude<ExtArgs> | null
+    /**
+     * The filter to search for the TestType to update in case it exists.
+     */
+    where: TestTypeWhereUniqueInput
+    /**
+     * In case the TestType found by the `where` argument doesn't exist, create a new TestType with this data.
+     */
+    create: XOR<TestTypeCreateInput, TestTypeUncheckedCreateInput>
+    /**
+     * In case the TestType was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<TestTypeUpdateInput, TestTypeUncheckedUpdateInput>
+  }
+
+  /**
+   * TestType delete
+   */
+  export type TestTypeDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TestType
+     */
+    select?: TestTypeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TestType
+     */
+    omit?: TestTypeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TestTypeInclude<ExtArgs> | null
+    /**
+     * Filter which TestType to delete.
+     */
+    where: TestTypeWhereUniqueInput
+  }
+
+  /**
+   * TestType deleteMany
+   */
+  export type TestTypeDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which TestTypes to delete
+     */
+    where?: TestTypeWhereInput
+    /**
+     * Limit how many TestTypes to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * TestType.api_key
+   */
+  export type TestType$api_keyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ApiKey
+     */
+    select?: ApiKeySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ApiKey
+     */
+    omit?: ApiKeyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ApiKeyInclude<ExtArgs> | null
+    where?: ApiKeyWhereInput
+  }
+
+  /**
+   * TestType.testSubjects
+   */
+  export type TestType$testSubjectsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TestSubject
+     */
+    select?: TestSubjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TestSubject
+     */
+    omit?: TestSubjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TestSubjectInclude<ExtArgs> | null
+    where?: TestSubjectWhereInput
+    orderBy?: TestSubjectOrderByWithRelationInput | TestSubjectOrderByWithRelationInput[]
+    cursor?: TestSubjectWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: TestSubjectScalarFieldEnum | TestSubjectScalarFieldEnum[]
+  }
+
+  /**
+   * TestType without action
+   */
+  export type TestTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TestType
+     */
+    select?: TestTypeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TestType
+     */
+    omit?: TestTypeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TestTypeInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Subject
+   */
+
+  export type AggregateSubject = {
+    _count: SubjectCountAggregateOutputType | null
+    _avg: SubjectAvgAggregateOutputType | null
+    _sum: SubjectSumAggregateOutputType | null
+    _min: SubjectMinAggregateOutputType | null
+    _max: SubjectMaxAggregateOutputType | null
+  }
+
+  export type SubjectAvgAggregateOutputType = {
+    approximate_total_minutes: number | null
+    total_questions: number | null
+    order: number | null
+  }
+
+  export type SubjectSumAggregateOutputType = {
+    approximate_total_minutes: number | null
+    total_questions: number | null
+    order: number | null
+  }
+
+  export type SubjectMinAggregateOutputType = {
+    id: string | null
+    name: string | null
+    description: string | null
+    slug_materia: string | null
+    approximate_total_minutes: number | null
+    total_questions: number | null
+    order: number | null
+    api_key_id: string | null
+    created_at: Date | null
+    updated_at: Date | null
+  }
+
+  export type SubjectMaxAggregateOutputType = {
+    id: string | null
+    name: string | null
+    description: string | null
+    slug_materia: string | null
+    approximate_total_minutes: number | null
+    total_questions: number | null
+    order: number | null
+    api_key_id: string | null
+    created_at: Date | null
+    updated_at: Date | null
+  }
+
+  export type SubjectCountAggregateOutputType = {
+    id: number
+    name: number
+    description: number
+    slug_materia: number
+    approximate_total_minutes: number
+    total_questions: number
+    order: number
+    api_key_id: number
+    created_at: number
+    updated_at: number
+    _all: number
+  }
+
+
+  export type SubjectAvgAggregateInputType = {
+    approximate_total_minutes?: true
+    total_questions?: true
+    order?: true
+  }
+
+  export type SubjectSumAggregateInputType = {
+    approximate_total_minutes?: true
+    total_questions?: true
+    order?: true
+  }
+
+  export type SubjectMinAggregateInputType = {
+    id?: true
+    name?: true
+    description?: true
+    slug_materia?: true
+    approximate_total_minutes?: true
+    total_questions?: true
+    order?: true
+    api_key_id?: true
+    created_at?: true
+    updated_at?: true
+  }
+
+  export type SubjectMaxAggregateInputType = {
+    id?: true
+    name?: true
+    description?: true
+    slug_materia?: true
+    approximate_total_minutes?: true
+    total_questions?: true
+    order?: true
+    api_key_id?: true
+    created_at?: true
+    updated_at?: true
+  }
+
+  export type SubjectCountAggregateInputType = {
+    id?: true
+    name?: true
+    description?: true
+    slug_materia?: true
+    approximate_total_minutes?: true
+    total_questions?: true
+    order?: true
+    api_key_id?: true
+    created_at?: true
+    updated_at?: true
+    _all?: true
+  }
+
+  export type SubjectAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Subject to aggregate.
+     */
+    where?: SubjectWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Subjects to fetch.
+     */
+    orderBy?: SubjectOrderByWithRelationInput | SubjectOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: SubjectWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Subjects from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Subjects.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Subjects
+    **/
+    _count?: true | SubjectCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: SubjectAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: SubjectSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: SubjectMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: SubjectMaxAggregateInputType
+  }
+
+  export type GetSubjectAggregateType<T extends SubjectAggregateArgs> = {
+        [P in keyof T & keyof AggregateSubject]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateSubject[P]>
+      : GetScalarType<T[P], AggregateSubject[P]>
+  }
+
+
+
+
+  export type SubjectGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SubjectWhereInput
+    orderBy?: SubjectOrderByWithAggregationInput | SubjectOrderByWithAggregationInput[]
+    by: SubjectScalarFieldEnum[] | SubjectScalarFieldEnum
+    having?: SubjectScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: SubjectCountAggregateInputType | true
+    _avg?: SubjectAvgAggregateInputType
+    _sum?: SubjectSumAggregateInputType
+    _min?: SubjectMinAggregateInputType
+    _max?: SubjectMaxAggregateInputType
+  }
+
+  export type SubjectGroupByOutputType = {
+    id: string
+    name: string
+    description: string
+    slug_materia: string
+    approximate_total_minutes: number
+    total_questions: number
+    order: number
+    api_key_id: string | null
+    created_at: Date
+    updated_at: Date
+    _count: SubjectCountAggregateOutputType | null
+    _avg: SubjectAvgAggregateOutputType | null
+    _sum: SubjectSumAggregateOutputType | null
+    _min: SubjectMinAggregateOutputType | null
+    _max: SubjectMaxAggregateOutputType | null
+  }
+
+  type GetSubjectGroupByPayload<T extends SubjectGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<SubjectGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof SubjectGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], SubjectGroupByOutputType[P]>
+            : GetScalarType<T[P], SubjectGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type SubjectSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    description?: boolean
+    slug_materia?: boolean
+    approximate_total_minutes?: boolean
+    total_questions?: boolean
+    order?: boolean
+    api_key_id?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+    api_key?: boolean | Subject$api_keyArgs<ExtArgs>
+    subject_detail?: boolean | Subject$subject_detailArgs<ExtArgs>
+    subject_levels?: boolean | Subject$subject_levelsArgs<ExtArgs>
+    testSubjects?: boolean | Subject$testSubjectsArgs<ExtArgs>
+    _count?: boolean | SubjectCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["subject"]>
+
+
+
+  export type SubjectSelectScalar = {
+    id?: boolean
+    name?: boolean
+    description?: boolean
+    slug_materia?: boolean
+    approximate_total_minutes?: boolean
+    total_questions?: boolean
+    order?: boolean
+    api_key_id?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+  }
+
+  export type SubjectOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "slug_materia" | "approximate_total_minutes" | "total_questions" | "order" | "api_key_id" | "created_at" | "updated_at", ExtArgs["result"]["subject"]>
+  export type SubjectInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    api_key?: boolean | Subject$api_keyArgs<ExtArgs>
+    subject_detail?: boolean | Subject$subject_detailArgs<ExtArgs>
+    subject_levels?: boolean | Subject$subject_levelsArgs<ExtArgs>
+    testSubjects?: boolean | Subject$testSubjectsArgs<ExtArgs>
+    _count?: boolean | SubjectCountOutputTypeDefaultArgs<ExtArgs>
+  }
+
+  export type $SubjectPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Subject"
+    objects: {
+      api_key: Prisma.$ApiKeyPayload<ExtArgs> | null
+      subject_detail: Prisma.$SubjectDetailPayload<ExtArgs> | null
+      subject_levels: Prisma.$SubjectLevelPayload<ExtArgs>[]
+      testSubjects: Prisma.$TestSubjectPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      name: string
+      description: string
+      slug_materia: string
+      approximate_total_minutes: number
+      total_questions: number
+      order: number
+      api_key_id: string | null
+      created_at: Date
+      updated_at: Date
+    }, ExtArgs["result"]["subject"]>
+    composites: {}
+  }
+
+  type SubjectGetPayload<S extends boolean | null | undefined | SubjectDefaultArgs> = $Result.GetResult<Prisma.$SubjectPayload, S>
+
+  type SubjectCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<SubjectFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: SubjectCountAggregateInputType | true
+    }
+
+  export interface SubjectDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Subject'], meta: { name: 'Subject' } }
+    /**
+     * Find zero or one Subject that matches the filter.
+     * @param {SubjectFindUniqueArgs} args - Arguments to find a Subject
+     * @example
+     * // Get one Subject
+     * const subject = await prisma.subject.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends SubjectFindUniqueArgs>(args: SelectSubset<T, SubjectFindUniqueArgs<ExtArgs>>): Prisma__SubjectClient<$Result.GetResult<Prisma.$SubjectPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Subject that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {SubjectFindUniqueOrThrowArgs} args - Arguments to find a Subject
+     * @example
+     * // Get one Subject
+     * const subject = await prisma.subject.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends SubjectFindUniqueOrThrowArgs>(args: SelectSubset<T, SubjectFindUniqueOrThrowArgs<ExtArgs>>): Prisma__SubjectClient<$Result.GetResult<Prisma.$SubjectPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Subject that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SubjectFindFirstArgs} args - Arguments to find a Subject
+     * @example
+     * // Get one Subject
+     * const subject = await prisma.subject.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends SubjectFindFirstArgs>(args?: SelectSubset<T, SubjectFindFirstArgs<ExtArgs>>): Prisma__SubjectClient<$Result.GetResult<Prisma.$SubjectPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Subject that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SubjectFindFirstOrThrowArgs} args - Arguments to find a Subject
+     * @example
+     * // Get one Subject
+     * const subject = await prisma.subject.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends SubjectFindFirstOrThrowArgs>(args?: SelectSubset<T, SubjectFindFirstOrThrowArgs<ExtArgs>>): Prisma__SubjectClient<$Result.GetResult<Prisma.$SubjectPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Subjects that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SubjectFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Subjects
+     * const subjects = await prisma.subject.findMany()
+     * 
+     * // Get first 10 Subjects
+     * const subjects = await prisma.subject.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const subjectWithIdOnly = await prisma.subject.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends SubjectFindManyArgs>(args?: SelectSubset<T, SubjectFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SubjectPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Subject.
+     * @param {SubjectCreateArgs} args - Arguments to create a Subject.
+     * @example
+     * // Create one Subject
+     * const Subject = await prisma.subject.create({
+     *   data: {
+     *     // ... data to create a Subject
+     *   }
+     * })
+     * 
+     */
+    create<T extends SubjectCreateArgs>(args: SelectSubset<T, SubjectCreateArgs<ExtArgs>>): Prisma__SubjectClient<$Result.GetResult<Prisma.$SubjectPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Subjects.
+     * @param {SubjectCreateManyArgs} args - Arguments to create many Subjects.
+     * @example
+     * // Create many Subjects
+     * const subject = await prisma.subject.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends SubjectCreateManyArgs>(args?: SelectSubset<T, SubjectCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Subject.
+     * @param {SubjectDeleteArgs} args - Arguments to delete one Subject.
+     * @example
+     * // Delete one Subject
+     * const Subject = await prisma.subject.delete({
+     *   where: {
+     *     // ... filter to delete one Subject
+     *   }
+     * })
+     * 
+     */
+    delete<T extends SubjectDeleteArgs>(args: SelectSubset<T, SubjectDeleteArgs<ExtArgs>>): Prisma__SubjectClient<$Result.GetResult<Prisma.$SubjectPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Subject.
+     * @param {SubjectUpdateArgs} args - Arguments to update one Subject.
+     * @example
+     * // Update one Subject
+     * const subject = await prisma.subject.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends SubjectUpdateArgs>(args: SelectSubset<T, SubjectUpdateArgs<ExtArgs>>): Prisma__SubjectClient<$Result.GetResult<Prisma.$SubjectPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Subjects.
+     * @param {SubjectDeleteManyArgs} args - Arguments to filter Subjects to delete.
+     * @example
+     * // Delete a few Subjects
+     * const { count } = await prisma.subject.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends SubjectDeleteManyArgs>(args?: SelectSubset<T, SubjectDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Subjects.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SubjectUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Subjects
+     * const subject = await prisma.subject.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends SubjectUpdateManyArgs>(args: SelectSubset<T, SubjectUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Subject.
+     * @param {SubjectUpsertArgs} args - Arguments to update or create a Subject.
+     * @example
+     * // Update or create a Subject
+     * const subject = await prisma.subject.upsert({
+     *   create: {
+     *     // ... data to create a Subject
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Subject we want to update
+     *   }
+     * })
+     */
+    upsert<T extends SubjectUpsertArgs>(args: SelectSubset<T, SubjectUpsertArgs<ExtArgs>>): Prisma__SubjectClient<$Result.GetResult<Prisma.$SubjectPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Subjects.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SubjectCountArgs} args - Arguments to filter Subjects to count.
+     * @example
+     * // Count the number of Subjects
+     * const count = await prisma.subject.count({
+     *   where: {
+     *     // ... the filter for the Subjects we want to count
+     *   }
+     * })
+    **/
+    count<T extends SubjectCountArgs>(
+      args?: Subset<T, SubjectCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], SubjectCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Subject.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SubjectAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends SubjectAggregateArgs>(args: Subset<T, SubjectAggregateArgs>): Prisma.PrismaPromise<GetSubjectAggregateType<T>>
+
+    /**
+     * Group by Subject.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SubjectGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends SubjectGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: SubjectGroupByArgs['orderBy'] }
+        : { orderBy?: SubjectGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, SubjectGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetSubjectGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Subject model
+   */
+  readonly fields: SubjectFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Subject.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__SubjectClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    api_key<T extends Subject$api_keyArgs<ExtArgs> = {}>(args?: Subset<T, Subject$api_keyArgs<ExtArgs>>): Prisma__ApiKeyClient<$Result.GetResult<Prisma.$ApiKeyPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    subject_detail<T extends Subject$subject_detailArgs<ExtArgs> = {}>(args?: Subset<T, Subject$subject_detailArgs<ExtArgs>>): Prisma__SubjectDetailClient<$Result.GetResult<Prisma.$SubjectDetailPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    subject_levels<T extends Subject$subject_levelsArgs<ExtArgs> = {}>(args?: Subset<T, Subject$subject_levelsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SubjectLevelPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    testSubjects<T extends Subject$testSubjectsArgs<ExtArgs> = {}>(args?: Subset<T, Subject$testSubjectsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TestSubjectPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Subject model
+   */
+  interface SubjectFieldRefs {
+    readonly id: FieldRef<"Subject", 'String'>
+    readonly name: FieldRef<"Subject", 'String'>
+    readonly description: FieldRef<"Subject", 'String'>
+    readonly slug_materia: FieldRef<"Subject", 'String'>
+    readonly approximate_total_minutes: FieldRef<"Subject", 'Int'>
+    readonly total_questions: FieldRef<"Subject", 'Int'>
+    readonly order: FieldRef<"Subject", 'Int'>
+    readonly api_key_id: FieldRef<"Subject", 'String'>
+    readonly created_at: FieldRef<"Subject", 'DateTime'>
+    readonly updated_at: FieldRef<"Subject", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Subject findUnique
+   */
+  export type SubjectFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Subject
+     */
+    select?: SubjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Subject
+     */
+    omit?: SubjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SubjectInclude<ExtArgs> | null
+    /**
+     * Filter, which Subject to fetch.
+     */
+    where: SubjectWhereUniqueInput
+  }
+
+  /**
+   * Subject findUniqueOrThrow
+   */
+  export type SubjectFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Subject
+     */
+    select?: SubjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Subject
+     */
+    omit?: SubjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SubjectInclude<ExtArgs> | null
+    /**
+     * Filter, which Subject to fetch.
+     */
+    where: SubjectWhereUniqueInput
+  }
+
+  /**
+   * Subject findFirst
+   */
+  export type SubjectFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Subject
+     */
+    select?: SubjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Subject
+     */
+    omit?: SubjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SubjectInclude<ExtArgs> | null
+    /**
+     * Filter, which Subject to fetch.
+     */
+    where?: SubjectWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Subjects to fetch.
+     */
+    orderBy?: SubjectOrderByWithRelationInput | SubjectOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Subjects.
+     */
+    cursor?: SubjectWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Subjects from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Subjects.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Subjects.
+     */
+    distinct?: SubjectScalarFieldEnum | SubjectScalarFieldEnum[]
+  }
+
+  /**
+   * Subject findFirstOrThrow
+   */
+  export type SubjectFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Subject
+     */
+    select?: SubjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Subject
+     */
+    omit?: SubjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SubjectInclude<ExtArgs> | null
+    /**
+     * Filter, which Subject to fetch.
+     */
+    where?: SubjectWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Subjects to fetch.
+     */
+    orderBy?: SubjectOrderByWithRelationInput | SubjectOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Subjects.
+     */
+    cursor?: SubjectWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Subjects from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Subjects.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Subjects.
+     */
+    distinct?: SubjectScalarFieldEnum | SubjectScalarFieldEnum[]
+  }
+
+  /**
+   * Subject findMany
+   */
+  export type SubjectFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Subject
+     */
+    select?: SubjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Subject
+     */
+    omit?: SubjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SubjectInclude<ExtArgs> | null
+    /**
+     * Filter, which Subjects to fetch.
+     */
+    where?: SubjectWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Subjects to fetch.
+     */
+    orderBy?: SubjectOrderByWithRelationInput | SubjectOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Subjects.
+     */
+    cursor?: SubjectWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Subjects from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Subjects.
+     */
+    skip?: number
+    distinct?: SubjectScalarFieldEnum | SubjectScalarFieldEnum[]
+  }
+
+  /**
+   * Subject create
+   */
+  export type SubjectCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Subject
+     */
+    select?: SubjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Subject
+     */
+    omit?: SubjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SubjectInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Subject.
+     */
+    data: XOR<SubjectCreateInput, SubjectUncheckedCreateInput>
+  }
+
+  /**
+   * Subject createMany
+   */
+  export type SubjectCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Subjects.
+     */
+    data: SubjectCreateManyInput | SubjectCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Subject update
+   */
+  export type SubjectUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Subject
+     */
+    select?: SubjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Subject
+     */
+    omit?: SubjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SubjectInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Subject.
+     */
+    data: XOR<SubjectUpdateInput, SubjectUncheckedUpdateInput>
+    /**
+     * Choose, which Subject to update.
+     */
+    where: SubjectWhereUniqueInput
+  }
+
+  /**
+   * Subject updateMany
+   */
+  export type SubjectUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Subjects.
+     */
+    data: XOR<SubjectUpdateManyMutationInput, SubjectUncheckedUpdateManyInput>
+    /**
+     * Filter which Subjects to update
+     */
+    where?: SubjectWhereInput
+    /**
+     * Limit how many Subjects to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Subject upsert
+   */
+  export type SubjectUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Subject
+     */
+    select?: SubjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Subject
+     */
+    omit?: SubjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SubjectInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Subject to update in case it exists.
+     */
+    where: SubjectWhereUniqueInput
+    /**
+     * In case the Subject found by the `where` argument doesn't exist, create a new Subject with this data.
+     */
+    create: XOR<SubjectCreateInput, SubjectUncheckedCreateInput>
+    /**
+     * In case the Subject was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<SubjectUpdateInput, SubjectUncheckedUpdateInput>
+  }
+
+  /**
+   * Subject delete
+   */
+  export type SubjectDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Subject
+     */
+    select?: SubjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Subject
+     */
+    omit?: SubjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SubjectInclude<ExtArgs> | null
+    /**
+     * Filter which Subject to delete.
+     */
+    where: SubjectWhereUniqueInput
+  }
+
+  /**
+   * Subject deleteMany
+   */
+  export type SubjectDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Subjects to delete
+     */
+    where?: SubjectWhereInput
+    /**
+     * Limit how many Subjects to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Subject.api_key
+   */
+  export type Subject$api_keyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ApiKey
+     */
+    select?: ApiKeySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ApiKey
+     */
+    omit?: ApiKeyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ApiKeyInclude<ExtArgs> | null
+    where?: ApiKeyWhereInput
+  }
+
+  /**
+   * Subject.subject_detail
+   */
+  export type Subject$subject_detailArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SubjectDetail
+     */
+    select?: SubjectDetailSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SubjectDetail
+     */
+    omit?: SubjectDetailOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SubjectDetailInclude<ExtArgs> | null
+    where?: SubjectDetailWhereInput
+  }
+
+  /**
+   * Subject.subject_levels
+   */
+  export type Subject$subject_levelsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SubjectLevel
+     */
+    select?: SubjectLevelSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SubjectLevel
+     */
+    omit?: SubjectLevelOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SubjectLevelInclude<ExtArgs> | null
+    where?: SubjectLevelWhereInput
+    orderBy?: SubjectLevelOrderByWithRelationInput | SubjectLevelOrderByWithRelationInput[]
+    cursor?: SubjectLevelWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: SubjectLevelScalarFieldEnum | SubjectLevelScalarFieldEnum[]
+  }
+
+  /**
+   * Subject.testSubjects
+   */
+  export type Subject$testSubjectsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TestSubject
+     */
+    select?: TestSubjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TestSubject
+     */
+    omit?: TestSubjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TestSubjectInclude<ExtArgs> | null
+    where?: TestSubjectWhereInput
+    orderBy?: TestSubjectOrderByWithRelationInput | TestSubjectOrderByWithRelationInput[]
+    cursor?: TestSubjectWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: TestSubjectScalarFieldEnum | TestSubjectScalarFieldEnum[]
+  }
+
+  /**
+   * Subject without action
+   */
+  export type SubjectDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Subject
+     */
+    select?: SubjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Subject
+     */
+    omit?: SubjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SubjectInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model SubjectDetail
+   */
+
+  export type AggregateSubjectDetail = {
+    _count: SubjectDetailCountAggregateOutputType | null
+    _min: SubjectDetailMinAggregateOutputType | null
+    _max: SubjectDetailMaxAggregateOutputType | null
+  }
+
+  export type SubjectDetailMinAggregateOutputType = {
+    id: string | null
+    background_image_url: string | null
+    title: string | null
+    title_color: string | null
+    subtitle: string | null
+    primary_color_hex: string | null
+    created_at: Date | null
+    updated_at: Date | null
+    subject_id: string | null
+  }
+
+  export type SubjectDetailMaxAggregateOutputType = {
+    id: string | null
+    background_image_url: string | null
+    title: string | null
+    title_color: string | null
+    subtitle: string | null
+    primary_color_hex: string | null
+    created_at: Date | null
+    updated_at: Date | null
+    subject_id: string | null
+  }
+
+  export type SubjectDetailCountAggregateOutputType = {
+    id: number
+    background_image_url: number
+    title: number
+    title_color: number
+    subtitle: number
+    primary_color_hex: number
+    created_at: number
+    updated_at: number
+    subject_id: number
+    _all: number
+  }
+
+
+  export type SubjectDetailMinAggregateInputType = {
+    id?: true
+    background_image_url?: true
+    title?: true
+    title_color?: true
+    subtitle?: true
+    primary_color_hex?: true
+    created_at?: true
+    updated_at?: true
+    subject_id?: true
+  }
+
+  export type SubjectDetailMaxAggregateInputType = {
+    id?: true
+    background_image_url?: true
+    title?: true
+    title_color?: true
+    subtitle?: true
+    primary_color_hex?: true
+    created_at?: true
+    updated_at?: true
+    subject_id?: true
+  }
+
+  export type SubjectDetailCountAggregateInputType = {
+    id?: true
+    background_image_url?: true
+    title?: true
+    title_color?: true
+    subtitle?: true
+    primary_color_hex?: true
+    created_at?: true
+    updated_at?: true
+    subject_id?: true
+    _all?: true
+  }
+
+  export type SubjectDetailAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which SubjectDetail to aggregate.
+     */
+    where?: SubjectDetailWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SubjectDetails to fetch.
+     */
+    orderBy?: SubjectDetailOrderByWithRelationInput | SubjectDetailOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: SubjectDetailWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SubjectDetails from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SubjectDetails.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned SubjectDetails
+    **/
+    _count?: true | SubjectDetailCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: SubjectDetailMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: SubjectDetailMaxAggregateInputType
+  }
+
+  export type GetSubjectDetailAggregateType<T extends SubjectDetailAggregateArgs> = {
+        [P in keyof T & keyof AggregateSubjectDetail]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateSubjectDetail[P]>
+      : GetScalarType<T[P], AggregateSubjectDetail[P]>
+  }
+
+
+
+
+  export type SubjectDetailGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SubjectDetailWhereInput
+    orderBy?: SubjectDetailOrderByWithAggregationInput | SubjectDetailOrderByWithAggregationInput[]
+    by: SubjectDetailScalarFieldEnum[] | SubjectDetailScalarFieldEnum
+    having?: SubjectDetailScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: SubjectDetailCountAggregateInputType | true
+    _min?: SubjectDetailMinAggregateInputType
+    _max?: SubjectDetailMaxAggregateInputType
+  }
+
+  export type SubjectDetailGroupByOutputType = {
+    id: string
+    background_image_url: string | null
+    title: string
+    title_color: string | null
+    subtitle: string | null
+    primary_color_hex: string | null
+    created_at: Date
+    updated_at: Date
+    subject_id: string
+    _count: SubjectDetailCountAggregateOutputType | null
+    _min: SubjectDetailMinAggregateOutputType | null
+    _max: SubjectDetailMaxAggregateOutputType | null
+  }
+
+  type GetSubjectDetailGroupByPayload<T extends SubjectDetailGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<SubjectDetailGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof SubjectDetailGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], SubjectDetailGroupByOutputType[P]>
+            : GetScalarType<T[P], SubjectDetailGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type SubjectDetailSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    background_image_url?: boolean
+    title?: boolean
+    title_color?: boolean
+    subtitle?: boolean
+    primary_color_hex?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+    subject_id?: boolean
+    subject?: boolean | SubjectDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["subjectDetail"]>
+
+
+
+  export type SubjectDetailSelectScalar = {
+    id?: boolean
+    background_image_url?: boolean
+    title?: boolean
+    title_color?: boolean
+    subtitle?: boolean
+    primary_color_hex?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+    subject_id?: boolean
+  }
+
+  export type SubjectDetailOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "background_image_url" | "title" | "title_color" | "subtitle" | "primary_color_hex" | "created_at" | "updated_at" | "subject_id", ExtArgs["result"]["subjectDetail"]>
+  export type SubjectDetailInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    subject?: boolean | SubjectDefaultArgs<ExtArgs>
+  }
+
+  export type $SubjectDetailPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "SubjectDetail"
+    objects: {
+      subject: Prisma.$SubjectPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      background_image_url: string | null
+      title: string
+      title_color: string | null
+      subtitle: string | null
+      primary_color_hex: string | null
+      created_at: Date
+      updated_at: Date
+      subject_id: string
+    }, ExtArgs["result"]["subjectDetail"]>
+    composites: {}
+  }
+
+  type SubjectDetailGetPayload<S extends boolean | null | undefined | SubjectDetailDefaultArgs> = $Result.GetResult<Prisma.$SubjectDetailPayload, S>
+
+  type SubjectDetailCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<SubjectDetailFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: SubjectDetailCountAggregateInputType | true
+    }
+
+  export interface SubjectDetailDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['SubjectDetail'], meta: { name: 'SubjectDetail' } }
+    /**
+     * Find zero or one SubjectDetail that matches the filter.
+     * @param {SubjectDetailFindUniqueArgs} args - Arguments to find a SubjectDetail
+     * @example
+     * // Get one SubjectDetail
+     * const subjectDetail = await prisma.subjectDetail.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends SubjectDetailFindUniqueArgs>(args: SelectSubset<T, SubjectDetailFindUniqueArgs<ExtArgs>>): Prisma__SubjectDetailClient<$Result.GetResult<Prisma.$SubjectDetailPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one SubjectDetail that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {SubjectDetailFindUniqueOrThrowArgs} args - Arguments to find a SubjectDetail
+     * @example
+     * // Get one SubjectDetail
+     * const subjectDetail = await prisma.subjectDetail.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends SubjectDetailFindUniqueOrThrowArgs>(args: SelectSubset<T, SubjectDetailFindUniqueOrThrowArgs<ExtArgs>>): Prisma__SubjectDetailClient<$Result.GetResult<Prisma.$SubjectDetailPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first SubjectDetail that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SubjectDetailFindFirstArgs} args - Arguments to find a SubjectDetail
+     * @example
+     * // Get one SubjectDetail
+     * const subjectDetail = await prisma.subjectDetail.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends SubjectDetailFindFirstArgs>(args?: SelectSubset<T, SubjectDetailFindFirstArgs<ExtArgs>>): Prisma__SubjectDetailClient<$Result.GetResult<Prisma.$SubjectDetailPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first SubjectDetail that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SubjectDetailFindFirstOrThrowArgs} args - Arguments to find a SubjectDetail
+     * @example
+     * // Get one SubjectDetail
+     * const subjectDetail = await prisma.subjectDetail.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends SubjectDetailFindFirstOrThrowArgs>(args?: SelectSubset<T, SubjectDetailFindFirstOrThrowArgs<ExtArgs>>): Prisma__SubjectDetailClient<$Result.GetResult<Prisma.$SubjectDetailPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more SubjectDetails that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SubjectDetailFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all SubjectDetails
+     * const subjectDetails = await prisma.subjectDetail.findMany()
+     * 
+     * // Get first 10 SubjectDetails
+     * const subjectDetails = await prisma.subjectDetail.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const subjectDetailWithIdOnly = await prisma.subjectDetail.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends SubjectDetailFindManyArgs>(args?: SelectSubset<T, SubjectDetailFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SubjectDetailPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a SubjectDetail.
+     * @param {SubjectDetailCreateArgs} args - Arguments to create a SubjectDetail.
+     * @example
+     * // Create one SubjectDetail
+     * const SubjectDetail = await prisma.subjectDetail.create({
+     *   data: {
+     *     // ... data to create a SubjectDetail
+     *   }
+     * })
+     * 
+     */
+    create<T extends SubjectDetailCreateArgs>(args: SelectSubset<T, SubjectDetailCreateArgs<ExtArgs>>): Prisma__SubjectDetailClient<$Result.GetResult<Prisma.$SubjectDetailPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many SubjectDetails.
+     * @param {SubjectDetailCreateManyArgs} args - Arguments to create many SubjectDetails.
+     * @example
+     * // Create many SubjectDetails
+     * const subjectDetail = await prisma.subjectDetail.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends SubjectDetailCreateManyArgs>(args?: SelectSubset<T, SubjectDetailCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a SubjectDetail.
+     * @param {SubjectDetailDeleteArgs} args - Arguments to delete one SubjectDetail.
+     * @example
+     * // Delete one SubjectDetail
+     * const SubjectDetail = await prisma.subjectDetail.delete({
+     *   where: {
+     *     // ... filter to delete one SubjectDetail
+     *   }
+     * })
+     * 
+     */
+    delete<T extends SubjectDetailDeleteArgs>(args: SelectSubset<T, SubjectDetailDeleteArgs<ExtArgs>>): Prisma__SubjectDetailClient<$Result.GetResult<Prisma.$SubjectDetailPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one SubjectDetail.
+     * @param {SubjectDetailUpdateArgs} args - Arguments to update one SubjectDetail.
+     * @example
+     * // Update one SubjectDetail
+     * const subjectDetail = await prisma.subjectDetail.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends SubjectDetailUpdateArgs>(args: SelectSubset<T, SubjectDetailUpdateArgs<ExtArgs>>): Prisma__SubjectDetailClient<$Result.GetResult<Prisma.$SubjectDetailPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more SubjectDetails.
+     * @param {SubjectDetailDeleteManyArgs} args - Arguments to filter SubjectDetails to delete.
+     * @example
+     * // Delete a few SubjectDetails
+     * const { count } = await prisma.subjectDetail.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends SubjectDetailDeleteManyArgs>(args?: SelectSubset<T, SubjectDetailDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more SubjectDetails.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SubjectDetailUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many SubjectDetails
+     * const subjectDetail = await prisma.subjectDetail.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends SubjectDetailUpdateManyArgs>(args: SelectSubset<T, SubjectDetailUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one SubjectDetail.
+     * @param {SubjectDetailUpsertArgs} args - Arguments to update or create a SubjectDetail.
+     * @example
+     * // Update or create a SubjectDetail
+     * const subjectDetail = await prisma.subjectDetail.upsert({
+     *   create: {
+     *     // ... data to create a SubjectDetail
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the SubjectDetail we want to update
+     *   }
+     * })
+     */
+    upsert<T extends SubjectDetailUpsertArgs>(args: SelectSubset<T, SubjectDetailUpsertArgs<ExtArgs>>): Prisma__SubjectDetailClient<$Result.GetResult<Prisma.$SubjectDetailPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of SubjectDetails.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SubjectDetailCountArgs} args - Arguments to filter SubjectDetails to count.
+     * @example
+     * // Count the number of SubjectDetails
+     * const count = await prisma.subjectDetail.count({
+     *   where: {
+     *     // ... the filter for the SubjectDetails we want to count
+     *   }
+     * })
+    **/
+    count<T extends SubjectDetailCountArgs>(
+      args?: Subset<T, SubjectDetailCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], SubjectDetailCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a SubjectDetail.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SubjectDetailAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends SubjectDetailAggregateArgs>(args: Subset<T, SubjectDetailAggregateArgs>): Prisma.PrismaPromise<GetSubjectDetailAggregateType<T>>
+
+    /**
+     * Group by SubjectDetail.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SubjectDetailGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends SubjectDetailGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: SubjectDetailGroupByArgs['orderBy'] }
+        : { orderBy?: SubjectDetailGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, SubjectDetailGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetSubjectDetailGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the SubjectDetail model
+   */
+  readonly fields: SubjectDetailFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for SubjectDetail.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__SubjectDetailClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    subject<T extends SubjectDefaultArgs<ExtArgs> = {}>(args?: Subset<T, SubjectDefaultArgs<ExtArgs>>): Prisma__SubjectClient<$Result.GetResult<Prisma.$SubjectPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the SubjectDetail model
+   */
+  interface SubjectDetailFieldRefs {
+    readonly id: FieldRef<"SubjectDetail", 'String'>
+    readonly background_image_url: FieldRef<"SubjectDetail", 'String'>
+    readonly title: FieldRef<"SubjectDetail", 'String'>
+    readonly title_color: FieldRef<"SubjectDetail", 'String'>
+    readonly subtitle: FieldRef<"SubjectDetail", 'String'>
+    readonly primary_color_hex: FieldRef<"SubjectDetail", 'String'>
+    readonly created_at: FieldRef<"SubjectDetail", 'DateTime'>
+    readonly updated_at: FieldRef<"SubjectDetail", 'DateTime'>
+    readonly subject_id: FieldRef<"SubjectDetail", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * SubjectDetail findUnique
+   */
+  export type SubjectDetailFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SubjectDetail
+     */
+    select?: SubjectDetailSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SubjectDetail
+     */
+    omit?: SubjectDetailOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SubjectDetailInclude<ExtArgs> | null
+    /**
+     * Filter, which SubjectDetail to fetch.
+     */
+    where: SubjectDetailWhereUniqueInput
+  }
+
+  /**
+   * SubjectDetail findUniqueOrThrow
+   */
+  export type SubjectDetailFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SubjectDetail
+     */
+    select?: SubjectDetailSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SubjectDetail
+     */
+    omit?: SubjectDetailOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SubjectDetailInclude<ExtArgs> | null
+    /**
+     * Filter, which SubjectDetail to fetch.
+     */
+    where: SubjectDetailWhereUniqueInput
+  }
+
+  /**
+   * SubjectDetail findFirst
+   */
+  export type SubjectDetailFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SubjectDetail
+     */
+    select?: SubjectDetailSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SubjectDetail
+     */
+    omit?: SubjectDetailOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SubjectDetailInclude<ExtArgs> | null
+    /**
+     * Filter, which SubjectDetail to fetch.
+     */
+    where?: SubjectDetailWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SubjectDetails to fetch.
+     */
+    orderBy?: SubjectDetailOrderByWithRelationInput | SubjectDetailOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for SubjectDetails.
+     */
+    cursor?: SubjectDetailWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SubjectDetails from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SubjectDetails.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of SubjectDetails.
+     */
+    distinct?: SubjectDetailScalarFieldEnum | SubjectDetailScalarFieldEnum[]
+  }
+
+  /**
+   * SubjectDetail findFirstOrThrow
+   */
+  export type SubjectDetailFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SubjectDetail
+     */
+    select?: SubjectDetailSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SubjectDetail
+     */
+    omit?: SubjectDetailOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SubjectDetailInclude<ExtArgs> | null
+    /**
+     * Filter, which SubjectDetail to fetch.
+     */
+    where?: SubjectDetailWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SubjectDetails to fetch.
+     */
+    orderBy?: SubjectDetailOrderByWithRelationInput | SubjectDetailOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for SubjectDetails.
+     */
+    cursor?: SubjectDetailWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SubjectDetails from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SubjectDetails.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of SubjectDetails.
+     */
+    distinct?: SubjectDetailScalarFieldEnum | SubjectDetailScalarFieldEnum[]
+  }
+
+  /**
+   * SubjectDetail findMany
+   */
+  export type SubjectDetailFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SubjectDetail
+     */
+    select?: SubjectDetailSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SubjectDetail
+     */
+    omit?: SubjectDetailOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SubjectDetailInclude<ExtArgs> | null
+    /**
+     * Filter, which SubjectDetails to fetch.
+     */
+    where?: SubjectDetailWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SubjectDetails to fetch.
+     */
+    orderBy?: SubjectDetailOrderByWithRelationInput | SubjectDetailOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing SubjectDetails.
+     */
+    cursor?: SubjectDetailWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SubjectDetails from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SubjectDetails.
+     */
+    skip?: number
+    distinct?: SubjectDetailScalarFieldEnum | SubjectDetailScalarFieldEnum[]
+  }
+
+  /**
+   * SubjectDetail create
+   */
+  export type SubjectDetailCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SubjectDetail
+     */
+    select?: SubjectDetailSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SubjectDetail
+     */
+    omit?: SubjectDetailOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SubjectDetailInclude<ExtArgs> | null
+    /**
+     * The data needed to create a SubjectDetail.
+     */
+    data: XOR<SubjectDetailCreateInput, SubjectDetailUncheckedCreateInput>
+  }
+
+  /**
+   * SubjectDetail createMany
+   */
+  export type SubjectDetailCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many SubjectDetails.
+     */
+    data: SubjectDetailCreateManyInput | SubjectDetailCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * SubjectDetail update
+   */
+  export type SubjectDetailUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SubjectDetail
+     */
+    select?: SubjectDetailSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SubjectDetail
+     */
+    omit?: SubjectDetailOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SubjectDetailInclude<ExtArgs> | null
+    /**
+     * The data needed to update a SubjectDetail.
+     */
+    data: XOR<SubjectDetailUpdateInput, SubjectDetailUncheckedUpdateInput>
+    /**
+     * Choose, which SubjectDetail to update.
+     */
+    where: SubjectDetailWhereUniqueInput
+  }
+
+  /**
+   * SubjectDetail updateMany
+   */
+  export type SubjectDetailUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update SubjectDetails.
+     */
+    data: XOR<SubjectDetailUpdateManyMutationInput, SubjectDetailUncheckedUpdateManyInput>
+    /**
+     * Filter which SubjectDetails to update
+     */
+    where?: SubjectDetailWhereInput
+    /**
+     * Limit how many SubjectDetails to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * SubjectDetail upsert
+   */
+  export type SubjectDetailUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SubjectDetail
+     */
+    select?: SubjectDetailSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SubjectDetail
+     */
+    omit?: SubjectDetailOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SubjectDetailInclude<ExtArgs> | null
+    /**
+     * The filter to search for the SubjectDetail to update in case it exists.
+     */
+    where: SubjectDetailWhereUniqueInput
+    /**
+     * In case the SubjectDetail found by the `where` argument doesn't exist, create a new SubjectDetail with this data.
+     */
+    create: XOR<SubjectDetailCreateInput, SubjectDetailUncheckedCreateInput>
+    /**
+     * In case the SubjectDetail was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<SubjectDetailUpdateInput, SubjectDetailUncheckedUpdateInput>
+  }
+
+  /**
+   * SubjectDetail delete
+   */
+  export type SubjectDetailDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SubjectDetail
+     */
+    select?: SubjectDetailSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SubjectDetail
+     */
+    omit?: SubjectDetailOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SubjectDetailInclude<ExtArgs> | null
+    /**
+     * Filter which SubjectDetail to delete.
+     */
+    where: SubjectDetailWhereUniqueInput
+  }
+
+  /**
+   * SubjectDetail deleteMany
+   */
+  export type SubjectDetailDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which SubjectDetails to delete
+     */
+    where?: SubjectDetailWhereInput
+    /**
+     * Limit how many SubjectDetails to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * SubjectDetail without action
+   */
+  export type SubjectDetailDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SubjectDetail
+     */
+    select?: SubjectDetailSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SubjectDetail
+     */
+    omit?: SubjectDetailOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SubjectDetailInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model SubjectLevel
+   */
+
+  export type AggregateSubjectLevel = {
+    _count: SubjectLevelCountAggregateOutputType | null
+    _avg: SubjectLevelAvgAggregateOutputType | null
+    _sum: SubjectLevelSumAggregateOutputType | null
+    _min: SubjectLevelMinAggregateOutputType | null
+    _max: SubjectLevelMaxAggregateOutputType | null
+  }
+
+  export type SubjectLevelAvgAggregateOutputType = {
+    order: number | null
+    number_of_questions: number | null
+    approximate_time_minutes: number | null
+  }
+
+  export type SubjectLevelSumAggregateOutputType = {
+    order: number | null
+    number_of_questions: number | null
+    approximate_time_minutes: number | null
+  }
+
+  export type SubjectLevelMinAggregateOutputType = {
+    id: string | null
+    reference_title: string | null
+    title: string | null
+    order: number | null
+    number_of_questions: number | null
+    approximate_time_minutes: number | null
+    created_at: Date | null
+    updated_at: Date | null
+    subject_id: string | null
+  }
+
+  export type SubjectLevelMaxAggregateOutputType = {
+    id: string | null
+    reference_title: string | null
+    title: string | null
+    order: number | null
+    number_of_questions: number | null
+    approximate_time_minutes: number | null
+    created_at: Date | null
+    updated_at: Date | null
+    subject_id: string | null
+  }
+
+  export type SubjectLevelCountAggregateOutputType = {
+    id: number
+    reference_title: number
+    title: number
+    order: number
+    number_of_questions: number
+    approximate_time_minutes: number
+    created_at: number
+    updated_at: number
+    subject_id: number
+    _all: number
+  }
+
+
+  export type SubjectLevelAvgAggregateInputType = {
+    order?: true
+    number_of_questions?: true
+    approximate_time_minutes?: true
+  }
+
+  export type SubjectLevelSumAggregateInputType = {
+    order?: true
+    number_of_questions?: true
+    approximate_time_minutes?: true
+  }
+
+  export type SubjectLevelMinAggregateInputType = {
+    id?: true
+    reference_title?: true
+    title?: true
+    order?: true
+    number_of_questions?: true
+    approximate_time_minutes?: true
+    created_at?: true
+    updated_at?: true
+    subject_id?: true
+  }
+
+  export type SubjectLevelMaxAggregateInputType = {
+    id?: true
+    reference_title?: true
+    title?: true
+    order?: true
+    number_of_questions?: true
+    approximate_time_minutes?: true
+    created_at?: true
+    updated_at?: true
+    subject_id?: true
+  }
+
+  export type SubjectLevelCountAggregateInputType = {
+    id?: true
+    reference_title?: true
+    title?: true
+    order?: true
+    number_of_questions?: true
+    approximate_time_minutes?: true
+    created_at?: true
+    updated_at?: true
+    subject_id?: true
+    _all?: true
+  }
+
+  export type SubjectLevelAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which SubjectLevel to aggregate.
+     */
+    where?: SubjectLevelWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SubjectLevels to fetch.
+     */
+    orderBy?: SubjectLevelOrderByWithRelationInput | SubjectLevelOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: SubjectLevelWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SubjectLevels from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SubjectLevels.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned SubjectLevels
+    **/
+    _count?: true | SubjectLevelCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: SubjectLevelAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: SubjectLevelSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: SubjectLevelMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: SubjectLevelMaxAggregateInputType
+  }
+
+  export type GetSubjectLevelAggregateType<T extends SubjectLevelAggregateArgs> = {
+        [P in keyof T & keyof AggregateSubjectLevel]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateSubjectLevel[P]>
+      : GetScalarType<T[P], AggregateSubjectLevel[P]>
+  }
+
+
+
+
+  export type SubjectLevelGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SubjectLevelWhereInput
+    orderBy?: SubjectLevelOrderByWithAggregationInput | SubjectLevelOrderByWithAggregationInput[]
+    by: SubjectLevelScalarFieldEnum[] | SubjectLevelScalarFieldEnum
+    having?: SubjectLevelScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: SubjectLevelCountAggregateInputType | true
+    _avg?: SubjectLevelAvgAggregateInputType
+    _sum?: SubjectLevelSumAggregateInputType
+    _min?: SubjectLevelMinAggregateInputType
+    _max?: SubjectLevelMaxAggregateInputType
+  }
+
+  export type SubjectLevelGroupByOutputType = {
+    id: string
+    reference_title: string | null
+    title: string
+    order: number
+    number_of_questions: number
+    approximate_time_minutes: number
+    created_at: Date
+    updated_at: Date
+    subject_id: string
+    _count: SubjectLevelCountAggregateOutputType | null
+    _avg: SubjectLevelAvgAggregateOutputType | null
+    _sum: SubjectLevelSumAggregateOutputType | null
+    _min: SubjectLevelMinAggregateOutputType | null
+    _max: SubjectLevelMaxAggregateOutputType | null
+  }
+
+  type GetSubjectLevelGroupByPayload<T extends SubjectLevelGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<SubjectLevelGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof SubjectLevelGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], SubjectLevelGroupByOutputType[P]>
+            : GetScalarType<T[P], SubjectLevelGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type SubjectLevelSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    reference_title?: boolean
+    title?: boolean
+    order?: boolean
+    number_of_questions?: boolean
+    approximate_time_minutes?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+    subject_id?: boolean
+    subject?: boolean | SubjectDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["subjectLevel"]>
+
+
+
+  export type SubjectLevelSelectScalar = {
+    id?: boolean
+    reference_title?: boolean
+    title?: boolean
+    order?: boolean
+    number_of_questions?: boolean
+    approximate_time_minutes?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+    subject_id?: boolean
+  }
+
+  export type SubjectLevelOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "reference_title" | "title" | "order" | "number_of_questions" | "approximate_time_minutes" | "created_at" | "updated_at" | "subject_id", ExtArgs["result"]["subjectLevel"]>
+  export type SubjectLevelInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    subject?: boolean | SubjectDefaultArgs<ExtArgs>
+  }
+
+  export type $SubjectLevelPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "SubjectLevel"
+    objects: {
+      subject: Prisma.$SubjectPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      reference_title: string | null
+      title: string
+      order: number
+      number_of_questions: number
+      approximate_time_minutes: number
+      created_at: Date
+      updated_at: Date
+      subject_id: string
+    }, ExtArgs["result"]["subjectLevel"]>
+    composites: {}
+  }
+
+  type SubjectLevelGetPayload<S extends boolean | null | undefined | SubjectLevelDefaultArgs> = $Result.GetResult<Prisma.$SubjectLevelPayload, S>
+
+  type SubjectLevelCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<SubjectLevelFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: SubjectLevelCountAggregateInputType | true
+    }
+
+  export interface SubjectLevelDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['SubjectLevel'], meta: { name: 'SubjectLevel' } }
+    /**
+     * Find zero or one SubjectLevel that matches the filter.
+     * @param {SubjectLevelFindUniqueArgs} args - Arguments to find a SubjectLevel
+     * @example
+     * // Get one SubjectLevel
+     * const subjectLevel = await prisma.subjectLevel.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends SubjectLevelFindUniqueArgs>(args: SelectSubset<T, SubjectLevelFindUniqueArgs<ExtArgs>>): Prisma__SubjectLevelClient<$Result.GetResult<Prisma.$SubjectLevelPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one SubjectLevel that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {SubjectLevelFindUniqueOrThrowArgs} args - Arguments to find a SubjectLevel
+     * @example
+     * // Get one SubjectLevel
+     * const subjectLevel = await prisma.subjectLevel.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends SubjectLevelFindUniqueOrThrowArgs>(args: SelectSubset<T, SubjectLevelFindUniqueOrThrowArgs<ExtArgs>>): Prisma__SubjectLevelClient<$Result.GetResult<Prisma.$SubjectLevelPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first SubjectLevel that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SubjectLevelFindFirstArgs} args - Arguments to find a SubjectLevel
+     * @example
+     * // Get one SubjectLevel
+     * const subjectLevel = await prisma.subjectLevel.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends SubjectLevelFindFirstArgs>(args?: SelectSubset<T, SubjectLevelFindFirstArgs<ExtArgs>>): Prisma__SubjectLevelClient<$Result.GetResult<Prisma.$SubjectLevelPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first SubjectLevel that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SubjectLevelFindFirstOrThrowArgs} args - Arguments to find a SubjectLevel
+     * @example
+     * // Get one SubjectLevel
+     * const subjectLevel = await prisma.subjectLevel.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends SubjectLevelFindFirstOrThrowArgs>(args?: SelectSubset<T, SubjectLevelFindFirstOrThrowArgs<ExtArgs>>): Prisma__SubjectLevelClient<$Result.GetResult<Prisma.$SubjectLevelPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more SubjectLevels that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SubjectLevelFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all SubjectLevels
+     * const subjectLevels = await prisma.subjectLevel.findMany()
+     * 
+     * // Get first 10 SubjectLevels
+     * const subjectLevels = await prisma.subjectLevel.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const subjectLevelWithIdOnly = await prisma.subjectLevel.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends SubjectLevelFindManyArgs>(args?: SelectSubset<T, SubjectLevelFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SubjectLevelPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a SubjectLevel.
+     * @param {SubjectLevelCreateArgs} args - Arguments to create a SubjectLevel.
+     * @example
+     * // Create one SubjectLevel
+     * const SubjectLevel = await prisma.subjectLevel.create({
+     *   data: {
+     *     // ... data to create a SubjectLevel
+     *   }
+     * })
+     * 
+     */
+    create<T extends SubjectLevelCreateArgs>(args: SelectSubset<T, SubjectLevelCreateArgs<ExtArgs>>): Prisma__SubjectLevelClient<$Result.GetResult<Prisma.$SubjectLevelPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many SubjectLevels.
+     * @param {SubjectLevelCreateManyArgs} args - Arguments to create many SubjectLevels.
+     * @example
+     * // Create many SubjectLevels
+     * const subjectLevel = await prisma.subjectLevel.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends SubjectLevelCreateManyArgs>(args?: SelectSubset<T, SubjectLevelCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a SubjectLevel.
+     * @param {SubjectLevelDeleteArgs} args - Arguments to delete one SubjectLevel.
+     * @example
+     * // Delete one SubjectLevel
+     * const SubjectLevel = await prisma.subjectLevel.delete({
+     *   where: {
+     *     // ... filter to delete one SubjectLevel
+     *   }
+     * })
+     * 
+     */
+    delete<T extends SubjectLevelDeleteArgs>(args: SelectSubset<T, SubjectLevelDeleteArgs<ExtArgs>>): Prisma__SubjectLevelClient<$Result.GetResult<Prisma.$SubjectLevelPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one SubjectLevel.
+     * @param {SubjectLevelUpdateArgs} args - Arguments to update one SubjectLevel.
+     * @example
+     * // Update one SubjectLevel
+     * const subjectLevel = await prisma.subjectLevel.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends SubjectLevelUpdateArgs>(args: SelectSubset<T, SubjectLevelUpdateArgs<ExtArgs>>): Prisma__SubjectLevelClient<$Result.GetResult<Prisma.$SubjectLevelPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more SubjectLevels.
+     * @param {SubjectLevelDeleteManyArgs} args - Arguments to filter SubjectLevels to delete.
+     * @example
+     * // Delete a few SubjectLevels
+     * const { count } = await prisma.subjectLevel.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends SubjectLevelDeleteManyArgs>(args?: SelectSubset<T, SubjectLevelDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more SubjectLevels.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SubjectLevelUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many SubjectLevels
+     * const subjectLevel = await prisma.subjectLevel.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends SubjectLevelUpdateManyArgs>(args: SelectSubset<T, SubjectLevelUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one SubjectLevel.
+     * @param {SubjectLevelUpsertArgs} args - Arguments to update or create a SubjectLevel.
+     * @example
+     * // Update or create a SubjectLevel
+     * const subjectLevel = await prisma.subjectLevel.upsert({
+     *   create: {
+     *     // ... data to create a SubjectLevel
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the SubjectLevel we want to update
+     *   }
+     * })
+     */
+    upsert<T extends SubjectLevelUpsertArgs>(args: SelectSubset<T, SubjectLevelUpsertArgs<ExtArgs>>): Prisma__SubjectLevelClient<$Result.GetResult<Prisma.$SubjectLevelPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of SubjectLevels.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SubjectLevelCountArgs} args - Arguments to filter SubjectLevels to count.
+     * @example
+     * // Count the number of SubjectLevels
+     * const count = await prisma.subjectLevel.count({
+     *   where: {
+     *     // ... the filter for the SubjectLevels we want to count
+     *   }
+     * })
+    **/
+    count<T extends SubjectLevelCountArgs>(
+      args?: Subset<T, SubjectLevelCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], SubjectLevelCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a SubjectLevel.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SubjectLevelAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends SubjectLevelAggregateArgs>(args: Subset<T, SubjectLevelAggregateArgs>): Prisma.PrismaPromise<GetSubjectLevelAggregateType<T>>
+
+    /**
+     * Group by SubjectLevel.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SubjectLevelGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends SubjectLevelGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: SubjectLevelGroupByArgs['orderBy'] }
+        : { orderBy?: SubjectLevelGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, SubjectLevelGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetSubjectLevelGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the SubjectLevel model
+   */
+  readonly fields: SubjectLevelFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for SubjectLevel.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__SubjectLevelClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    subject<T extends SubjectDefaultArgs<ExtArgs> = {}>(args?: Subset<T, SubjectDefaultArgs<ExtArgs>>): Prisma__SubjectClient<$Result.GetResult<Prisma.$SubjectPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the SubjectLevel model
+   */
+  interface SubjectLevelFieldRefs {
+    readonly id: FieldRef<"SubjectLevel", 'String'>
+    readonly reference_title: FieldRef<"SubjectLevel", 'String'>
+    readonly title: FieldRef<"SubjectLevel", 'String'>
+    readonly order: FieldRef<"SubjectLevel", 'Int'>
+    readonly number_of_questions: FieldRef<"SubjectLevel", 'Int'>
+    readonly approximate_time_minutes: FieldRef<"SubjectLevel", 'Int'>
+    readonly created_at: FieldRef<"SubjectLevel", 'DateTime'>
+    readonly updated_at: FieldRef<"SubjectLevel", 'DateTime'>
+    readonly subject_id: FieldRef<"SubjectLevel", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * SubjectLevel findUnique
+   */
+  export type SubjectLevelFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SubjectLevel
+     */
+    select?: SubjectLevelSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SubjectLevel
+     */
+    omit?: SubjectLevelOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SubjectLevelInclude<ExtArgs> | null
+    /**
+     * Filter, which SubjectLevel to fetch.
+     */
+    where: SubjectLevelWhereUniqueInput
+  }
+
+  /**
+   * SubjectLevel findUniqueOrThrow
+   */
+  export type SubjectLevelFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SubjectLevel
+     */
+    select?: SubjectLevelSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SubjectLevel
+     */
+    omit?: SubjectLevelOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SubjectLevelInclude<ExtArgs> | null
+    /**
+     * Filter, which SubjectLevel to fetch.
+     */
+    where: SubjectLevelWhereUniqueInput
+  }
+
+  /**
+   * SubjectLevel findFirst
+   */
+  export type SubjectLevelFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SubjectLevel
+     */
+    select?: SubjectLevelSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SubjectLevel
+     */
+    omit?: SubjectLevelOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SubjectLevelInclude<ExtArgs> | null
+    /**
+     * Filter, which SubjectLevel to fetch.
+     */
+    where?: SubjectLevelWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SubjectLevels to fetch.
+     */
+    orderBy?: SubjectLevelOrderByWithRelationInput | SubjectLevelOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for SubjectLevels.
+     */
+    cursor?: SubjectLevelWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SubjectLevels from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SubjectLevels.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of SubjectLevels.
+     */
+    distinct?: SubjectLevelScalarFieldEnum | SubjectLevelScalarFieldEnum[]
+  }
+
+  /**
+   * SubjectLevel findFirstOrThrow
+   */
+  export type SubjectLevelFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SubjectLevel
+     */
+    select?: SubjectLevelSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SubjectLevel
+     */
+    omit?: SubjectLevelOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SubjectLevelInclude<ExtArgs> | null
+    /**
+     * Filter, which SubjectLevel to fetch.
+     */
+    where?: SubjectLevelWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SubjectLevels to fetch.
+     */
+    orderBy?: SubjectLevelOrderByWithRelationInput | SubjectLevelOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for SubjectLevels.
+     */
+    cursor?: SubjectLevelWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SubjectLevels from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SubjectLevels.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of SubjectLevels.
+     */
+    distinct?: SubjectLevelScalarFieldEnum | SubjectLevelScalarFieldEnum[]
+  }
+
+  /**
+   * SubjectLevel findMany
+   */
+  export type SubjectLevelFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SubjectLevel
+     */
+    select?: SubjectLevelSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SubjectLevel
+     */
+    omit?: SubjectLevelOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SubjectLevelInclude<ExtArgs> | null
+    /**
+     * Filter, which SubjectLevels to fetch.
+     */
+    where?: SubjectLevelWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SubjectLevels to fetch.
+     */
+    orderBy?: SubjectLevelOrderByWithRelationInput | SubjectLevelOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing SubjectLevels.
+     */
+    cursor?: SubjectLevelWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SubjectLevels from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SubjectLevels.
+     */
+    skip?: number
+    distinct?: SubjectLevelScalarFieldEnum | SubjectLevelScalarFieldEnum[]
+  }
+
+  /**
+   * SubjectLevel create
+   */
+  export type SubjectLevelCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SubjectLevel
+     */
+    select?: SubjectLevelSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SubjectLevel
+     */
+    omit?: SubjectLevelOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SubjectLevelInclude<ExtArgs> | null
+    /**
+     * The data needed to create a SubjectLevel.
+     */
+    data: XOR<SubjectLevelCreateInput, SubjectLevelUncheckedCreateInput>
+  }
+
+  /**
+   * SubjectLevel createMany
+   */
+  export type SubjectLevelCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many SubjectLevels.
+     */
+    data: SubjectLevelCreateManyInput | SubjectLevelCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * SubjectLevel update
+   */
+  export type SubjectLevelUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SubjectLevel
+     */
+    select?: SubjectLevelSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SubjectLevel
+     */
+    omit?: SubjectLevelOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SubjectLevelInclude<ExtArgs> | null
+    /**
+     * The data needed to update a SubjectLevel.
+     */
+    data: XOR<SubjectLevelUpdateInput, SubjectLevelUncheckedUpdateInput>
+    /**
+     * Choose, which SubjectLevel to update.
+     */
+    where: SubjectLevelWhereUniqueInput
+  }
+
+  /**
+   * SubjectLevel updateMany
+   */
+  export type SubjectLevelUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update SubjectLevels.
+     */
+    data: XOR<SubjectLevelUpdateManyMutationInput, SubjectLevelUncheckedUpdateManyInput>
+    /**
+     * Filter which SubjectLevels to update
+     */
+    where?: SubjectLevelWhereInput
+    /**
+     * Limit how many SubjectLevels to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * SubjectLevel upsert
+   */
+  export type SubjectLevelUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SubjectLevel
+     */
+    select?: SubjectLevelSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SubjectLevel
+     */
+    omit?: SubjectLevelOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SubjectLevelInclude<ExtArgs> | null
+    /**
+     * The filter to search for the SubjectLevel to update in case it exists.
+     */
+    where: SubjectLevelWhereUniqueInput
+    /**
+     * In case the SubjectLevel found by the `where` argument doesn't exist, create a new SubjectLevel with this data.
+     */
+    create: XOR<SubjectLevelCreateInput, SubjectLevelUncheckedCreateInput>
+    /**
+     * In case the SubjectLevel was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<SubjectLevelUpdateInput, SubjectLevelUncheckedUpdateInput>
+  }
+
+  /**
+   * SubjectLevel delete
+   */
+  export type SubjectLevelDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SubjectLevel
+     */
+    select?: SubjectLevelSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SubjectLevel
+     */
+    omit?: SubjectLevelOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SubjectLevelInclude<ExtArgs> | null
+    /**
+     * Filter which SubjectLevel to delete.
+     */
+    where: SubjectLevelWhereUniqueInput
+  }
+
+  /**
+   * SubjectLevel deleteMany
+   */
+  export type SubjectLevelDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which SubjectLevels to delete
+     */
+    where?: SubjectLevelWhereInput
+    /**
+     * Limit how many SubjectLevels to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * SubjectLevel without action
+   */
+  export type SubjectLevelDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SubjectLevel
+     */
+    select?: SubjectLevelSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SubjectLevel
+     */
+    omit?: SubjectLevelOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SubjectLevelInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model TestSubject
+   */
+
+  export type AggregateTestSubject = {
+    _count: TestSubjectCountAggregateOutputType | null
+    _avg: TestSubjectAvgAggregateOutputType | null
+    _sum: TestSubjectSumAggregateOutputType | null
+    _min: TestSubjectMinAggregateOutputType | null
+    _max: TestSubjectMaxAggregateOutputType | null
+  }
+
+  export type TestSubjectAvgAggregateOutputType = {
+    subject_order_in_test: number | null
+  }
+
+  export type TestSubjectSumAggregateOutputType = {
+    subject_order_in_test: number | null
+  }
+
+  export type TestSubjectMinAggregateOutputType = {
+    test_type_id: string | null
+    subject_id: string | null
+    assigned_at: Date | null
+    subject_order_in_test: number | null
+  }
+
+  export type TestSubjectMaxAggregateOutputType = {
+    test_type_id: string | null
+    subject_id: string | null
+    assigned_at: Date | null
+    subject_order_in_test: number | null
+  }
+
+  export type TestSubjectCountAggregateOutputType = {
+    test_type_id: number
+    subject_id: number
+    assigned_at: number
+    subject_order_in_test: number
+    _all: number
+  }
+
+
+  export type TestSubjectAvgAggregateInputType = {
+    subject_order_in_test?: true
+  }
+
+  export type TestSubjectSumAggregateInputType = {
+    subject_order_in_test?: true
+  }
+
+  export type TestSubjectMinAggregateInputType = {
+    test_type_id?: true
+    subject_id?: true
+    assigned_at?: true
+    subject_order_in_test?: true
+  }
+
+  export type TestSubjectMaxAggregateInputType = {
+    test_type_id?: true
+    subject_id?: true
+    assigned_at?: true
+    subject_order_in_test?: true
+  }
+
+  export type TestSubjectCountAggregateInputType = {
+    test_type_id?: true
+    subject_id?: true
+    assigned_at?: true
+    subject_order_in_test?: true
+    _all?: true
+  }
+
+  export type TestSubjectAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which TestSubject to aggregate.
+     */
+    where?: TestSubjectWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TestSubjects to fetch.
+     */
+    orderBy?: TestSubjectOrderByWithRelationInput | TestSubjectOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: TestSubjectWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TestSubjects from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TestSubjects.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned TestSubjects
+    **/
+    _count?: true | TestSubjectCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: TestSubjectAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: TestSubjectSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: TestSubjectMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: TestSubjectMaxAggregateInputType
+  }
+
+  export type GetTestSubjectAggregateType<T extends TestSubjectAggregateArgs> = {
+        [P in keyof T & keyof AggregateTestSubject]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateTestSubject[P]>
+      : GetScalarType<T[P], AggregateTestSubject[P]>
+  }
+
+
+
+
+  export type TestSubjectGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: TestSubjectWhereInput
+    orderBy?: TestSubjectOrderByWithAggregationInput | TestSubjectOrderByWithAggregationInput[]
+    by: TestSubjectScalarFieldEnum[] | TestSubjectScalarFieldEnum
+    having?: TestSubjectScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: TestSubjectCountAggregateInputType | true
+    _avg?: TestSubjectAvgAggregateInputType
+    _sum?: TestSubjectSumAggregateInputType
+    _min?: TestSubjectMinAggregateInputType
+    _max?: TestSubjectMaxAggregateInputType
+  }
+
+  export type TestSubjectGroupByOutputType = {
+    test_type_id: string
+    subject_id: string
+    assigned_at: Date
+    subject_order_in_test: number | null
+    _count: TestSubjectCountAggregateOutputType | null
+    _avg: TestSubjectAvgAggregateOutputType | null
+    _sum: TestSubjectSumAggregateOutputType | null
+    _min: TestSubjectMinAggregateOutputType | null
+    _max: TestSubjectMaxAggregateOutputType | null
+  }
+
+  type GetTestSubjectGroupByPayload<T extends TestSubjectGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<TestSubjectGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof TestSubjectGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], TestSubjectGroupByOutputType[P]>
+            : GetScalarType<T[P], TestSubjectGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type TestSubjectSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    test_type_id?: boolean
+    subject_id?: boolean
+    assigned_at?: boolean
+    subject_order_in_test?: boolean
+    test_type?: boolean | TestTypeDefaultArgs<ExtArgs>
+    subject?: boolean | SubjectDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["testSubject"]>
+
+
+
+  export type TestSubjectSelectScalar = {
+    test_type_id?: boolean
+    subject_id?: boolean
+    assigned_at?: boolean
+    subject_order_in_test?: boolean
+  }
+
+  export type TestSubjectOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"test_type_id" | "subject_id" | "assigned_at" | "subject_order_in_test", ExtArgs["result"]["testSubject"]>
+  export type TestSubjectInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    test_type?: boolean | TestTypeDefaultArgs<ExtArgs>
+    subject?: boolean | SubjectDefaultArgs<ExtArgs>
+  }
+
+  export type $TestSubjectPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "TestSubject"
+    objects: {
+      test_type: Prisma.$TestTypePayload<ExtArgs>
+      subject: Prisma.$SubjectPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      test_type_id: string
+      subject_id: string
+      assigned_at: Date
+      subject_order_in_test: number | null
+    }, ExtArgs["result"]["testSubject"]>
+    composites: {}
+  }
+
+  type TestSubjectGetPayload<S extends boolean | null | undefined | TestSubjectDefaultArgs> = $Result.GetResult<Prisma.$TestSubjectPayload, S>
+
+  type TestSubjectCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<TestSubjectFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: TestSubjectCountAggregateInputType | true
+    }
+
+  export interface TestSubjectDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['TestSubject'], meta: { name: 'TestSubject' } }
+    /**
+     * Find zero or one TestSubject that matches the filter.
+     * @param {TestSubjectFindUniqueArgs} args - Arguments to find a TestSubject
+     * @example
+     * // Get one TestSubject
+     * const testSubject = await prisma.testSubject.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends TestSubjectFindUniqueArgs>(args: SelectSubset<T, TestSubjectFindUniqueArgs<ExtArgs>>): Prisma__TestSubjectClient<$Result.GetResult<Prisma.$TestSubjectPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one TestSubject that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {TestSubjectFindUniqueOrThrowArgs} args - Arguments to find a TestSubject
+     * @example
+     * // Get one TestSubject
+     * const testSubject = await prisma.testSubject.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends TestSubjectFindUniqueOrThrowArgs>(args: SelectSubset<T, TestSubjectFindUniqueOrThrowArgs<ExtArgs>>): Prisma__TestSubjectClient<$Result.GetResult<Prisma.$TestSubjectPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first TestSubject that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TestSubjectFindFirstArgs} args - Arguments to find a TestSubject
+     * @example
+     * // Get one TestSubject
+     * const testSubject = await prisma.testSubject.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends TestSubjectFindFirstArgs>(args?: SelectSubset<T, TestSubjectFindFirstArgs<ExtArgs>>): Prisma__TestSubjectClient<$Result.GetResult<Prisma.$TestSubjectPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first TestSubject that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TestSubjectFindFirstOrThrowArgs} args - Arguments to find a TestSubject
+     * @example
+     * // Get one TestSubject
+     * const testSubject = await prisma.testSubject.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends TestSubjectFindFirstOrThrowArgs>(args?: SelectSubset<T, TestSubjectFindFirstOrThrowArgs<ExtArgs>>): Prisma__TestSubjectClient<$Result.GetResult<Prisma.$TestSubjectPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more TestSubjects that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TestSubjectFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all TestSubjects
+     * const testSubjects = await prisma.testSubject.findMany()
+     * 
+     * // Get first 10 TestSubjects
+     * const testSubjects = await prisma.testSubject.findMany({ take: 10 })
+     * 
+     * // Only select the `test_type_id`
+     * const testSubjectWithTest_type_idOnly = await prisma.testSubject.findMany({ select: { test_type_id: true } })
+     * 
+     */
+    findMany<T extends TestSubjectFindManyArgs>(args?: SelectSubset<T, TestSubjectFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TestSubjectPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a TestSubject.
+     * @param {TestSubjectCreateArgs} args - Arguments to create a TestSubject.
+     * @example
+     * // Create one TestSubject
+     * const TestSubject = await prisma.testSubject.create({
+     *   data: {
+     *     // ... data to create a TestSubject
+     *   }
+     * })
+     * 
+     */
+    create<T extends TestSubjectCreateArgs>(args: SelectSubset<T, TestSubjectCreateArgs<ExtArgs>>): Prisma__TestSubjectClient<$Result.GetResult<Prisma.$TestSubjectPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many TestSubjects.
+     * @param {TestSubjectCreateManyArgs} args - Arguments to create many TestSubjects.
+     * @example
+     * // Create many TestSubjects
+     * const testSubject = await prisma.testSubject.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends TestSubjectCreateManyArgs>(args?: SelectSubset<T, TestSubjectCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a TestSubject.
+     * @param {TestSubjectDeleteArgs} args - Arguments to delete one TestSubject.
+     * @example
+     * // Delete one TestSubject
+     * const TestSubject = await prisma.testSubject.delete({
+     *   where: {
+     *     // ... filter to delete one TestSubject
+     *   }
+     * })
+     * 
+     */
+    delete<T extends TestSubjectDeleteArgs>(args: SelectSubset<T, TestSubjectDeleteArgs<ExtArgs>>): Prisma__TestSubjectClient<$Result.GetResult<Prisma.$TestSubjectPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one TestSubject.
+     * @param {TestSubjectUpdateArgs} args - Arguments to update one TestSubject.
+     * @example
+     * // Update one TestSubject
+     * const testSubject = await prisma.testSubject.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends TestSubjectUpdateArgs>(args: SelectSubset<T, TestSubjectUpdateArgs<ExtArgs>>): Prisma__TestSubjectClient<$Result.GetResult<Prisma.$TestSubjectPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more TestSubjects.
+     * @param {TestSubjectDeleteManyArgs} args - Arguments to filter TestSubjects to delete.
+     * @example
+     * // Delete a few TestSubjects
+     * const { count } = await prisma.testSubject.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends TestSubjectDeleteManyArgs>(args?: SelectSubset<T, TestSubjectDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more TestSubjects.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TestSubjectUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many TestSubjects
+     * const testSubject = await prisma.testSubject.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends TestSubjectUpdateManyArgs>(args: SelectSubset<T, TestSubjectUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one TestSubject.
+     * @param {TestSubjectUpsertArgs} args - Arguments to update or create a TestSubject.
+     * @example
+     * // Update or create a TestSubject
+     * const testSubject = await prisma.testSubject.upsert({
+     *   create: {
+     *     // ... data to create a TestSubject
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the TestSubject we want to update
+     *   }
+     * })
+     */
+    upsert<T extends TestSubjectUpsertArgs>(args: SelectSubset<T, TestSubjectUpsertArgs<ExtArgs>>): Prisma__TestSubjectClient<$Result.GetResult<Prisma.$TestSubjectPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of TestSubjects.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TestSubjectCountArgs} args - Arguments to filter TestSubjects to count.
+     * @example
+     * // Count the number of TestSubjects
+     * const count = await prisma.testSubject.count({
+     *   where: {
+     *     // ... the filter for the TestSubjects we want to count
+     *   }
+     * })
+    **/
+    count<T extends TestSubjectCountArgs>(
+      args?: Subset<T, TestSubjectCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], TestSubjectCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a TestSubject.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TestSubjectAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends TestSubjectAggregateArgs>(args: Subset<T, TestSubjectAggregateArgs>): Prisma.PrismaPromise<GetTestSubjectAggregateType<T>>
+
+    /**
+     * Group by TestSubject.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TestSubjectGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends TestSubjectGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: TestSubjectGroupByArgs['orderBy'] }
+        : { orderBy?: TestSubjectGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, TestSubjectGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetTestSubjectGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the TestSubject model
+   */
+  readonly fields: TestSubjectFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for TestSubject.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__TestSubjectClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    test_type<T extends TestTypeDefaultArgs<ExtArgs> = {}>(args?: Subset<T, TestTypeDefaultArgs<ExtArgs>>): Prisma__TestTypeClient<$Result.GetResult<Prisma.$TestTypePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    subject<T extends SubjectDefaultArgs<ExtArgs> = {}>(args?: Subset<T, SubjectDefaultArgs<ExtArgs>>): Prisma__SubjectClient<$Result.GetResult<Prisma.$SubjectPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the TestSubject model
+   */
+  interface TestSubjectFieldRefs {
+    readonly test_type_id: FieldRef<"TestSubject", 'String'>
+    readonly subject_id: FieldRef<"TestSubject", 'String'>
+    readonly assigned_at: FieldRef<"TestSubject", 'DateTime'>
+    readonly subject_order_in_test: FieldRef<"TestSubject", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * TestSubject findUnique
+   */
+  export type TestSubjectFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TestSubject
+     */
+    select?: TestSubjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TestSubject
+     */
+    omit?: TestSubjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TestSubjectInclude<ExtArgs> | null
+    /**
+     * Filter, which TestSubject to fetch.
+     */
+    where: TestSubjectWhereUniqueInput
+  }
+
+  /**
+   * TestSubject findUniqueOrThrow
+   */
+  export type TestSubjectFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TestSubject
+     */
+    select?: TestSubjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TestSubject
+     */
+    omit?: TestSubjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TestSubjectInclude<ExtArgs> | null
+    /**
+     * Filter, which TestSubject to fetch.
+     */
+    where: TestSubjectWhereUniqueInput
+  }
+
+  /**
+   * TestSubject findFirst
+   */
+  export type TestSubjectFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TestSubject
+     */
+    select?: TestSubjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TestSubject
+     */
+    omit?: TestSubjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TestSubjectInclude<ExtArgs> | null
+    /**
+     * Filter, which TestSubject to fetch.
+     */
+    where?: TestSubjectWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TestSubjects to fetch.
+     */
+    orderBy?: TestSubjectOrderByWithRelationInput | TestSubjectOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for TestSubjects.
+     */
+    cursor?: TestSubjectWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TestSubjects from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TestSubjects.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of TestSubjects.
+     */
+    distinct?: TestSubjectScalarFieldEnum | TestSubjectScalarFieldEnum[]
+  }
+
+  /**
+   * TestSubject findFirstOrThrow
+   */
+  export type TestSubjectFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TestSubject
+     */
+    select?: TestSubjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TestSubject
+     */
+    omit?: TestSubjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TestSubjectInclude<ExtArgs> | null
+    /**
+     * Filter, which TestSubject to fetch.
+     */
+    where?: TestSubjectWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TestSubjects to fetch.
+     */
+    orderBy?: TestSubjectOrderByWithRelationInput | TestSubjectOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for TestSubjects.
+     */
+    cursor?: TestSubjectWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TestSubjects from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TestSubjects.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of TestSubjects.
+     */
+    distinct?: TestSubjectScalarFieldEnum | TestSubjectScalarFieldEnum[]
+  }
+
+  /**
+   * TestSubject findMany
+   */
+  export type TestSubjectFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TestSubject
+     */
+    select?: TestSubjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TestSubject
+     */
+    omit?: TestSubjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TestSubjectInclude<ExtArgs> | null
+    /**
+     * Filter, which TestSubjects to fetch.
+     */
+    where?: TestSubjectWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TestSubjects to fetch.
+     */
+    orderBy?: TestSubjectOrderByWithRelationInput | TestSubjectOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing TestSubjects.
+     */
+    cursor?: TestSubjectWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TestSubjects from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TestSubjects.
+     */
+    skip?: number
+    distinct?: TestSubjectScalarFieldEnum | TestSubjectScalarFieldEnum[]
+  }
+
+  /**
+   * TestSubject create
+   */
+  export type TestSubjectCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TestSubject
+     */
+    select?: TestSubjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TestSubject
+     */
+    omit?: TestSubjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TestSubjectInclude<ExtArgs> | null
+    /**
+     * The data needed to create a TestSubject.
+     */
+    data: XOR<TestSubjectCreateInput, TestSubjectUncheckedCreateInput>
+  }
+
+  /**
+   * TestSubject createMany
+   */
+  export type TestSubjectCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many TestSubjects.
+     */
+    data: TestSubjectCreateManyInput | TestSubjectCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * TestSubject update
+   */
+  export type TestSubjectUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TestSubject
+     */
+    select?: TestSubjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TestSubject
+     */
+    omit?: TestSubjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TestSubjectInclude<ExtArgs> | null
+    /**
+     * The data needed to update a TestSubject.
+     */
+    data: XOR<TestSubjectUpdateInput, TestSubjectUncheckedUpdateInput>
+    /**
+     * Choose, which TestSubject to update.
+     */
+    where: TestSubjectWhereUniqueInput
+  }
+
+  /**
+   * TestSubject updateMany
+   */
+  export type TestSubjectUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update TestSubjects.
+     */
+    data: XOR<TestSubjectUpdateManyMutationInput, TestSubjectUncheckedUpdateManyInput>
+    /**
+     * Filter which TestSubjects to update
+     */
+    where?: TestSubjectWhereInput
+    /**
+     * Limit how many TestSubjects to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * TestSubject upsert
+   */
+  export type TestSubjectUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TestSubject
+     */
+    select?: TestSubjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TestSubject
+     */
+    omit?: TestSubjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TestSubjectInclude<ExtArgs> | null
+    /**
+     * The filter to search for the TestSubject to update in case it exists.
+     */
+    where: TestSubjectWhereUniqueInput
+    /**
+     * In case the TestSubject found by the `where` argument doesn't exist, create a new TestSubject with this data.
+     */
+    create: XOR<TestSubjectCreateInput, TestSubjectUncheckedCreateInput>
+    /**
+     * In case the TestSubject was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<TestSubjectUpdateInput, TestSubjectUncheckedUpdateInput>
+  }
+
+  /**
+   * TestSubject delete
+   */
+  export type TestSubjectDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TestSubject
+     */
+    select?: TestSubjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TestSubject
+     */
+    omit?: TestSubjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TestSubjectInclude<ExtArgs> | null
+    /**
+     * Filter which TestSubject to delete.
+     */
+    where: TestSubjectWhereUniqueInput
+  }
+
+  /**
+   * TestSubject deleteMany
+   */
+  export type TestSubjectDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which TestSubjects to delete
+     */
+    where?: TestSubjectWhereInput
+    /**
+     * Limit how many TestSubjects to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * TestSubject without action
+   */
+  export type TestSubjectDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TestSubject
+     */
+    select?: TestSubjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TestSubject
+     */
+    omit?: TestSubjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TestSubjectInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model GlossaryCategory
+   */
+
+  export type AggregateGlossaryCategory = {
+    _count: GlossaryCategoryCountAggregateOutputType | null
+    _min: GlossaryCategoryMinAggregateOutputType | null
+    _max: GlossaryCategoryMaxAggregateOutputType | null
+  }
+
+  export type GlossaryCategoryMinAggregateOutputType = {
+    id: string | null
+    name: string | null
+    description: string | null
+    created_at: Date | null
+    updated_at: Date | null
+    active: boolean | null
+  }
+
+  export type GlossaryCategoryMaxAggregateOutputType = {
+    id: string | null
+    name: string | null
+    description: string | null
+    created_at: Date | null
+    updated_at: Date | null
+    active: boolean | null
+  }
+
+  export type GlossaryCategoryCountAggregateOutputType = {
+    id: number
+    name: number
+    description: number
+    created_at: number
+    updated_at: number
+    active: number
+    _all: number
+  }
+
+
+  export type GlossaryCategoryMinAggregateInputType = {
+    id?: true
+    name?: true
+    description?: true
+    created_at?: true
+    updated_at?: true
+    active?: true
+  }
+
+  export type GlossaryCategoryMaxAggregateInputType = {
+    id?: true
+    name?: true
+    description?: true
+    created_at?: true
+    updated_at?: true
+    active?: true
+  }
+
+  export type GlossaryCategoryCountAggregateInputType = {
+    id?: true
+    name?: true
+    description?: true
+    created_at?: true
+    updated_at?: true
+    active?: true
+    _all?: true
+  }
+
+  export type GlossaryCategoryAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which GlossaryCategory to aggregate.
+     */
+    where?: GlossaryCategoryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of GlossaryCategories to fetch.
+     */
+    orderBy?: GlossaryCategoryOrderByWithRelationInput | GlossaryCategoryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: GlossaryCategoryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` GlossaryCategories from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` GlossaryCategories.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned GlossaryCategories
+    **/
+    _count?: true | GlossaryCategoryCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: GlossaryCategoryMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: GlossaryCategoryMaxAggregateInputType
+  }
+
+  export type GetGlossaryCategoryAggregateType<T extends GlossaryCategoryAggregateArgs> = {
+        [P in keyof T & keyof AggregateGlossaryCategory]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateGlossaryCategory[P]>
+      : GetScalarType<T[P], AggregateGlossaryCategory[P]>
+  }
+
+
+
+
+  export type GlossaryCategoryGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: GlossaryCategoryWhereInput
+    orderBy?: GlossaryCategoryOrderByWithAggregationInput | GlossaryCategoryOrderByWithAggregationInput[]
+    by: GlossaryCategoryScalarFieldEnum[] | GlossaryCategoryScalarFieldEnum
+    having?: GlossaryCategoryScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: GlossaryCategoryCountAggregateInputType | true
+    _min?: GlossaryCategoryMinAggregateInputType
+    _max?: GlossaryCategoryMaxAggregateInputType
+  }
+
+  export type GlossaryCategoryGroupByOutputType = {
+    id: string
+    name: string
+    description: string | null
+    created_at: Date
+    updated_at: Date
+    active: boolean
+    _count: GlossaryCategoryCountAggregateOutputType | null
+    _min: GlossaryCategoryMinAggregateOutputType | null
+    _max: GlossaryCategoryMaxAggregateOutputType | null
+  }
+
+  type GetGlossaryCategoryGroupByPayload<T extends GlossaryCategoryGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<GlossaryCategoryGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof GlossaryCategoryGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], GlossaryCategoryGroupByOutputType[P]>
+            : GetScalarType<T[P], GlossaryCategoryGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type GlossaryCategorySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    description?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+    active?: boolean
+    terms?: boolean | GlossaryCategory$termsArgs<ExtArgs>
+    _count?: boolean | GlossaryCategoryCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["glossaryCategory"]>
+
+
+
+  export type GlossaryCategorySelectScalar = {
+    id?: boolean
+    name?: boolean
+    description?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+    active?: boolean
+  }
+
+  export type GlossaryCategoryOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "created_at" | "updated_at" | "active", ExtArgs["result"]["glossaryCategory"]>
+  export type GlossaryCategoryInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    terms?: boolean | GlossaryCategory$termsArgs<ExtArgs>
+    _count?: boolean | GlossaryCategoryCountOutputTypeDefaultArgs<ExtArgs>
+  }
+
+  export type $GlossaryCategoryPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "GlossaryCategory"
+    objects: {
+      terms: Prisma.$GlossaryTermPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      name: string
+      description: string | null
+      created_at: Date
+      updated_at: Date
+      active: boolean
+    }, ExtArgs["result"]["glossaryCategory"]>
+    composites: {}
+  }
+
+  type GlossaryCategoryGetPayload<S extends boolean | null | undefined | GlossaryCategoryDefaultArgs> = $Result.GetResult<Prisma.$GlossaryCategoryPayload, S>
+
+  type GlossaryCategoryCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<GlossaryCategoryFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: GlossaryCategoryCountAggregateInputType | true
+    }
+
+  export interface GlossaryCategoryDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['GlossaryCategory'], meta: { name: 'GlossaryCategory' } }
+    /**
+     * Find zero or one GlossaryCategory that matches the filter.
+     * @param {GlossaryCategoryFindUniqueArgs} args - Arguments to find a GlossaryCategory
+     * @example
+     * // Get one GlossaryCategory
+     * const glossaryCategory = await prisma.glossaryCategory.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends GlossaryCategoryFindUniqueArgs>(args: SelectSubset<T, GlossaryCategoryFindUniqueArgs<ExtArgs>>): Prisma__GlossaryCategoryClient<$Result.GetResult<Prisma.$GlossaryCategoryPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one GlossaryCategory that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {GlossaryCategoryFindUniqueOrThrowArgs} args - Arguments to find a GlossaryCategory
+     * @example
+     * // Get one GlossaryCategory
+     * const glossaryCategory = await prisma.glossaryCategory.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends GlossaryCategoryFindUniqueOrThrowArgs>(args: SelectSubset<T, GlossaryCategoryFindUniqueOrThrowArgs<ExtArgs>>): Prisma__GlossaryCategoryClient<$Result.GetResult<Prisma.$GlossaryCategoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first GlossaryCategory that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {GlossaryCategoryFindFirstArgs} args - Arguments to find a GlossaryCategory
+     * @example
+     * // Get one GlossaryCategory
+     * const glossaryCategory = await prisma.glossaryCategory.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends GlossaryCategoryFindFirstArgs>(args?: SelectSubset<T, GlossaryCategoryFindFirstArgs<ExtArgs>>): Prisma__GlossaryCategoryClient<$Result.GetResult<Prisma.$GlossaryCategoryPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first GlossaryCategory that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {GlossaryCategoryFindFirstOrThrowArgs} args - Arguments to find a GlossaryCategory
+     * @example
+     * // Get one GlossaryCategory
+     * const glossaryCategory = await prisma.glossaryCategory.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends GlossaryCategoryFindFirstOrThrowArgs>(args?: SelectSubset<T, GlossaryCategoryFindFirstOrThrowArgs<ExtArgs>>): Prisma__GlossaryCategoryClient<$Result.GetResult<Prisma.$GlossaryCategoryPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more GlossaryCategories that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {GlossaryCategoryFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all GlossaryCategories
+     * const glossaryCategories = await prisma.glossaryCategory.findMany()
+     * 
+     * // Get first 10 GlossaryCategories
+     * const glossaryCategories = await prisma.glossaryCategory.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const glossaryCategoryWithIdOnly = await prisma.glossaryCategory.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends GlossaryCategoryFindManyArgs>(args?: SelectSubset<T, GlossaryCategoryFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GlossaryCategoryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a GlossaryCategory.
+     * @param {GlossaryCategoryCreateArgs} args - Arguments to create a GlossaryCategory.
+     * @example
+     * // Create one GlossaryCategory
+     * const GlossaryCategory = await prisma.glossaryCategory.create({
+     *   data: {
+     *     // ... data to create a GlossaryCategory
+     *   }
+     * })
+     * 
+     */
+    create<T extends GlossaryCategoryCreateArgs>(args: SelectSubset<T, GlossaryCategoryCreateArgs<ExtArgs>>): Prisma__GlossaryCategoryClient<$Result.GetResult<Prisma.$GlossaryCategoryPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many GlossaryCategories.
+     * @param {GlossaryCategoryCreateManyArgs} args - Arguments to create many GlossaryCategories.
+     * @example
+     * // Create many GlossaryCategories
+     * const glossaryCategory = await prisma.glossaryCategory.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends GlossaryCategoryCreateManyArgs>(args?: SelectSubset<T, GlossaryCategoryCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a GlossaryCategory.
+     * @param {GlossaryCategoryDeleteArgs} args - Arguments to delete one GlossaryCategory.
+     * @example
+     * // Delete one GlossaryCategory
+     * const GlossaryCategory = await prisma.glossaryCategory.delete({
+     *   where: {
+     *     // ... filter to delete one GlossaryCategory
+     *   }
+     * })
+     * 
+     */
+    delete<T extends GlossaryCategoryDeleteArgs>(args: SelectSubset<T, GlossaryCategoryDeleteArgs<ExtArgs>>): Prisma__GlossaryCategoryClient<$Result.GetResult<Prisma.$GlossaryCategoryPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one GlossaryCategory.
+     * @param {GlossaryCategoryUpdateArgs} args - Arguments to update one GlossaryCategory.
+     * @example
+     * // Update one GlossaryCategory
+     * const glossaryCategory = await prisma.glossaryCategory.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends GlossaryCategoryUpdateArgs>(args: SelectSubset<T, GlossaryCategoryUpdateArgs<ExtArgs>>): Prisma__GlossaryCategoryClient<$Result.GetResult<Prisma.$GlossaryCategoryPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more GlossaryCategories.
+     * @param {GlossaryCategoryDeleteManyArgs} args - Arguments to filter GlossaryCategories to delete.
+     * @example
+     * // Delete a few GlossaryCategories
+     * const { count } = await prisma.glossaryCategory.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends GlossaryCategoryDeleteManyArgs>(args?: SelectSubset<T, GlossaryCategoryDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more GlossaryCategories.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {GlossaryCategoryUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many GlossaryCategories
+     * const glossaryCategory = await prisma.glossaryCategory.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends GlossaryCategoryUpdateManyArgs>(args: SelectSubset<T, GlossaryCategoryUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one GlossaryCategory.
+     * @param {GlossaryCategoryUpsertArgs} args - Arguments to update or create a GlossaryCategory.
+     * @example
+     * // Update or create a GlossaryCategory
+     * const glossaryCategory = await prisma.glossaryCategory.upsert({
+     *   create: {
+     *     // ... data to create a GlossaryCategory
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the GlossaryCategory we want to update
+     *   }
+     * })
+     */
+    upsert<T extends GlossaryCategoryUpsertArgs>(args: SelectSubset<T, GlossaryCategoryUpsertArgs<ExtArgs>>): Prisma__GlossaryCategoryClient<$Result.GetResult<Prisma.$GlossaryCategoryPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of GlossaryCategories.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {GlossaryCategoryCountArgs} args - Arguments to filter GlossaryCategories to count.
+     * @example
+     * // Count the number of GlossaryCategories
+     * const count = await prisma.glossaryCategory.count({
+     *   where: {
+     *     // ... the filter for the GlossaryCategories we want to count
+     *   }
+     * })
+    **/
+    count<T extends GlossaryCategoryCountArgs>(
+      args?: Subset<T, GlossaryCategoryCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], GlossaryCategoryCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a GlossaryCategory.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {GlossaryCategoryAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends GlossaryCategoryAggregateArgs>(args: Subset<T, GlossaryCategoryAggregateArgs>): Prisma.PrismaPromise<GetGlossaryCategoryAggregateType<T>>
+
+    /**
+     * Group by GlossaryCategory.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {GlossaryCategoryGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends GlossaryCategoryGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: GlossaryCategoryGroupByArgs['orderBy'] }
+        : { orderBy?: GlossaryCategoryGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, GlossaryCategoryGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetGlossaryCategoryGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the GlossaryCategory model
+   */
+  readonly fields: GlossaryCategoryFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for GlossaryCategory.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__GlossaryCategoryClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    terms<T extends GlossaryCategory$termsArgs<ExtArgs> = {}>(args?: Subset<T, GlossaryCategory$termsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GlossaryTermPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the GlossaryCategory model
+   */
+  interface GlossaryCategoryFieldRefs {
+    readonly id: FieldRef<"GlossaryCategory", 'String'>
+    readonly name: FieldRef<"GlossaryCategory", 'String'>
+    readonly description: FieldRef<"GlossaryCategory", 'String'>
+    readonly created_at: FieldRef<"GlossaryCategory", 'DateTime'>
+    readonly updated_at: FieldRef<"GlossaryCategory", 'DateTime'>
+    readonly active: FieldRef<"GlossaryCategory", 'Boolean'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * GlossaryCategory findUnique
+   */
+  export type GlossaryCategoryFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GlossaryCategory
+     */
+    select?: GlossaryCategorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GlossaryCategory
+     */
+    omit?: GlossaryCategoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GlossaryCategoryInclude<ExtArgs> | null
+    /**
+     * Filter, which GlossaryCategory to fetch.
+     */
+    where: GlossaryCategoryWhereUniqueInput
+  }
+
+  /**
+   * GlossaryCategory findUniqueOrThrow
+   */
+  export type GlossaryCategoryFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GlossaryCategory
+     */
+    select?: GlossaryCategorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GlossaryCategory
+     */
+    omit?: GlossaryCategoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GlossaryCategoryInclude<ExtArgs> | null
+    /**
+     * Filter, which GlossaryCategory to fetch.
+     */
+    where: GlossaryCategoryWhereUniqueInput
+  }
+
+  /**
+   * GlossaryCategory findFirst
+   */
+  export type GlossaryCategoryFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GlossaryCategory
+     */
+    select?: GlossaryCategorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GlossaryCategory
+     */
+    omit?: GlossaryCategoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GlossaryCategoryInclude<ExtArgs> | null
+    /**
+     * Filter, which GlossaryCategory to fetch.
+     */
+    where?: GlossaryCategoryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of GlossaryCategories to fetch.
+     */
+    orderBy?: GlossaryCategoryOrderByWithRelationInput | GlossaryCategoryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for GlossaryCategories.
+     */
+    cursor?: GlossaryCategoryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` GlossaryCategories from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` GlossaryCategories.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of GlossaryCategories.
+     */
+    distinct?: GlossaryCategoryScalarFieldEnum | GlossaryCategoryScalarFieldEnum[]
+  }
+
+  /**
+   * GlossaryCategory findFirstOrThrow
+   */
+  export type GlossaryCategoryFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GlossaryCategory
+     */
+    select?: GlossaryCategorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GlossaryCategory
+     */
+    omit?: GlossaryCategoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GlossaryCategoryInclude<ExtArgs> | null
+    /**
+     * Filter, which GlossaryCategory to fetch.
+     */
+    where?: GlossaryCategoryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of GlossaryCategories to fetch.
+     */
+    orderBy?: GlossaryCategoryOrderByWithRelationInput | GlossaryCategoryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for GlossaryCategories.
+     */
+    cursor?: GlossaryCategoryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` GlossaryCategories from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` GlossaryCategories.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of GlossaryCategories.
+     */
+    distinct?: GlossaryCategoryScalarFieldEnum | GlossaryCategoryScalarFieldEnum[]
+  }
+
+  /**
+   * GlossaryCategory findMany
+   */
+  export type GlossaryCategoryFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GlossaryCategory
+     */
+    select?: GlossaryCategorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GlossaryCategory
+     */
+    omit?: GlossaryCategoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GlossaryCategoryInclude<ExtArgs> | null
+    /**
+     * Filter, which GlossaryCategories to fetch.
+     */
+    where?: GlossaryCategoryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of GlossaryCategories to fetch.
+     */
+    orderBy?: GlossaryCategoryOrderByWithRelationInput | GlossaryCategoryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing GlossaryCategories.
+     */
+    cursor?: GlossaryCategoryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` GlossaryCategories from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` GlossaryCategories.
+     */
+    skip?: number
+    distinct?: GlossaryCategoryScalarFieldEnum | GlossaryCategoryScalarFieldEnum[]
+  }
+
+  /**
+   * GlossaryCategory create
+   */
+  export type GlossaryCategoryCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GlossaryCategory
+     */
+    select?: GlossaryCategorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GlossaryCategory
+     */
+    omit?: GlossaryCategoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GlossaryCategoryInclude<ExtArgs> | null
+    /**
+     * The data needed to create a GlossaryCategory.
+     */
+    data: XOR<GlossaryCategoryCreateInput, GlossaryCategoryUncheckedCreateInput>
+  }
+
+  /**
+   * GlossaryCategory createMany
+   */
+  export type GlossaryCategoryCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many GlossaryCategories.
+     */
+    data: GlossaryCategoryCreateManyInput | GlossaryCategoryCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * GlossaryCategory update
+   */
+  export type GlossaryCategoryUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GlossaryCategory
+     */
+    select?: GlossaryCategorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GlossaryCategory
+     */
+    omit?: GlossaryCategoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GlossaryCategoryInclude<ExtArgs> | null
+    /**
+     * The data needed to update a GlossaryCategory.
+     */
+    data: XOR<GlossaryCategoryUpdateInput, GlossaryCategoryUncheckedUpdateInput>
+    /**
+     * Choose, which GlossaryCategory to update.
+     */
+    where: GlossaryCategoryWhereUniqueInput
+  }
+
+  /**
+   * GlossaryCategory updateMany
+   */
+  export type GlossaryCategoryUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update GlossaryCategories.
+     */
+    data: XOR<GlossaryCategoryUpdateManyMutationInput, GlossaryCategoryUncheckedUpdateManyInput>
+    /**
+     * Filter which GlossaryCategories to update
+     */
+    where?: GlossaryCategoryWhereInput
+    /**
+     * Limit how many GlossaryCategories to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * GlossaryCategory upsert
+   */
+  export type GlossaryCategoryUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GlossaryCategory
+     */
+    select?: GlossaryCategorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GlossaryCategory
+     */
+    omit?: GlossaryCategoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GlossaryCategoryInclude<ExtArgs> | null
+    /**
+     * The filter to search for the GlossaryCategory to update in case it exists.
+     */
+    where: GlossaryCategoryWhereUniqueInput
+    /**
+     * In case the GlossaryCategory found by the `where` argument doesn't exist, create a new GlossaryCategory with this data.
+     */
+    create: XOR<GlossaryCategoryCreateInput, GlossaryCategoryUncheckedCreateInput>
+    /**
+     * In case the GlossaryCategory was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<GlossaryCategoryUpdateInput, GlossaryCategoryUncheckedUpdateInput>
+  }
+
+  /**
+   * GlossaryCategory delete
+   */
+  export type GlossaryCategoryDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GlossaryCategory
+     */
+    select?: GlossaryCategorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GlossaryCategory
+     */
+    omit?: GlossaryCategoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GlossaryCategoryInclude<ExtArgs> | null
+    /**
+     * Filter which GlossaryCategory to delete.
+     */
+    where: GlossaryCategoryWhereUniqueInput
+  }
+
+  /**
+   * GlossaryCategory deleteMany
+   */
+  export type GlossaryCategoryDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which GlossaryCategories to delete
+     */
+    where?: GlossaryCategoryWhereInput
+    /**
+     * Limit how many GlossaryCategories to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * GlossaryCategory.terms
+   */
+  export type GlossaryCategory$termsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GlossaryTerm
+     */
+    select?: GlossaryTermSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GlossaryTerm
+     */
+    omit?: GlossaryTermOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GlossaryTermInclude<ExtArgs> | null
+    where?: GlossaryTermWhereInput
+    orderBy?: GlossaryTermOrderByWithRelationInput | GlossaryTermOrderByWithRelationInput[]
+    cursor?: GlossaryTermWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: GlossaryTermScalarFieldEnum | GlossaryTermScalarFieldEnum[]
+  }
+
+  /**
+   * GlossaryCategory without action
+   */
+  export type GlossaryCategoryDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GlossaryCategory
+     */
+    select?: GlossaryCategorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GlossaryCategory
+     */
+    omit?: GlossaryCategoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GlossaryCategoryInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model GlossaryTerm
+   */
+
+  export type AggregateGlossaryTerm = {
+    _count: GlossaryTermCountAggregateOutputType | null
+    _min: GlossaryTermMinAggregateOutputType | null
+    _max: GlossaryTermMaxAggregateOutputType | null
+  }
+
+  export type GlossaryTermMinAggregateOutputType = {
+    id: string | null
+    word: string | null
+    description: string | null
+    created_at: Date | null
+    updated_at: Date | null
+    active: boolean | null
+    category_id: string | null
+  }
+
+  export type GlossaryTermMaxAggregateOutputType = {
+    id: string | null
+    word: string | null
+    description: string | null
+    created_at: Date | null
+    updated_at: Date | null
+    active: boolean | null
+    category_id: string | null
+  }
+
+  export type GlossaryTermCountAggregateOutputType = {
+    id: number
+    word: number
+    description: number
+    created_at: number
+    updated_at: number
+    active: number
+    category_id: number
+    _all: number
+  }
+
+
+  export type GlossaryTermMinAggregateInputType = {
+    id?: true
+    word?: true
+    description?: true
+    created_at?: true
+    updated_at?: true
+    active?: true
+    category_id?: true
+  }
+
+  export type GlossaryTermMaxAggregateInputType = {
+    id?: true
+    word?: true
+    description?: true
+    created_at?: true
+    updated_at?: true
+    active?: true
+    category_id?: true
+  }
+
+  export type GlossaryTermCountAggregateInputType = {
+    id?: true
+    word?: true
+    description?: true
+    created_at?: true
+    updated_at?: true
+    active?: true
+    category_id?: true
+    _all?: true
+  }
+
+  export type GlossaryTermAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which GlossaryTerm to aggregate.
+     */
+    where?: GlossaryTermWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of GlossaryTerms to fetch.
+     */
+    orderBy?: GlossaryTermOrderByWithRelationInput | GlossaryTermOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: GlossaryTermWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` GlossaryTerms from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` GlossaryTerms.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned GlossaryTerms
+    **/
+    _count?: true | GlossaryTermCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: GlossaryTermMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: GlossaryTermMaxAggregateInputType
+  }
+
+  export type GetGlossaryTermAggregateType<T extends GlossaryTermAggregateArgs> = {
+        [P in keyof T & keyof AggregateGlossaryTerm]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateGlossaryTerm[P]>
+      : GetScalarType<T[P], AggregateGlossaryTerm[P]>
+  }
+
+
+
+
+  export type GlossaryTermGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: GlossaryTermWhereInput
+    orderBy?: GlossaryTermOrderByWithAggregationInput | GlossaryTermOrderByWithAggregationInput[]
+    by: GlossaryTermScalarFieldEnum[] | GlossaryTermScalarFieldEnum
+    having?: GlossaryTermScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: GlossaryTermCountAggregateInputType | true
+    _min?: GlossaryTermMinAggregateInputType
+    _max?: GlossaryTermMaxAggregateInputType
+  }
+
+  export type GlossaryTermGroupByOutputType = {
+    id: string
+    word: string
+    description: string
+    created_at: Date
+    updated_at: Date
+    active: boolean
+    category_id: string
+    _count: GlossaryTermCountAggregateOutputType | null
+    _min: GlossaryTermMinAggregateOutputType | null
+    _max: GlossaryTermMaxAggregateOutputType | null
+  }
+
+  type GetGlossaryTermGroupByPayload<T extends GlossaryTermGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<GlossaryTermGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof GlossaryTermGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], GlossaryTermGroupByOutputType[P]>
+            : GetScalarType<T[P], GlossaryTermGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type GlossaryTermSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    word?: boolean
+    description?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+    active?: boolean
+    category_id?: boolean
+    category?: boolean | GlossaryCategoryDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["glossaryTerm"]>
+
+
+
+  export type GlossaryTermSelectScalar = {
+    id?: boolean
+    word?: boolean
+    description?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+    active?: boolean
+    category_id?: boolean
+  }
+
+  export type GlossaryTermOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "word" | "description" | "created_at" | "updated_at" | "active" | "category_id", ExtArgs["result"]["glossaryTerm"]>
+  export type GlossaryTermInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    category?: boolean | GlossaryCategoryDefaultArgs<ExtArgs>
+  }
+
+  export type $GlossaryTermPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "GlossaryTerm"
+    objects: {
+      category: Prisma.$GlossaryCategoryPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      word: string
+      description: string
+      created_at: Date
+      updated_at: Date
+      active: boolean
+      category_id: string
+    }, ExtArgs["result"]["glossaryTerm"]>
+    composites: {}
+  }
+
+  type GlossaryTermGetPayload<S extends boolean | null | undefined | GlossaryTermDefaultArgs> = $Result.GetResult<Prisma.$GlossaryTermPayload, S>
+
+  type GlossaryTermCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<GlossaryTermFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: GlossaryTermCountAggregateInputType | true
+    }
+
+  export interface GlossaryTermDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['GlossaryTerm'], meta: { name: 'GlossaryTerm' } }
+    /**
+     * Find zero or one GlossaryTerm that matches the filter.
+     * @param {GlossaryTermFindUniqueArgs} args - Arguments to find a GlossaryTerm
+     * @example
+     * // Get one GlossaryTerm
+     * const glossaryTerm = await prisma.glossaryTerm.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends GlossaryTermFindUniqueArgs>(args: SelectSubset<T, GlossaryTermFindUniqueArgs<ExtArgs>>): Prisma__GlossaryTermClient<$Result.GetResult<Prisma.$GlossaryTermPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one GlossaryTerm that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {GlossaryTermFindUniqueOrThrowArgs} args - Arguments to find a GlossaryTerm
+     * @example
+     * // Get one GlossaryTerm
+     * const glossaryTerm = await prisma.glossaryTerm.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends GlossaryTermFindUniqueOrThrowArgs>(args: SelectSubset<T, GlossaryTermFindUniqueOrThrowArgs<ExtArgs>>): Prisma__GlossaryTermClient<$Result.GetResult<Prisma.$GlossaryTermPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first GlossaryTerm that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {GlossaryTermFindFirstArgs} args - Arguments to find a GlossaryTerm
+     * @example
+     * // Get one GlossaryTerm
+     * const glossaryTerm = await prisma.glossaryTerm.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends GlossaryTermFindFirstArgs>(args?: SelectSubset<T, GlossaryTermFindFirstArgs<ExtArgs>>): Prisma__GlossaryTermClient<$Result.GetResult<Prisma.$GlossaryTermPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first GlossaryTerm that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {GlossaryTermFindFirstOrThrowArgs} args - Arguments to find a GlossaryTerm
+     * @example
+     * // Get one GlossaryTerm
+     * const glossaryTerm = await prisma.glossaryTerm.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends GlossaryTermFindFirstOrThrowArgs>(args?: SelectSubset<T, GlossaryTermFindFirstOrThrowArgs<ExtArgs>>): Prisma__GlossaryTermClient<$Result.GetResult<Prisma.$GlossaryTermPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more GlossaryTerms that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {GlossaryTermFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all GlossaryTerms
+     * const glossaryTerms = await prisma.glossaryTerm.findMany()
+     * 
+     * // Get first 10 GlossaryTerms
+     * const glossaryTerms = await prisma.glossaryTerm.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const glossaryTermWithIdOnly = await prisma.glossaryTerm.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends GlossaryTermFindManyArgs>(args?: SelectSubset<T, GlossaryTermFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GlossaryTermPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a GlossaryTerm.
+     * @param {GlossaryTermCreateArgs} args - Arguments to create a GlossaryTerm.
+     * @example
+     * // Create one GlossaryTerm
+     * const GlossaryTerm = await prisma.glossaryTerm.create({
+     *   data: {
+     *     // ... data to create a GlossaryTerm
+     *   }
+     * })
+     * 
+     */
+    create<T extends GlossaryTermCreateArgs>(args: SelectSubset<T, GlossaryTermCreateArgs<ExtArgs>>): Prisma__GlossaryTermClient<$Result.GetResult<Prisma.$GlossaryTermPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many GlossaryTerms.
+     * @param {GlossaryTermCreateManyArgs} args - Arguments to create many GlossaryTerms.
+     * @example
+     * // Create many GlossaryTerms
+     * const glossaryTerm = await prisma.glossaryTerm.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends GlossaryTermCreateManyArgs>(args?: SelectSubset<T, GlossaryTermCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a GlossaryTerm.
+     * @param {GlossaryTermDeleteArgs} args - Arguments to delete one GlossaryTerm.
+     * @example
+     * // Delete one GlossaryTerm
+     * const GlossaryTerm = await prisma.glossaryTerm.delete({
+     *   where: {
+     *     // ... filter to delete one GlossaryTerm
+     *   }
+     * })
+     * 
+     */
+    delete<T extends GlossaryTermDeleteArgs>(args: SelectSubset<T, GlossaryTermDeleteArgs<ExtArgs>>): Prisma__GlossaryTermClient<$Result.GetResult<Prisma.$GlossaryTermPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one GlossaryTerm.
+     * @param {GlossaryTermUpdateArgs} args - Arguments to update one GlossaryTerm.
+     * @example
+     * // Update one GlossaryTerm
+     * const glossaryTerm = await prisma.glossaryTerm.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends GlossaryTermUpdateArgs>(args: SelectSubset<T, GlossaryTermUpdateArgs<ExtArgs>>): Prisma__GlossaryTermClient<$Result.GetResult<Prisma.$GlossaryTermPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more GlossaryTerms.
+     * @param {GlossaryTermDeleteManyArgs} args - Arguments to filter GlossaryTerms to delete.
+     * @example
+     * // Delete a few GlossaryTerms
+     * const { count } = await prisma.glossaryTerm.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends GlossaryTermDeleteManyArgs>(args?: SelectSubset<T, GlossaryTermDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more GlossaryTerms.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {GlossaryTermUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many GlossaryTerms
+     * const glossaryTerm = await prisma.glossaryTerm.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends GlossaryTermUpdateManyArgs>(args: SelectSubset<T, GlossaryTermUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one GlossaryTerm.
+     * @param {GlossaryTermUpsertArgs} args - Arguments to update or create a GlossaryTerm.
+     * @example
+     * // Update or create a GlossaryTerm
+     * const glossaryTerm = await prisma.glossaryTerm.upsert({
+     *   create: {
+     *     // ... data to create a GlossaryTerm
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the GlossaryTerm we want to update
+     *   }
+     * })
+     */
+    upsert<T extends GlossaryTermUpsertArgs>(args: SelectSubset<T, GlossaryTermUpsertArgs<ExtArgs>>): Prisma__GlossaryTermClient<$Result.GetResult<Prisma.$GlossaryTermPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of GlossaryTerms.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {GlossaryTermCountArgs} args - Arguments to filter GlossaryTerms to count.
+     * @example
+     * // Count the number of GlossaryTerms
+     * const count = await prisma.glossaryTerm.count({
+     *   where: {
+     *     // ... the filter for the GlossaryTerms we want to count
+     *   }
+     * })
+    **/
+    count<T extends GlossaryTermCountArgs>(
+      args?: Subset<T, GlossaryTermCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], GlossaryTermCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a GlossaryTerm.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {GlossaryTermAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends GlossaryTermAggregateArgs>(args: Subset<T, GlossaryTermAggregateArgs>): Prisma.PrismaPromise<GetGlossaryTermAggregateType<T>>
+
+    /**
+     * Group by GlossaryTerm.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {GlossaryTermGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends GlossaryTermGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: GlossaryTermGroupByArgs['orderBy'] }
+        : { orderBy?: GlossaryTermGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, GlossaryTermGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetGlossaryTermGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the GlossaryTerm model
+   */
+  readonly fields: GlossaryTermFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for GlossaryTerm.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__GlossaryTermClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    category<T extends GlossaryCategoryDefaultArgs<ExtArgs> = {}>(args?: Subset<T, GlossaryCategoryDefaultArgs<ExtArgs>>): Prisma__GlossaryCategoryClient<$Result.GetResult<Prisma.$GlossaryCategoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the GlossaryTerm model
+   */
+  interface GlossaryTermFieldRefs {
+    readonly id: FieldRef<"GlossaryTerm", 'String'>
+    readonly word: FieldRef<"GlossaryTerm", 'String'>
+    readonly description: FieldRef<"GlossaryTerm", 'String'>
+    readonly created_at: FieldRef<"GlossaryTerm", 'DateTime'>
+    readonly updated_at: FieldRef<"GlossaryTerm", 'DateTime'>
+    readonly active: FieldRef<"GlossaryTerm", 'Boolean'>
+    readonly category_id: FieldRef<"GlossaryTerm", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * GlossaryTerm findUnique
+   */
+  export type GlossaryTermFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GlossaryTerm
+     */
+    select?: GlossaryTermSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GlossaryTerm
+     */
+    omit?: GlossaryTermOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GlossaryTermInclude<ExtArgs> | null
+    /**
+     * Filter, which GlossaryTerm to fetch.
+     */
+    where: GlossaryTermWhereUniqueInput
+  }
+
+  /**
+   * GlossaryTerm findUniqueOrThrow
+   */
+  export type GlossaryTermFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GlossaryTerm
+     */
+    select?: GlossaryTermSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GlossaryTerm
+     */
+    omit?: GlossaryTermOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GlossaryTermInclude<ExtArgs> | null
+    /**
+     * Filter, which GlossaryTerm to fetch.
+     */
+    where: GlossaryTermWhereUniqueInput
+  }
+
+  /**
+   * GlossaryTerm findFirst
+   */
+  export type GlossaryTermFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GlossaryTerm
+     */
+    select?: GlossaryTermSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GlossaryTerm
+     */
+    omit?: GlossaryTermOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GlossaryTermInclude<ExtArgs> | null
+    /**
+     * Filter, which GlossaryTerm to fetch.
+     */
+    where?: GlossaryTermWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of GlossaryTerms to fetch.
+     */
+    orderBy?: GlossaryTermOrderByWithRelationInput | GlossaryTermOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for GlossaryTerms.
+     */
+    cursor?: GlossaryTermWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` GlossaryTerms from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` GlossaryTerms.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of GlossaryTerms.
+     */
+    distinct?: GlossaryTermScalarFieldEnum | GlossaryTermScalarFieldEnum[]
+  }
+
+  /**
+   * GlossaryTerm findFirstOrThrow
+   */
+  export type GlossaryTermFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GlossaryTerm
+     */
+    select?: GlossaryTermSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GlossaryTerm
+     */
+    omit?: GlossaryTermOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GlossaryTermInclude<ExtArgs> | null
+    /**
+     * Filter, which GlossaryTerm to fetch.
+     */
+    where?: GlossaryTermWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of GlossaryTerms to fetch.
+     */
+    orderBy?: GlossaryTermOrderByWithRelationInput | GlossaryTermOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for GlossaryTerms.
+     */
+    cursor?: GlossaryTermWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` GlossaryTerms from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` GlossaryTerms.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of GlossaryTerms.
+     */
+    distinct?: GlossaryTermScalarFieldEnum | GlossaryTermScalarFieldEnum[]
+  }
+
+  /**
+   * GlossaryTerm findMany
+   */
+  export type GlossaryTermFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GlossaryTerm
+     */
+    select?: GlossaryTermSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GlossaryTerm
+     */
+    omit?: GlossaryTermOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GlossaryTermInclude<ExtArgs> | null
+    /**
+     * Filter, which GlossaryTerms to fetch.
+     */
+    where?: GlossaryTermWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of GlossaryTerms to fetch.
+     */
+    orderBy?: GlossaryTermOrderByWithRelationInput | GlossaryTermOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing GlossaryTerms.
+     */
+    cursor?: GlossaryTermWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` GlossaryTerms from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` GlossaryTerms.
+     */
+    skip?: number
+    distinct?: GlossaryTermScalarFieldEnum | GlossaryTermScalarFieldEnum[]
+  }
+
+  /**
+   * GlossaryTerm create
+   */
+  export type GlossaryTermCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GlossaryTerm
+     */
+    select?: GlossaryTermSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GlossaryTerm
+     */
+    omit?: GlossaryTermOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GlossaryTermInclude<ExtArgs> | null
+    /**
+     * The data needed to create a GlossaryTerm.
+     */
+    data: XOR<GlossaryTermCreateInput, GlossaryTermUncheckedCreateInput>
+  }
+
+  /**
+   * GlossaryTerm createMany
+   */
+  export type GlossaryTermCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many GlossaryTerms.
+     */
+    data: GlossaryTermCreateManyInput | GlossaryTermCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * GlossaryTerm update
+   */
+  export type GlossaryTermUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GlossaryTerm
+     */
+    select?: GlossaryTermSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GlossaryTerm
+     */
+    omit?: GlossaryTermOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GlossaryTermInclude<ExtArgs> | null
+    /**
+     * The data needed to update a GlossaryTerm.
+     */
+    data: XOR<GlossaryTermUpdateInput, GlossaryTermUncheckedUpdateInput>
+    /**
+     * Choose, which GlossaryTerm to update.
+     */
+    where: GlossaryTermWhereUniqueInput
+  }
+
+  /**
+   * GlossaryTerm updateMany
+   */
+  export type GlossaryTermUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update GlossaryTerms.
+     */
+    data: XOR<GlossaryTermUpdateManyMutationInput, GlossaryTermUncheckedUpdateManyInput>
+    /**
+     * Filter which GlossaryTerms to update
+     */
+    where?: GlossaryTermWhereInput
+    /**
+     * Limit how many GlossaryTerms to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * GlossaryTerm upsert
+   */
+  export type GlossaryTermUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GlossaryTerm
+     */
+    select?: GlossaryTermSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GlossaryTerm
+     */
+    omit?: GlossaryTermOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GlossaryTermInclude<ExtArgs> | null
+    /**
+     * The filter to search for the GlossaryTerm to update in case it exists.
+     */
+    where: GlossaryTermWhereUniqueInput
+    /**
+     * In case the GlossaryTerm found by the `where` argument doesn't exist, create a new GlossaryTerm with this data.
+     */
+    create: XOR<GlossaryTermCreateInput, GlossaryTermUncheckedCreateInput>
+    /**
+     * In case the GlossaryTerm was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<GlossaryTermUpdateInput, GlossaryTermUncheckedUpdateInput>
+  }
+
+  /**
+   * GlossaryTerm delete
+   */
+  export type GlossaryTermDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GlossaryTerm
+     */
+    select?: GlossaryTermSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GlossaryTerm
+     */
+    omit?: GlossaryTermOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GlossaryTermInclude<ExtArgs> | null
+    /**
+     * Filter which GlossaryTerm to delete.
+     */
+    where: GlossaryTermWhereUniqueInput
+  }
+
+  /**
+   * GlossaryTerm deleteMany
+   */
+  export type GlossaryTermDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which GlossaryTerms to delete
+     */
+    where?: GlossaryTermWhereInput
+    /**
+     * Limit how many GlossaryTerms to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * GlossaryTerm without action
+   */
+  export type GlossaryTermDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GlossaryTerm
+     */
+    select?: GlossaryTermSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GlossaryTerm
+     */
+    omit?: GlossaryTermOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GlossaryTermInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -12984,11 +20713,104 @@ export namespace Prisma {
     event_type: 'event_type',
     ip_address: 'ip_address',
     user_agent: 'user_agent',
-    details: 'details',
-    created_at: 'created_at'
+    created_at: 'created_at',
+    additional_info: 'additional_info'
   };
 
   export type AuthEventScalarFieldEnum = (typeof AuthEventScalarFieldEnum)[keyof typeof AuthEventScalarFieldEnum]
+
+
+  export const TestTypeScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    description: 'description',
+    api_key_id: 'api_key_id',
+    created_at: 'created_at',
+    updated_at: 'updated_at'
+  };
+
+  export type TestTypeScalarFieldEnum = (typeof TestTypeScalarFieldEnum)[keyof typeof TestTypeScalarFieldEnum]
+
+
+  export const SubjectScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    description: 'description',
+    slug_materia: 'slug_materia',
+    approximate_total_minutes: 'approximate_total_minutes',
+    total_questions: 'total_questions',
+    order: 'order',
+    api_key_id: 'api_key_id',
+    created_at: 'created_at',
+    updated_at: 'updated_at'
+  };
+
+  export type SubjectScalarFieldEnum = (typeof SubjectScalarFieldEnum)[keyof typeof SubjectScalarFieldEnum]
+
+
+  export const SubjectDetailScalarFieldEnum: {
+    id: 'id',
+    background_image_url: 'background_image_url',
+    title: 'title',
+    title_color: 'title_color',
+    subtitle: 'subtitle',
+    primary_color_hex: 'primary_color_hex',
+    created_at: 'created_at',
+    updated_at: 'updated_at',
+    subject_id: 'subject_id'
+  };
+
+  export type SubjectDetailScalarFieldEnum = (typeof SubjectDetailScalarFieldEnum)[keyof typeof SubjectDetailScalarFieldEnum]
+
+
+  export const SubjectLevelScalarFieldEnum: {
+    id: 'id',
+    reference_title: 'reference_title',
+    title: 'title',
+    order: 'order',
+    number_of_questions: 'number_of_questions',
+    approximate_time_minutes: 'approximate_time_minutes',
+    created_at: 'created_at',
+    updated_at: 'updated_at',
+    subject_id: 'subject_id'
+  };
+
+  export type SubjectLevelScalarFieldEnum = (typeof SubjectLevelScalarFieldEnum)[keyof typeof SubjectLevelScalarFieldEnum]
+
+
+  export const TestSubjectScalarFieldEnum: {
+    test_type_id: 'test_type_id',
+    subject_id: 'subject_id',
+    assigned_at: 'assigned_at',
+    subject_order_in_test: 'subject_order_in_test'
+  };
+
+  export type TestSubjectScalarFieldEnum = (typeof TestSubjectScalarFieldEnum)[keyof typeof TestSubjectScalarFieldEnum]
+
+
+  export const GlossaryCategoryScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    description: 'description',
+    created_at: 'created_at',
+    updated_at: 'updated_at',
+    active: 'active'
+  };
+
+  export type GlossaryCategoryScalarFieldEnum = (typeof GlossaryCategoryScalarFieldEnum)[keyof typeof GlossaryCategoryScalarFieldEnum]
+
+
+  export const GlossaryTermScalarFieldEnum: {
+    id: 'id',
+    word: 'word',
+    description: 'description',
+    created_at: 'created_at',
+    updated_at: 'updated_at',
+    active: 'active',
+    category_id: 'category_id'
+  };
+
+  export type GlossaryTermScalarFieldEnum = (typeof GlossaryTermScalarFieldEnum)[keyof typeof GlossaryTermScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -12997,6 +20819,14 @@ export namespace Prisma {
   };
 
   export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
+
+
+  export const NullableJsonNullValueInput: {
+    DbNull: typeof DbNull,
+    JsonNull: typeof JsonNull
+  };
+
+  export type NullableJsonNullValueInput = (typeof NullableJsonNullValueInput)[keyof typeof NullableJsonNullValueInput]
 
 
   export const NullsOrder: {
@@ -13119,16 +20949,103 @@ export namespace Prisma {
   export type PasswordResetOrderByRelevanceFieldEnum = (typeof PasswordResetOrderByRelevanceFieldEnum)[keyof typeof PasswordResetOrderByRelevanceFieldEnum]
 
 
+  export const JsonNullValueFilter: {
+    DbNull: typeof DbNull,
+    JsonNull: typeof JsonNull,
+    AnyNull: typeof AnyNull
+  };
+
+  export type JsonNullValueFilter = (typeof JsonNullValueFilter)[keyof typeof JsonNullValueFilter]
+
+
+  export const QueryMode: {
+    default: 'default',
+    insensitive: 'insensitive'
+  };
+
+  export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
+
+
   export const AuthEventOrderByRelevanceFieldEnum: {
     id: 'id',
     app_user_id: 'app_user_id',
     event_type: 'event_type',
     ip_address: 'ip_address',
-    user_agent: 'user_agent',
-    details: 'details'
+    user_agent: 'user_agent'
   };
 
   export type AuthEventOrderByRelevanceFieldEnum = (typeof AuthEventOrderByRelevanceFieldEnum)[keyof typeof AuthEventOrderByRelevanceFieldEnum]
+
+
+  export const TestTypeOrderByRelevanceFieldEnum: {
+    id: 'id',
+    name: 'name',
+    description: 'description',
+    api_key_id: 'api_key_id'
+  };
+
+  export type TestTypeOrderByRelevanceFieldEnum = (typeof TestTypeOrderByRelevanceFieldEnum)[keyof typeof TestTypeOrderByRelevanceFieldEnum]
+
+
+  export const SubjectOrderByRelevanceFieldEnum: {
+    id: 'id',
+    name: 'name',
+    description: 'description',
+    slug_materia: 'slug_materia',
+    api_key_id: 'api_key_id'
+  };
+
+  export type SubjectOrderByRelevanceFieldEnum = (typeof SubjectOrderByRelevanceFieldEnum)[keyof typeof SubjectOrderByRelevanceFieldEnum]
+
+
+  export const SubjectDetailOrderByRelevanceFieldEnum: {
+    id: 'id',
+    background_image_url: 'background_image_url',
+    title: 'title',
+    title_color: 'title_color',
+    subtitle: 'subtitle',
+    primary_color_hex: 'primary_color_hex',
+    subject_id: 'subject_id'
+  };
+
+  export type SubjectDetailOrderByRelevanceFieldEnum = (typeof SubjectDetailOrderByRelevanceFieldEnum)[keyof typeof SubjectDetailOrderByRelevanceFieldEnum]
+
+
+  export const SubjectLevelOrderByRelevanceFieldEnum: {
+    id: 'id',
+    reference_title: 'reference_title',
+    title: 'title',
+    subject_id: 'subject_id'
+  };
+
+  export type SubjectLevelOrderByRelevanceFieldEnum = (typeof SubjectLevelOrderByRelevanceFieldEnum)[keyof typeof SubjectLevelOrderByRelevanceFieldEnum]
+
+
+  export const TestSubjectOrderByRelevanceFieldEnum: {
+    test_type_id: 'test_type_id',
+    subject_id: 'subject_id'
+  };
+
+  export type TestSubjectOrderByRelevanceFieldEnum = (typeof TestSubjectOrderByRelevanceFieldEnum)[keyof typeof TestSubjectOrderByRelevanceFieldEnum]
+
+
+  export const GlossaryCategoryOrderByRelevanceFieldEnum: {
+    id: 'id',
+    name: 'name',
+    description: 'description'
+  };
+
+  export type GlossaryCategoryOrderByRelevanceFieldEnum = (typeof GlossaryCategoryOrderByRelevanceFieldEnum)[keyof typeof GlossaryCategoryOrderByRelevanceFieldEnum]
+
+
+  export const GlossaryTermOrderByRelevanceFieldEnum: {
+    id: 'id',
+    word: 'word',
+    description: 'description',
+    category_id: 'category_id'
+  };
+
+  export type GlossaryTermOrderByRelevanceFieldEnum = (typeof GlossaryTermOrderByRelevanceFieldEnum)[keyof typeof GlossaryTermOrderByRelevanceFieldEnum]
 
 
   /**
@@ -13172,9 +21089,30 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'Json'
+   */
+  export type JsonFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Json'>
+    
+
+
+  /**
+   * Reference to a field of type 'QueryMode'
+   */
+  export type EnumQueryModeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'QueryMode'>
+    
+
+
+  /**
    * Reference to a field of type 'Int'
    */
   export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
+    
+
+
+  /**
+   * Reference to a field of type 'Float'
+   */
+  export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
     
   /**
    * Deep Input Types
@@ -13311,6 +21249,8 @@ export namespace Prisma {
     expires_at?: DateTimeNullableFilter<"ApiKey"> | Date | string | null
     app_user?: XOR<AppUserScalarRelationFilter, AppUserWhereInput>
     users?: UserListRelationFilter
+    test_types?: TestTypeListRelationFilter
+    subjects?: SubjectListRelationFilter
   }
 
   export type ApiKeyOrderByWithRelationInput = {
@@ -13325,6 +21265,8 @@ export namespace Prisma {
     expires_at?: SortOrderInput | SortOrder
     app_user?: AppUserOrderByWithRelationInput
     users?: UserOrderByRelationAggregateInput
+    test_types?: TestTypeOrderByRelationAggregateInput
+    subjects?: SubjectOrderByRelationAggregateInput
     _relevance?: ApiKeyOrderByRelevanceInput
   }
 
@@ -13343,6 +21285,8 @@ export namespace Prisma {
     expires_at?: DateTimeNullableFilter<"ApiKey"> | Date | string | null
     app_user?: XOR<AppUserScalarRelationFilter, AppUserWhereInput>
     users?: UserListRelationFilter
+    test_types?: TestTypeListRelationFilter
+    subjects?: SubjectListRelationFilter
   }, "id" | "key">
 
   export type ApiKeyOrderByWithAggregationInput = {
@@ -13984,8 +21928,8 @@ export namespace Prisma {
     event_type?: StringFilter<"AuthEvent"> | string
     ip_address?: StringNullableFilter<"AuthEvent"> | string | null
     user_agent?: StringNullableFilter<"AuthEvent"> | string | null
-    details?: StringNullableFilter<"AuthEvent"> | string | null
     created_at?: DateTimeFilter<"AuthEvent"> | Date | string
+    additional_info?: JsonNullableFilter<"AuthEvent">
     app_user?: XOR<AppUserScalarRelationFilter, AppUserWhereInput>
   }
 
@@ -13995,8 +21939,8 @@ export namespace Prisma {
     event_type?: SortOrder
     ip_address?: SortOrderInput | SortOrder
     user_agent?: SortOrderInput | SortOrder
-    details?: SortOrderInput | SortOrder
     created_at?: SortOrder
+    additional_info?: SortOrderInput | SortOrder
     app_user?: AppUserOrderByWithRelationInput
     _relevance?: AuthEventOrderByRelevanceInput
   }
@@ -14010,8 +21954,8 @@ export namespace Prisma {
     event_type?: StringFilter<"AuthEvent"> | string
     ip_address?: StringNullableFilter<"AuthEvent"> | string | null
     user_agent?: StringNullableFilter<"AuthEvent"> | string | null
-    details?: StringNullableFilter<"AuthEvent"> | string | null
     created_at?: DateTimeFilter<"AuthEvent"> | Date | string
+    additional_info?: JsonNullableFilter<"AuthEvent">
     app_user?: XOR<AppUserScalarRelationFilter, AppUserWhereInput>
   }, "id">
 
@@ -14021,8 +21965,8 @@ export namespace Prisma {
     event_type?: SortOrder
     ip_address?: SortOrderInput | SortOrder
     user_agent?: SortOrderInput | SortOrder
-    details?: SortOrderInput | SortOrder
     created_at?: SortOrder
+    additional_info?: SortOrderInput | SortOrder
     _count?: AuthEventCountOrderByAggregateInput
     _max?: AuthEventMaxOrderByAggregateInput
     _min?: AuthEventMinOrderByAggregateInput
@@ -14037,8 +21981,504 @@ export namespace Prisma {
     event_type?: StringWithAggregatesFilter<"AuthEvent"> | string
     ip_address?: StringNullableWithAggregatesFilter<"AuthEvent"> | string | null
     user_agent?: StringNullableWithAggregatesFilter<"AuthEvent"> | string | null
-    details?: StringNullableWithAggregatesFilter<"AuthEvent"> | string | null
     created_at?: DateTimeWithAggregatesFilter<"AuthEvent"> | Date | string
+    additional_info?: JsonNullableWithAggregatesFilter<"AuthEvent">
+  }
+
+  export type TestTypeWhereInput = {
+    AND?: TestTypeWhereInput | TestTypeWhereInput[]
+    OR?: TestTypeWhereInput[]
+    NOT?: TestTypeWhereInput | TestTypeWhereInput[]
+    id?: StringFilter<"TestType"> | string
+    name?: StringFilter<"TestType"> | string
+    description?: StringNullableFilter<"TestType"> | string | null
+    api_key_id?: StringNullableFilter<"TestType"> | string | null
+    created_at?: DateTimeFilter<"TestType"> | Date | string
+    updated_at?: DateTimeFilter<"TestType"> | Date | string
+    api_key?: XOR<ApiKeyNullableScalarRelationFilter, ApiKeyWhereInput> | null
+    testSubjects?: TestSubjectListRelationFilter
+  }
+
+  export type TestTypeOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrderInput | SortOrder
+    api_key_id?: SortOrderInput | SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+    api_key?: ApiKeyOrderByWithRelationInput
+    testSubjects?: TestSubjectOrderByRelationAggregateInput
+    _relevance?: TestTypeOrderByRelevanceInput
+  }
+
+  export type TestTypeWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    name_api_key_id?: TestTypeNameApi_key_idCompoundUniqueInput
+    AND?: TestTypeWhereInput | TestTypeWhereInput[]
+    OR?: TestTypeWhereInput[]
+    NOT?: TestTypeWhereInput | TestTypeWhereInput[]
+    name?: StringFilter<"TestType"> | string
+    description?: StringNullableFilter<"TestType"> | string | null
+    api_key_id?: StringNullableFilter<"TestType"> | string | null
+    created_at?: DateTimeFilter<"TestType"> | Date | string
+    updated_at?: DateTimeFilter<"TestType"> | Date | string
+    api_key?: XOR<ApiKeyNullableScalarRelationFilter, ApiKeyWhereInput> | null
+    testSubjects?: TestSubjectListRelationFilter
+  }, "id" | "name_api_key_id">
+
+  export type TestTypeOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrderInput | SortOrder
+    api_key_id?: SortOrderInput | SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+    _count?: TestTypeCountOrderByAggregateInput
+    _max?: TestTypeMaxOrderByAggregateInput
+    _min?: TestTypeMinOrderByAggregateInput
+  }
+
+  export type TestTypeScalarWhereWithAggregatesInput = {
+    AND?: TestTypeScalarWhereWithAggregatesInput | TestTypeScalarWhereWithAggregatesInput[]
+    OR?: TestTypeScalarWhereWithAggregatesInput[]
+    NOT?: TestTypeScalarWhereWithAggregatesInput | TestTypeScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"TestType"> | string
+    name?: StringWithAggregatesFilter<"TestType"> | string
+    description?: StringNullableWithAggregatesFilter<"TestType"> | string | null
+    api_key_id?: StringNullableWithAggregatesFilter<"TestType"> | string | null
+    created_at?: DateTimeWithAggregatesFilter<"TestType"> | Date | string
+    updated_at?: DateTimeWithAggregatesFilter<"TestType"> | Date | string
+  }
+
+  export type SubjectWhereInput = {
+    AND?: SubjectWhereInput | SubjectWhereInput[]
+    OR?: SubjectWhereInput[]
+    NOT?: SubjectWhereInput | SubjectWhereInput[]
+    id?: StringFilter<"Subject"> | string
+    name?: StringFilter<"Subject"> | string
+    description?: StringFilter<"Subject"> | string
+    slug_materia?: StringFilter<"Subject"> | string
+    approximate_total_minutes?: IntFilter<"Subject"> | number
+    total_questions?: IntFilter<"Subject"> | number
+    order?: IntFilter<"Subject"> | number
+    api_key_id?: StringNullableFilter<"Subject"> | string | null
+    created_at?: DateTimeFilter<"Subject"> | Date | string
+    updated_at?: DateTimeFilter<"Subject"> | Date | string
+    api_key?: XOR<ApiKeyNullableScalarRelationFilter, ApiKeyWhereInput> | null
+    subject_detail?: XOR<SubjectDetailNullableScalarRelationFilter, SubjectDetailWhereInput> | null
+    subject_levels?: SubjectLevelListRelationFilter
+    testSubjects?: TestSubjectListRelationFilter
+  }
+
+  export type SubjectOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    slug_materia?: SortOrder
+    approximate_total_minutes?: SortOrder
+    total_questions?: SortOrder
+    order?: SortOrder
+    api_key_id?: SortOrderInput | SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+    api_key?: ApiKeyOrderByWithRelationInput
+    subject_detail?: SubjectDetailOrderByWithRelationInput
+    subject_levels?: SubjectLevelOrderByRelationAggregateInput
+    testSubjects?: TestSubjectOrderByRelationAggregateInput
+    _relevance?: SubjectOrderByRelevanceInput
+  }
+
+  export type SubjectWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    slug_materia?: string
+    name_api_key_id?: SubjectNameApi_key_idCompoundUniqueInput
+    AND?: SubjectWhereInput | SubjectWhereInput[]
+    OR?: SubjectWhereInput[]
+    NOT?: SubjectWhereInput | SubjectWhereInput[]
+    name?: StringFilter<"Subject"> | string
+    description?: StringFilter<"Subject"> | string
+    approximate_total_minutes?: IntFilter<"Subject"> | number
+    total_questions?: IntFilter<"Subject"> | number
+    order?: IntFilter<"Subject"> | number
+    api_key_id?: StringNullableFilter<"Subject"> | string | null
+    created_at?: DateTimeFilter<"Subject"> | Date | string
+    updated_at?: DateTimeFilter<"Subject"> | Date | string
+    api_key?: XOR<ApiKeyNullableScalarRelationFilter, ApiKeyWhereInput> | null
+    subject_detail?: XOR<SubjectDetailNullableScalarRelationFilter, SubjectDetailWhereInput> | null
+    subject_levels?: SubjectLevelListRelationFilter
+    testSubjects?: TestSubjectListRelationFilter
+  }, "id" | "slug_materia" | "name_api_key_id">
+
+  export type SubjectOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    slug_materia?: SortOrder
+    approximate_total_minutes?: SortOrder
+    total_questions?: SortOrder
+    order?: SortOrder
+    api_key_id?: SortOrderInput | SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+    _count?: SubjectCountOrderByAggregateInput
+    _avg?: SubjectAvgOrderByAggregateInput
+    _max?: SubjectMaxOrderByAggregateInput
+    _min?: SubjectMinOrderByAggregateInput
+    _sum?: SubjectSumOrderByAggregateInput
+  }
+
+  export type SubjectScalarWhereWithAggregatesInput = {
+    AND?: SubjectScalarWhereWithAggregatesInput | SubjectScalarWhereWithAggregatesInput[]
+    OR?: SubjectScalarWhereWithAggregatesInput[]
+    NOT?: SubjectScalarWhereWithAggregatesInput | SubjectScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Subject"> | string
+    name?: StringWithAggregatesFilter<"Subject"> | string
+    description?: StringWithAggregatesFilter<"Subject"> | string
+    slug_materia?: StringWithAggregatesFilter<"Subject"> | string
+    approximate_total_minutes?: IntWithAggregatesFilter<"Subject"> | number
+    total_questions?: IntWithAggregatesFilter<"Subject"> | number
+    order?: IntWithAggregatesFilter<"Subject"> | number
+    api_key_id?: StringNullableWithAggregatesFilter<"Subject"> | string | null
+    created_at?: DateTimeWithAggregatesFilter<"Subject"> | Date | string
+    updated_at?: DateTimeWithAggregatesFilter<"Subject"> | Date | string
+  }
+
+  export type SubjectDetailWhereInput = {
+    AND?: SubjectDetailWhereInput | SubjectDetailWhereInput[]
+    OR?: SubjectDetailWhereInput[]
+    NOT?: SubjectDetailWhereInput | SubjectDetailWhereInput[]
+    id?: StringFilter<"SubjectDetail"> | string
+    background_image_url?: StringNullableFilter<"SubjectDetail"> | string | null
+    title?: StringFilter<"SubjectDetail"> | string
+    title_color?: StringNullableFilter<"SubjectDetail"> | string | null
+    subtitle?: StringNullableFilter<"SubjectDetail"> | string | null
+    primary_color_hex?: StringNullableFilter<"SubjectDetail"> | string | null
+    created_at?: DateTimeFilter<"SubjectDetail"> | Date | string
+    updated_at?: DateTimeFilter<"SubjectDetail"> | Date | string
+    subject_id?: StringFilter<"SubjectDetail"> | string
+    subject?: XOR<SubjectScalarRelationFilter, SubjectWhereInput>
+  }
+
+  export type SubjectDetailOrderByWithRelationInput = {
+    id?: SortOrder
+    background_image_url?: SortOrderInput | SortOrder
+    title?: SortOrder
+    title_color?: SortOrderInput | SortOrder
+    subtitle?: SortOrderInput | SortOrder
+    primary_color_hex?: SortOrderInput | SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+    subject_id?: SortOrder
+    subject?: SubjectOrderByWithRelationInput
+    _relevance?: SubjectDetailOrderByRelevanceInput
+  }
+
+  export type SubjectDetailWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    subject_id?: string
+    AND?: SubjectDetailWhereInput | SubjectDetailWhereInput[]
+    OR?: SubjectDetailWhereInput[]
+    NOT?: SubjectDetailWhereInput | SubjectDetailWhereInput[]
+    background_image_url?: StringNullableFilter<"SubjectDetail"> | string | null
+    title?: StringFilter<"SubjectDetail"> | string
+    title_color?: StringNullableFilter<"SubjectDetail"> | string | null
+    subtitle?: StringNullableFilter<"SubjectDetail"> | string | null
+    primary_color_hex?: StringNullableFilter<"SubjectDetail"> | string | null
+    created_at?: DateTimeFilter<"SubjectDetail"> | Date | string
+    updated_at?: DateTimeFilter<"SubjectDetail"> | Date | string
+    subject?: XOR<SubjectScalarRelationFilter, SubjectWhereInput>
+  }, "id" | "subject_id">
+
+  export type SubjectDetailOrderByWithAggregationInput = {
+    id?: SortOrder
+    background_image_url?: SortOrderInput | SortOrder
+    title?: SortOrder
+    title_color?: SortOrderInput | SortOrder
+    subtitle?: SortOrderInput | SortOrder
+    primary_color_hex?: SortOrderInput | SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+    subject_id?: SortOrder
+    _count?: SubjectDetailCountOrderByAggregateInput
+    _max?: SubjectDetailMaxOrderByAggregateInput
+    _min?: SubjectDetailMinOrderByAggregateInput
+  }
+
+  export type SubjectDetailScalarWhereWithAggregatesInput = {
+    AND?: SubjectDetailScalarWhereWithAggregatesInput | SubjectDetailScalarWhereWithAggregatesInput[]
+    OR?: SubjectDetailScalarWhereWithAggregatesInput[]
+    NOT?: SubjectDetailScalarWhereWithAggregatesInput | SubjectDetailScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"SubjectDetail"> | string
+    background_image_url?: StringNullableWithAggregatesFilter<"SubjectDetail"> | string | null
+    title?: StringWithAggregatesFilter<"SubjectDetail"> | string
+    title_color?: StringNullableWithAggregatesFilter<"SubjectDetail"> | string | null
+    subtitle?: StringNullableWithAggregatesFilter<"SubjectDetail"> | string | null
+    primary_color_hex?: StringNullableWithAggregatesFilter<"SubjectDetail"> | string | null
+    created_at?: DateTimeWithAggregatesFilter<"SubjectDetail"> | Date | string
+    updated_at?: DateTimeWithAggregatesFilter<"SubjectDetail"> | Date | string
+    subject_id?: StringWithAggregatesFilter<"SubjectDetail"> | string
+  }
+
+  export type SubjectLevelWhereInput = {
+    AND?: SubjectLevelWhereInput | SubjectLevelWhereInput[]
+    OR?: SubjectLevelWhereInput[]
+    NOT?: SubjectLevelWhereInput | SubjectLevelWhereInput[]
+    id?: StringFilter<"SubjectLevel"> | string
+    reference_title?: StringNullableFilter<"SubjectLevel"> | string | null
+    title?: StringFilter<"SubjectLevel"> | string
+    order?: IntFilter<"SubjectLevel"> | number
+    number_of_questions?: IntFilter<"SubjectLevel"> | number
+    approximate_time_minutes?: IntFilter<"SubjectLevel"> | number
+    created_at?: DateTimeFilter<"SubjectLevel"> | Date | string
+    updated_at?: DateTimeFilter<"SubjectLevel"> | Date | string
+    subject_id?: StringFilter<"SubjectLevel"> | string
+    subject?: XOR<SubjectScalarRelationFilter, SubjectWhereInput>
+  }
+
+  export type SubjectLevelOrderByWithRelationInput = {
+    id?: SortOrder
+    reference_title?: SortOrderInput | SortOrder
+    title?: SortOrder
+    order?: SortOrder
+    number_of_questions?: SortOrder
+    approximate_time_minutes?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+    subject_id?: SortOrder
+    subject?: SubjectOrderByWithRelationInput
+    _relevance?: SubjectLevelOrderByRelevanceInput
+  }
+
+  export type SubjectLevelWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: SubjectLevelWhereInput | SubjectLevelWhereInput[]
+    OR?: SubjectLevelWhereInput[]
+    NOT?: SubjectLevelWhereInput | SubjectLevelWhereInput[]
+    reference_title?: StringNullableFilter<"SubjectLevel"> | string | null
+    title?: StringFilter<"SubjectLevel"> | string
+    order?: IntFilter<"SubjectLevel"> | number
+    number_of_questions?: IntFilter<"SubjectLevel"> | number
+    approximate_time_minutes?: IntFilter<"SubjectLevel"> | number
+    created_at?: DateTimeFilter<"SubjectLevel"> | Date | string
+    updated_at?: DateTimeFilter<"SubjectLevel"> | Date | string
+    subject_id?: StringFilter<"SubjectLevel"> | string
+    subject?: XOR<SubjectScalarRelationFilter, SubjectWhereInput>
+  }, "id">
+
+  export type SubjectLevelOrderByWithAggregationInput = {
+    id?: SortOrder
+    reference_title?: SortOrderInput | SortOrder
+    title?: SortOrder
+    order?: SortOrder
+    number_of_questions?: SortOrder
+    approximate_time_minutes?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+    subject_id?: SortOrder
+    _count?: SubjectLevelCountOrderByAggregateInput
+    _avg?: SubjectLevelAvgOrderByAggregateInput
+    _max?: SubjectLevelMaxOrderByAggregateInput
+    _min?: SubjectLevelMinOrderByAggregateInput
+    _sum?: SubjectLevelSumOrderByAggregateInput
+  }
+
+  export type SubjectLevelScalarWhereWithAggregatesInput = {
+    AND?: SubjectLevelScalarWhereWithAggregatesInput | SubjectLevelScalarWhereWithAggregatesInput[]
+    OR?: SubjectLevelScalarWhereWithAggregatesInput[]
+    NOT?: SubjectLevelScalarWhereWithAggregatesInput | SubjectLevelScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"SubjectLevel"> | string
+    reference_title?: StringNullableWithAggregatesFilter<"SubjectLevel"> | string | null
+    title?: StringWithAggregatesFilter<"SubjectLevel"> | string
+    order?: IntWithAggregatesFilter<"SubjectLevel"> | number
+    number_of_questions?: IntWithAggregatesFilter<"SubjectLevel"> | number
+    approximate_time_minutes?: IntWithAggregatesFilter<"SubjectLevel"> | number
+    created_at?: DateTimeWithAggregatesFilter<"SubjectLevel"> | Date | string
+    updated_at?: DateTimeWithAggregatesFilter<"SubjectLevel"> | Date | string
+    subject_id?: StringWithAggregatesFilter<"SubjectLevel"> | string
+  }
+
+  export type TestSubjectWhereInput = {
+    AND?: TestSubjectWhereInput | TestSubjectWhereInput[]
+    OR?: TestSubjectWhereInput[]
+    NOT?: TestSubjectWhereInput | TestSubjectWhereInput[]
+    test_type_id?: StringFilter<"TestSubject"> | string
+    subject_id?: StringFilter<"TestSubject"> | string
+    assigned_at?: DateTimeFilter<"TestSubject"> | Date | string
+    subject_order_in_test?: IntNullableFilter<"TestSubject"> | number | null
+    test_type?: XOR<TestTypeScalarRelationFilter, TestTypeWhereInput>
+    subject?: XOR<SubjectScalarRelationFilter, SubjectWhereInput>
+  }
+
+  export type TestSubjectOrderByWithRelationInput = {
+    test_type_id?: SortOrder
+    subject_id?: SortOrder
+    assigned_at?: SortOrder
+    subject_order_in_test?: SortOrderInput | SortOrder
+    test_type?: TestTypeOrderByWithRelationInput
+    subject?: SubjectOrderByWithRelationInput
+    _relevance?: TestSubjectOrderByRelevanceInput
+  }
+
+  export type TestSubjectWhereUniqueInput = Prisma.AtLeast<{
+    test_type_id_subject_id?: TestSubjectTest_type_idSubject_idCompoundUniqueInput
+    AND?: TestSubjectWhereInput | TestSubjectWhereInput[]
+    OR?: TestSubjectWhereInput[]
+    NOT?: TestSubjectWhereInput | TestSubjectWhereInput[]
+    test_type_id?: StringFilter<"TestSubject"> | string
+    subject_id?: StringFilter<"TestSubject"> | string
+    assigned_at?: DateTimeFilter<"TestSubject"> | Date | string
+    subject_order_in_test?: IntNullableFilter<"TestSubject"> | number | null
+    test_type?: XOR<TestTypeScalarRelationFilter, TestTypeWhereInput>
+    subject?: XOR<SubjectScalarRelationFilter, SubjectWhereInput>
+  }, "test_type_id_subject_id">
+
+  export type TestSubjectOrderByWithAggregationInput = {
+    test_type_id?: SortOrder
+    subject_id?: SortOrder
+    assigned_at?: SortOrder
+    subject_order_in_test?: SortOrderInput | SortOrder
+    _count?: TestSubjectCountOrderByAggregateInput
+    _avg?: TestSubjectAvgOrderByAggregateInput
+    _max?: TestSubjectMaxOrderByAggregateInput
+    _min?: TestSubjectMinOrderByAggregateInput
+    _sum?: TestSubjectSumOrderByAggregateInput
+  }
+
+  export type TestSubjectScalarWhereWithAggregatesInput = {
+    AND?: TestSubjectScalarWhereWithAggregatesInput | TestSubjectScalarWhereWithAggregatesInput[]
+    OR?: TestSubjectScalarWhereWithAggregatesInput[]
+    NOT?: TestSubjectScalarWhereWithAggregatesInput | TestSubjectScalarWhereWithAggregatesInput[]
+    test_type_id?: StringWithAggregatesFilter<"TestSubject"> | string
+    subject_id?: StringWithAggregatesFilter<"TestSubject"> | string
+    assigned_at?: DateTimeWithAggregatesFilter<"TestSubject"> | Date | string
+    subject_order_in_test?: IntNullableWithAggregatesFilter<"TestSubject"> | number | null
+  }
+
+  export type GlossaryCategoryWhereInput = {
+    AND?: GlossaryCategoryWhereInput | GlossaryCategoryWhereInput[]
+    OR?: GlossaryCategoryWhereInput[]
+    NOT?: GlossaryCategoryWhereInput | GlossaryCategoryWhereInput[]
+    id?: StringFilter<"GlossaryCategory"> | string
+    name?: StringFilter<"GlossaryCategory"> | string
+    description?: StringNullableFilter<"GlossaryCategory"> | string | null
+    created_at?: DateTimeFilter<"GlossaryCategory"> | Date | string
+    updated_at?: DateTimeFilter<"GlossaryCategory"> | Date | string
+    active?: BoolFilter<"GlossaryCategory"> | boolean
+    terms?: GlossaryTermListRelationFilter
+  }
+
+  export type GlossaryCategoryOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrderInput | SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+    active?: SortOrder
+    terms?: GlossaryTermOrderByRelationAggregateInput
+    _relevance?: GlossaryCategoryOrderByRelevanceInput
+  }
+
+  export type GlossaryCategoryWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    name?: string
+    AND?: GlossaryCategoryWhereInput | GlossaryCategoryWhereInput[]
+    OR?: GlossaryCategoryWhereInput[]
+    NOT?: GlossaryCategoryWhereInput | GlossaryCategoryWhereInput[]
+    description?: StringNullableFilter<"GlossaryCategory"> | string | null
+    created_at?: DateTimeFilter<"GlossaryCategory"> | Date | string
+    updated_at?: DateTimeFilter<"GlossaryCategory"> | Date | string
+    active?: BoolFilter<"GlossaryCategory"> | boolean
+    terms?: GlossaryTermListRelationFilter
+  }, "id" | "name">
+
+  export type GlossaryCategoryOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrderInput | SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+    active?: SortOrder
+    _count?: GlossaryCategoryCountOrderByAggregateInput
+    _max?: GlossaryCategoryMaxOrderByAggregateInput
+    _min?: GlossaryCategoryMinOrderByAggregateInput
+  }
+
+  export type GlossaryCategoryScalarWhereWithAggregatesInput = {
+    AND?: GlossaryCategoryScalarWhereWithAggregatesInput | GlossaryCategoryScalarWhereWithAggregatesInput[]
+    OR?: GlossaryCategoryScalarWhereWithAggregatesInput[]
+    NOT?: GlossaryCategoryScalarWhereWithAggregatesInput | GlossaryCategoryScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"GlossaryCategory"> | string
+    name?: StringWithAggregatesFilter<"GlossaryCategory"> | string
+    description?: StringNullableWithAggregatesFilter<"GlossaryCategory"> | string | null
+    created_at?: DateTimeWithAggregatesFilter<"GlossaryCategory"> | Date | string
+    updated_at?: DateTimeWithAggregatesFilter<"GlossaryCategory"> | Date | string
+    active?: BoolWithAggregatesFilter<"GlossaryCategory"> | boolean
+  }
+
+  export type GlossaryTermWhereInput = {
+    AND?: GlossaryTermWhereInput | GlossaryTermWhereInput[]
+    OR?: GlossaryTermWhereInput[]
+    NOT?: GlossaryTermWhereInput | GlossaryTermWhereInput[]
+    id?: StringFilter<"GlossaryTerm"> | string
+    word?: StringFilter<"GlossaryTerm"> | string
+    description?: StringFilter<"GlossaryTerm"> | string
+    created_at?: DateTimeFilter<"GlossaryTerm"> | Date | string
+    updated_at?: DateTimeFilter<"GlossaryTerm"> | Date | string
+    active?: BoolFilter<"GlossaryTerm"> | boolean
+    category_id?: StringFilter<"GlossaryTerm"> | string
+    category?: XOR<GlossaryCategoryScalarRelationFilter, GlossaryCategoryWhereInput>
+  }
+
+  export type GlossaryTermOrderByWithRelationInput = {
+    id?: SortOrder
+    word?: SortOrder
+    description?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+    active?: SortOrder
+    category_id?: SortOrder
+    category?: GlossaryCategoryOrderByWithRelationInput
+    _relevance?: GlossaryTermOrderByRelevanceInput
+  }
+
+  export type GlossaryTermWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    word?: string
+    AND?: GlossaryTermWhereInput | GlossaryTermWhereInput[]
+    OR?: GlossaryTermWhereInput[]
+    NOT?: GlossaryTermWhereInput | GlossaryTermWhereInput[]
+    description?: StringFilter<"GlossaryTerm"> | string
+    created_at?: DateTimeFilter<"GlossaryTerm"> | Date | string
+    updated_at?: DateTimeFilter<"GlossaryTerm"> | Date | string
+    active?: BoolFilter<"GlossaryTerm"> | boolean
+    category_id?: StringFilter<"GlossaryTerm"> | string
+    category?: XOR<GlossaryCategoryScalarRelationFilter, GlossaryCategoryWhereInput>
+  }, "id" | "word">
+
+  export type GlossaryTermOrderByWithAggregationInput = {
+    id?: SortOrder
+    word?: SortOrder
+    description?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+    active?: SortOrder
+    category_id?: SortOrder
+    _count?: GlossaryTermCountOrderByAggregateInput
+    _max?: GlossaryTermMaxOrderByAggregateInput
+    _min?: GlossaryTermMinOrderByAggregateInput
+  }
+
+  export type GlossaryTermScalarWhereWithAggregatesInput = {
+    AND?: GlossaryTermScalarWhereWithAggregatesInput | GlossaryTermScalarWhereWithAggregatesInput[]
+    OR?: GlossaryTermScalarWhereWithAggregatesInput[]
+    NOT?: GlossaryTermScalarWhereWithAggregatesInput | GlossaryTermScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"GlossaryTerm"> | string
+    word?: StringWithAggregatesFilter<"GlossaryTerm"> | string
+    description?: StringWithAggregatesFilter<"GlossaryTerm"> | string
+    created_at?: DateTimeWithAggregatesFilter<"GlossaryTerm"> | Date | string
+    updated_at?: DateTimeWithAggregatesFilter<"GlossaryTerm"> | Date | string
+    active?: BoolWithAggregatesFilter<"GlossaryTerm"> | boolean
+    category_id?: StringWithAggregatesFilter<"GlossaryTerm"> | string
   }
 
   export type AppUserCreateInput = {
@@ -14194,6 +22634,8 @@ export namespace Prisma {
     expires_at?: Date | string | null
     app_user: AppUserCreateNestedOneWithoutApi_keysInput
     users?: UserCreateNestedManyWithoutApi_keyInput
+    test_types?: TestTypeCreateNestedManyWithoutApi_keyInput
+    subjects?: SubjectCreateNestedManyWithoutApi_keyInput
   }
 
   export type ApiKeyUncheckedCreateInput = {
@@ -14207,6 +22649,8 @@ export namespace Prisma {
     last_used_at?: Date | string | null
     expires_at?: Date | string | null
     users?: UserUncheckedCreateNestedManyWithoutApi_keyInput
+    test_types?: TestTypeUncheckedCreateNestedManyWithoutApi_keyInput
+    subjects?: SubjectUncheckedCreateNestedManyWithoutApi_keyInput
   }
 
   export type ApiKeyUpdateInput = {
@@ -14220,6 +22664,8 @@ export namespace Prisma {
     expires_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     app_user?: AppUserUpdateOneRequiredWithoutApi_keysNestedInput
     users?: UserUpdateManyWithoutApi_keyNestedInput
+    test_types?: TestTypeUpdateManyWithoutApi_keyNestedInput
+    subjects?: SubjectUpdateManyWithoutApi_keyNestedInput
   }
 
   export type ApiKeyUncheckedUpdateInput = {
@@ -14233,6 +22679,8 @@ export namespace Prisma {
     last_used_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     expires_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     users?: UserUncheckedUpdateManyWithoutApi_keyNestedInput
+    test_types?: TestTypeUncheckedUpdateManyWithoutApi_keyNestedInput
+    subjects?: SubjectUncheckedUpdateManyWithoutApi_keyNestedInput
   }
 
   export type ApiKeyCreateManyInput = {
@@ -14928,8 +23376,8 @@ export namespace Prisma {
     event_type: string
     ip_address?: string | null
     user_agent?: string | null
-    details?: string | null
     created_at?: Date | string
+    additional_info?: NullableJsonNullValueInput | InputJsonValue
     app_user: AppUserCreateNestedOneWithoutAuth_eventsInput
   }
 
@@ -14939,8 +23387,8 @@ export namespace Prisma {
     event_type: string
     ip_address?: string | null
     user_agent?: string | null
-    details?: string | null
     created_at?: Date | string
+    additional_info?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type AuthEventUpdateInput = {
@@ -14948,8 +23396,8 @@ export namespace Prisma {
     event_type?: StringFieldUpdateOperationsInput | string
     ip_address?: NullableStringFieldUpdateOperationsInput | string | null
     user_agent?: NullableStringFieldUpdateOperationsInput | string | null
-    details?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    additional_info?: NullableJsonNullValueInput | InputJsonValue
     app_user?: AppUserUpdateOneRequiredWithoutAuth_eventsNestedInput
   }
 
@@ -14959,8 +23407,8 @@ export namespace Prisma {
     event_type?: StringFieldUpdateOperationsInput | string
     ip_address?: NullableStringFieldUpdateOperationsInput | string | null
     user_agent?: NullableStringFieldUpdateOperationsInput | string | null
-    details?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    additional_info?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type AuthEventCreateManyInput = {
@@ -14969,8 +23417,8 @@ export namespace Prisma {
     event_type: string
     ip_address?: string | null
     user_agent?: string | null
-    details?: string | null
     created_at?: Date | string
+    additional_info?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type AuthEventUpdateManyMutationInput = {
@@ -14978,8 +23426,8 @@ export namespace Prisma {
     event_type?: StringFieldUpdateOperationsInput | string
     ip_address?: NullableStringFieldUpdateOperationsInput | string | null
     user_agent?: NullableStringFieldUpdateOperationsInput | string | null
-    details?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    additional_info?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type AuthEventUncheckedUpdateManyInput = {
@@ -14988,8 +23436,525 @@ export namespace Prisma {
     event_type?: StringFieldUpdateOperationsInput | string
     ip_address?: NullableStringFieldUpdateOperationsInput | string | null
     user_agent?: NullableStringFieldUpdateOperationsInput | string | null
-    details?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    additional_info?: NullableJsonNullValueInput | InputJsonValue
+  }
+
+  export type TestTypeCreateInput = {
+    id?: string
+    name: string
+    description?: string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+    api_key?: ApiKeyCreateNestedOneWithoutTest_typesInput
+    testSubjects?: TestSubjectCreateNestedManyWithoutTest_typeInput
+  }
+
+  export type TestTypeUncheckedCreateInput = {
+    id?: string
+    name: string
+    description?: string | null
+    api_key_id?: string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+    testSubjects?: TestSubjectUncheckedCreateNestedManyWithoutTest_typeInput
+  }
+
+  export type TestTypeUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    api_key?: ApiKeyUpdateOneWithoutTest_typesNestedInput
+    testSubjects?: TestSubjectUpdateManyWithoutTest_typeNestedInput
+  }
+
+  export type TestTypeUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    api_key_id?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    testSubjects?: TestSubjectUncheckedUpdateManyWithoutTest_typeNestedInput
+  }
+
+  export type TestTypeCreateManyInput = {
+    id?: string
+    name: string
+    description?: string | null
+    api_key_id?: string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+  }
+
+  export type TestTypeUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type TestTypeUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    api_key_id?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SubjectCreateInput = {
+    id?: string
+    name: string
+    description: string
+    slug_materia: string
+    approximate_total_minutes: number
+    total_questions: number
+    order: number
+    created_at?: Date | string
+    updated_at?: Date | string
+    api_key?: ApiKeyCreateNestedOneWithoutSubjectsInput
+    subject_detail?: SubjectDetailCreateNestedOneWithoutSubjectInput
+    subject_levels?: SubjectLevelCreateNestedManyWithoutSubjectInput
+    testSubjects?: TestSubjectCreateNestedManyWithoutSubjectInput
+  }
+
+  export type SubjectUncheckedCreateInput = {
+    id?: string
+    name: string
+    description: string
+    slug_materia: string
+    approximate_total_minutes: number
+    total_questions: number
+    order: number
+    api_key_id?: string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+    subject_detail?: SubjectDetailUncheckedCreateNestedOneWithoutSubjectInput
+    subject_levels?: SubjectLevelUncheckedCreateNestedManyWithoutSubjectInput
+    testSubjects?: TestSubjectUncheckedCreateNestedManyWithoutSubjectInput
+  }
+
+  export type SubjectUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    slug_materia?: StringFieldUpdateOperationsInput | string
+    approximate_total_minutes?: IntFieldUpdateOperationsInput | number
+    total_questions?: IntFieldUpdateOperationsInput | number
+    order?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    api_key?: ApiKeyUpdateOneWithoutSubjectsNestedInput
+    subject_detail?: SubjectDetailUpdateOneWithoutSubjectNestedInput
+    subject_levels?: SubjectLevelUpdateManyWithoutSubjectNestedInput
+    testSubjects?: TestSubjectUpdateManyWithoutSubjectNestedInput
+  }
+
+  export type SubjectUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    slug_materia?: StringFieldUpdateOperationsInput | string
+    approximate_total_minutes?: IntFieldUpdateOperationsInput | number
+    total_questions?: IntFieldUpdateOperationsInput | number
+    order?: IntFieldUpdateOperationsInput | number
+    api_key_id?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    subject_detail?: SubjectDetailUncheckedUpdateOneWithoutSubjectNestedInput
+    subject_levels?: SubjectLevelUncheckedUpdateManyWithoutSubjectNestedInput
+    testSubjects?: TestSubjectUncheckedUpdateManyWithoutSubjectNestedInput
+  }
+
+  export type SubjectCreateManyInput = {
+    id?: string
+    name: string
+    description: string
+    slug_materia: string
+    approximate_total_minutes: number
+    total_questions: number
+    order: number
+    api_key_id?: string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+  }
+
+  export type SubjectUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    slug_materia?: StringFieldUpdateOperationsInput | string
+    approximate_total_minutes?: IntFieldUpdateOperationsInput | number
+    total_questions?: IntFieldUpdateOperationsInput | number
+    order?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SubjectUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    slug_materia?: StringFieldUpdateOperationsInput | string
+    approximate_total_minutes?: IntFieldUpdateOperationsInput | number
+    total_questions?: IntFieldUpdateOperationsInput | number
+    order?: IntFieldUpdateOperationsInput | number
+    api_key_id?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SubjectDetailCreateInput = {
+    id?: string
+    background_image_url?: string | null
+    title: string
+    title_color?: string | null
+    subtitle?: string | null
+    primary_color_hex?: string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+    subject: SubjectCreateNestedOneWithoutSubject_detailInput
+  }
+
+  export type SubjectDetailUncheckedCreateInput = {
+    id?: string
+    background_image_url?: string | null
+    title: string
+    title_color?: string | null
+    subtitle?: string | null
+    primary_color_hex?: string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+    subject_id: string
+  }
+
+  export type SubjectDetailUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    background_image_url?: NullableStringFieldUpdateOperationsInput | string | null
+    title?: StringFieldUpdateOperationsInput | string
+    title_color?: NullableStringFieldUpdateOperationsInput | string | null
+    subtitle?: NullableStringFieldUpdateOperationsInput | string | null
+    primary_color_hex?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    subject?: SubjectUpdateOneRequiredWithoutSubject_detailNestedInput
+  }
+
+  export type SubjectDetailUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    background_image_url?: NullableStringFieldUpdateOperationsInput | string | null
+    title?: StringFieldUpdateOperationsInput | string
+    title_color?: NullableStringFieldUpdateOperationsInput | string | null
+    subtitle?: NullableStringFieldUpdateOperationsInput | string | null
+    primary_color_hex?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    subject_id?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type SubjectDetailCreateManyInput = {
+    id?: string
+    background_image_url?: string | null
+    title: string
+    title_color?: string | null
+    subtitle?: string | null
+    primary_color_hex?: string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+    subject_id: string
+  }
+
+  export type SubjectDetailUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    background_image_url?: NullableStringFieldUpdateOperationsInput | string | null
+    title?: StringFieldUpdateOperationsInput | string
+    title_color?: NullableStringFieldUpdateOperationsInput | string | null
+    subtitle?: NullableStringFieldUpdateOperationsInput | string | null
+    primary_color_hex?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SubjectDetailUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    background_image_url?: NullableStringFieldUpdateOperationsInput | string | null
+    title?: StringFieldUpdateOperationsInput | string
+    title_color?: NullableStringFieldUpdateOperationsInput | string | null
+    subtitle?: NullableStringFieldUpdateOperationsInput | string | null
+    primary_color_hex?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    subject_id?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type SubjectLevelCreateInput = {
+    id?: string
+    reference_title?: string | null
+    title: string
+    order: number
+    number_of_questions: number
+    approximate_time_minutes: number
+    created_at?: Date | string
+    updated_at?: Date | string
+    subject: SubjectCreateNestedOneWithoutSubject_levelsInput
+  }
+
+  export type SubjectLevelUncheckedCreateInput = {
+    id?: string
+    reference_title?: string | null
+    title: string
+    order: number
+    number_of_questions: number
+    approximate_time_minutes: number
+    created_at?: Date | string
+    updated_at?: Date | string
+    subject_id: string
+  }
+
+  export type SubjectLevelUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    reference_title?: NullableStringFieldUpdateOperationsInput | string | null
+    title?: StringFieldUpdateOperationsInput | string
+    order?: IntFieldUpdateOperationsInput | number
+    number_of_questions?: IntFieldUpdateOperationsInput | number
+    approximate_time_minutes?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    subject?: SubjectUpdateOneRequiredWithoutSubject_levelsNestedInput
+  }
+
+  export type SubjectLevelUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    reference_title?: NullableStringFieldUpdateOperationsInput | string | null
+    title?: StringFieldUpdateOperationsInput | string
+    order?: IntFieldUpdateOperationsInput | number
+    number_of_questions?: IntFieldUpdateOperationsInput | number
+    approximate_time_minutes?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    subject_id?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type SubjectLevelCreateManyInput = {
+    id?: string
+    reference_title?: string | null
+    title: string
+    order: number
+    number_of_questions: number
+    approximate_time_minutes: number
+    created_at?: Date | string
+    updated_at?: Date | string
+    subject_id: string
+  }
+
+  export type SubjectLevelUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    reference_title?: NullableStringFieldUpdateOperationsInput | string | null
+    title?: StringFieldUpdateOperationsInput | string
+    order?: IntFieldUpdateOperationsInput | number
+    number_of_questions?: IntFieldUpdateOperationsInput | number
+    approximate_time_minutes?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SubjectLevelUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    reference_title?: NullableStringFieldUpdateOperationsInput | string | null
+    title?: StringFieldUpdateOperationsInput | string
+    order?: IntFieldUpdateOperationsInput | number
+    number_of_questions?: IntFieldUpdateOperationsInput | number
+    approximate_time_minutes?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    subject_id?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type TestSubjectCreateInput = {
+    assigned_at?: Date | string
+    subject_order_in_test?: number | null
+    test_type: TestTypeCreateNestedOneWithoutTestSubjectsInput
+    subject: SubjectCreateNestedOneWithoutTestSubjectsInput
+  }
+
+  export type TestSubjectUncheckedCreateInput = {
+    test_type_id: string
+    subject_id: string
+    assigned_at?: Date | string
+    subject_order_in_test?: number | null
+  }
+
+  export type TestSubjectUpdateInput = {
+    assigned_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    subject_order_in_test?: NullableIntFieldUpdateOperationsInput | number | null
+    test_type?: TestTypeUpdateOneRequiredWithoutTestSubjectsNestedInput
+    subject?: SubjectUpdateOneRequiredWithoutTestSubjectsNestedInput
+  }
+
+  export type TestSubjectUncheckedUpdateInput = {
+    test_type_id?: StringFieldUpdateOperationsInput | string
+    subject_id?: StringFieldUpdateOperationsInput | string
+    assigned_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    subject_order_in_test?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type TestSubjectCreateManyInput = {
+    test_type_id: string
+    subject_id: string
+    assigned_at?: Date | string
+    subject_order_in_test?: number | null
+  }
+
+  export type TestSubjectUpdateManyMutationInput = {
+    assigned_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    subject_order_in_test?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type TestSubjectUncheckedUpdateManyInput = {
+    test_type_id?: StringFieldUpdateOperationsInput | string
+    subject_id?: StringFieldUpdateOperationsInput | string
+    assigned_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    subject_order_in_test?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type GlossaryCategoryCreateInput = {
+    id?: string
+    name: string
+    description?: string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+    active?: boolean
+    terms?: GlossaryTermCreateNestedManyWithoutCategoryInput
+  }
+
+  export type GlossaryCategoryUncheckedCreateInput = {
+    id?: string
+    name: string
+    description?: string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+    active?: boolean
+    terms?: GlossaryTermUncheckedCreateNestedManyWithoutCategoryInput
+  }
+
+  export type GlossaryCategoryUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    active?: BoolFieldUpdateOperationsInput | boolean
+    terms?: GlossaryTermUpdateManyWithoutCategoryNestedInput
+  }
+
+  export type GlossaryCategoryUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    active?: BoolFieldUpdateOperationsInput | boolean
+    terms?: GlossaryTermUncheckedUpdateManyWithoutCategoryNestedInput
+  }
+
+  export type GlossaryCategoryCreateManyInput = {
+    id?: string
+    name: string
+    description?: string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+    active?: boolean
+  }
+
+  export type GlossaryCategoryUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    active?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type GlossaryCategoryUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    active?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type GlossaryTermCreateInput = {
+    id?: string
+    word: string
+    description: string
+    created_at?: Date | string
+    updated_at?: Date | string
+    active?: boolean
+    category: GlossaryCategoryCreateNestedOneWithoutTermsInput
+  }
+
+  export type GlossaryTermUncheckedCreateInput = {
+    id?: string
+    word: string
+    description: string
+    created_at?: Date | string
+    updated_at?: Date | string
+    active?: boolean
+    category_id: string
+  }
+
+  export type GlossaryTermUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    word?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    active?: BoolFieldUpdateOperationsInput | boolean
+    category?: GlossaryCategoryUpdateOneRequiredWithoutTermsNestedInput
+  }
+
+  export type GlossaryTermUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    word?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    active?: BoolFieldUpdateOperationsInput | boolean
+    category_id?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type GlossaryTermCreateManyInput = {
+    id?: string
+    word: string
+    description: string
+    created_at?: Date | string
+    updated_at?: Date | string
+    active?: boolean
+    category_id: string
+  }
+
+  export type GlossaryTermUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    word?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    active?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type GlossaryTermUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    word?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    active?: BoolFieldUpdateOperationsInput | boolean
+    category_id?: StringFieldUpdateOperationsInput | string
   }
 
   export type StringFilter<$PrismaModel = never> = {
@@ -15232,7 +24197,27 @@ export namespace Prisma {
     none?: UserWhereInput
   }
 
+  export type TestTypeListRelationFilter = {
+    every?: TestTypeWhereInput
+    some?: TestTypeWhereInput
+    none?: TestTypeWhereInput
+  }
+
+  export type SubjectListRelationFilter = {
+    every?: SubjectWhereInput
+    some?: SubjectWhereInput
+    none?: SubjectWhereInput
+  }
+
   export type UserOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type TestTypeOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type SubjectOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -15700,6 +24685,29 @@ export namespace Prisma {
     updated_at?: SortOrder
     used?: SortOrder
   }
+  export type JsonNullableFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<JsonNullableFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonNullableFilterBase<$PrismaModel>>, 'path'>>,
+        Required<JsonNullableFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<JsonNullableFilterBase<$PrismaModel>>, 'path'>>
+
+  export type JsonNullableFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue
+    lte?: InputJsonValue
+    gt?: InputJsonValue
+    gte?: InputJsonValue
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+  }
 
   export type AuthEventOrderByRelevanceInput = {
     fields: AuthEventOrderByRelevanceFieldEnum | AuthEventOrderByRelevanceFieldEnum[]
@@ -15713,8 +24721,8 @@ export namespace Prisma {
     event_type?: SortOrder
     ip_address?: SortOrder
     user_agent?: SortOrder
-    details?: SortOrder
     created_at?: SortOrder
+    additional_info?: SortOrder
   }
 
   export type AuthEventMaxOrderByAggregateInput = {
@@ -15723,7 +24731,6 @@ export namespace Prisma {
     event_type?: SortOrder
     ip_address?: SortOrder
     user_agent?: SortOrder
-    details?: SortOrder
     created_at?: SortOrder
   }
 
@@ -15733,8 +24740,447 @@ export namespace Prisma {
     event_type?: SortOrder
     ip_address?: SortOrder
     user_agent?: SortOrder
-    details?: SortOrder
     created_at?: SortOrder
+  }
+  export type JsonNullableWithAggregatesFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>, 'path'>>,
+        Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>, 'path'>>
+
+  export type JsonNullableWithAggregatesFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue
+    lte?: InputJsonValue
+    gt?: InputJsonValue
+    gte?: InputJsonValue
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedJsonNullableFilter<$PrismaModel>
+    _max?: NestedJsonNullableFilter<$PrismaModel>
+  }
+
+  export type ApiKeyNullableScalarRelationFilter = {
+    is?: ApiKeyWhereInput | null
+    isNot?: ApiKeyWhereInput | null
+  }
+
+  export type TestSubjectListRelationFilter = {
+    every?: TestSubjectWhereInput
+    some?: TestSubjectWhereInput
+    none?: TestSubjectWhereInput
+  }
+
+  export type TestSubjectOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type TestTypeOrderByRelevanceInput = {
+    fields: TestTypeOrderByRelevanceFieldEnum | TestTypeOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+  export type TestTypeNameApi_key_idCompoundUniqueInput = {
+    name: string
+    api_key_id: string
+  }
+
+  export type TestTypeCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    api_key_id?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+  }
+
+  export type TestTypeMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    api_key_id?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+  }
+
+  export type TestTypeMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    api_key_id?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+  }
+
+  export type IntFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[]
+    notIn?: number[]
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntFilter<$PrismaModel> | number
+  }
+
+  export type SubjectDetailNullableScalarRelationFilter = {
+    is?: SubjectDetailWhereInput | null
+    isNot?: SubjectDetailWhereInput | null
+  }
+
+  export type SubjectLevelListRelationFilter = {
+    every?: SubjectLevelWhereInput
+    some?: SubjectLevelWhereInput
+    none?: SubjectLevelWhereInput
+  }
+
+  export type SubjectLevelOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type SubjectOrderByRelevanceInput = {
+    fields: SubjectOrderByRelevanceFieldEnum | SubjectOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+  export type SubjectNameApi_key_idCompoundUniqueInput = {
+    name: string
+    api_key_id: string
+  }
+
+  export type SubjectCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    slug_materia?: SortOrder
+    approximate_total_minutes?: SortOrder
+    total_questions?: SortOrder
+    order?: SortOrder
+    api_key_id?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+  }
+
+  export type SubjectAvgOrderByAggregateInput = {
+    approximate_total_minutes?: SortOrder
+    total_questions?: SortOrder
+    order?: SortOrder
+  }
+
+  export type SubjectMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    slug_materia?: SortOrder
+    approximate_total_minutes?: SortOrder
+    total_questions?: SortOrder
+    order?: SortOrder
+    api_key_id?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+  }
+
+  export type SubjectMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    slug_materia?: SortOrder
+    approximate_total_minutes?: SortOrder
+    total_questions?: SortOrder
+    order?: SortOrder
+    api_key_id?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+  }
+
+  export type SubjectSumOrderByAggregateInput = {
+    approximate_total_minutes?: SortOrder
+    total_questions?: SortOrder
+    order?: SortOrder
+  }
+
+  export type IntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[]
+    notIn?: number[]
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type SubjectScalarRelationFilter = {
+    is?: SubjectWhereInput
+    isNot?: SubjectWhereInput
+  }
+
+  export type SubjectDetailOrderByRelevanceInput = {
+    fields: SubjectDetailOrderByRelevanceFieldEnum | SubjectDetailOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+  export type SubjectDetailCountOrderByAggregateInput = {
+    id?: SortOrder
+    background_image_url?: SortOrder
+    title?: SortOrder
+    title_color?: SortOrder
+    subtitle?: SortOrder
+    primary_color_hex?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+    subject_id?: SortOrder
+  }
+
+  export type SubjectDetailMaxOrderByAggregateInput = {
+    id?: SortOrder
+    background_image_url?: SortOrder
+    title?: SortOrder
+    title_color?: SortOrder
+    subtitle?: SortOrder
+    primary_color_hex?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+    subject_id?: SortOrder
+  }
+
+  export type SubjectDetailMinOrderByAggregateInput = {
+    id?: SortOrder
+    background_image_url?: SortOrder
+    title?: SortOrder
+    title_color?: SortOrder
+    subtitle?: SortOrder
+    primary_color_hex?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+    subject_id?: SortOrder
+  }
+
+  export type SubjectLevelOrderByRelevanceInput = {
+    fields: SubjectLevelOrderByRelevanceFieldEnum | SubjectLevelOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+  export type SubjectLevelCountOrderByAggregateInput = {
+    id?: SortOrder
+    reference_title?: SortOrder
+    title?: SortOrder
+    order?: SortOrder
+    number_of_questions?: SortOrder
+    approximate_time_minutes?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+    subject_id?: SortOrder
+  }
+
+  export type SubjectLevelAvgOrderByAggregateInput = {
+    order?: SortOrder
+    number_of_questions?: SortOrder
+    approximate_time_minutes?: SortOrder
+  }
+
+  export type SubjectLevelMaxOrderByAggregateInput = {
+    id?: SortOrder
+    reference_title?: SortOrder
+    title?: SortOrder
+    order?: SortOrder
+    number_of_questions?: SortOrder
+    approximate_time_minutes?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+    subject_id?: SortOrder
+  }
+
+  export type SubjectLevelMinOrderByAggregateInput = {
+    id?: SortOrder
+    reference_title?: SortOrder
+    title?: SortOrder
+    order?: SortOrder
+    number_of_questions?: SortOrder
+    approximate_time_minutes?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+    subject_id?: SortOrder
+  }
+
+  export type SubjectLevelSumOrderByAggregateInput = {
+    order?: SortOrder
+    number_of_questions?: SortOrder
+    approximate_time_minutes?: SortOrder
+  }
+
+  export type IntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type TestTypeScalarRelationFilter = {
+    is?: TestTypeWhereInput
+    isNot?: TestTypeWhereInput
+  }
+
+  export type TestSubjectOrderByRelevanceInput = {
+    fields: TestSubjectOrderByRelevanceFieldEnum | TestSubjectOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+  export type TestSubjectTest_type_idSubject_idCompoundUniqueInput = {
+    test_type_id: string
+    subject_id: string
+  }
+
+  export type TestSubjectCountOrderByAggregateInput = {
+    test_type_id?: SortOrder
+    subject_id?: SortOrder
+    assigned_at?: SortOrder
+    subject_order_in_test?: SortOrder
+  }
+
+  export type TestSubjectAvgOrderByAggregateInput = {
+    subject_order_in_test?: SortOrder
+  }
+
+  export type TestSubjectMaxOrderByAggregateInput = {
+    test_type_id?: SortOrder
+    subject_id?: SortOrder
+    assigned_at?: SortOrder
+    subject_order_in_test?: SortOrder
+  }
+
+  export type TestSubjectMinOrderByAggregateInput = {
+    test_type_id?: SortOrder
+    subject_id?: SortOrder
+    assigned_at?: SortOrder
+    subject_order_in_test?: SortOrder
+  }
+
+  export type TestSubjectSumOrderByAggregateInput = {
+    subject_order_in_test?: SortOrder
+  }
+
+  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type GlossaryTermListRelationFilter = {
+    every?: GlossaryTermWhereInput
+    some?: GlossaryTermWhereInput
+    none?: GlossaryTermWhereInput
+  }
+
+  export type GlossaryTermOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type GlossaryCategoryOrderByRelevanceInput = {
+    fields: GlossaryCategoryOrderByRelevanceFieldEnum | GlossaryCategoryOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+  export type GlossaryCategoryCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+    active?: SortOrder
+  }
+
+  export type GlossaryCategoryMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+    active?: SortOrder
+  }
+
+  export type GlossaryCategoryMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+    active?: SortOrder
+  }
+
+  export type GlossaryCategoryScalarRelationFilter = {
+    is?: GlossaryCategoryWhereInput
+    isNot?: GlossaryCategoryWhereInput
+  }
+
+  export type GlossaryTermOrderByRelevanceInput = {
+    fields: GlossaryTermOrderByRelevanceFieldEnum | GlossaryTermOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+  export type GlossaryTermCountOrderByAggregateInput = {
+    id?: SortOrder
+    word?: SortOrder
+    description?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+    active?: SortOrder
+    category_id?: SortOrder
+  }
+
+  export type GlossaryTermMaxOrderByAggregateInput = {
+    id?: SortOrder
+    word?: SortOrder
+    description?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+    active?: SortOrder
+    category_id?: SortOrder
+  }
+
+  export type GlossaryTermMinOrderByAggregateInput = {
+    id?: SortOrder
+    word?: SortOrder
+    description?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+    active?: SortOrder
+    category_id?: SortOrder
   }
 
   export type ApiKeyCreateNestedManyWithoutApp_userInput = {
@@ -15928,11 +25374,39 @@ export namespace Prisma {
     connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
   }
 
+  export type TestTypeCreateNestedManyWithoutApi_keyInput = {
+    create?: XOR<TestTypeCreateWithoutApi_keyInput, TestTypeUncheckedCreateWithoutApi_keyInput> | TestTypeCreateWithoutApi_keyInput[] | TestTypeUncheckedCreateWithoutApi_keyInput[]
+    connectOrCreate?: TestTypeCreateOrConnectWithoutApi_keyInput | TestTypeCreateOrConnectWithoutApi_keyInput[]
+    createMany?: TestTypeCreateManyApi_keyInputEnvelope
+    connect?: TestTypeWhereUniqueInput | TestTypeWhereUniqueInput[]
+  }
+
+  export type SubjectCreateNestedManyWithoutApi_keyInput = {
+    create?: XOR<SubjectCreateWithoutApi_keyInput, SubjectUncheckedCreateWithoutApi_keyInput> | SubjectCreateWithoutApi_keyInput[] | SubjectUncheckedCreateWithoutApi_keyInput[]
+    connectOrCreate?: SubjectCreateOrConnectWithoutApi_keyInput | SubjectCreateOrConnectWithoutApi_keyInput[]
+    createMany?: SubjectCreateManyApi_keyInputEnvelope
+    connect?: SubjectWhereUniqueInput | SubjectWhereUniqueInput[]
+  }
+
   export type UserUncheckedCreateNestedManyWithoutApi_keyInput = {
     create?: XOR<UserCreateWithoutApi_keyInput, UserUncheckedCreateWithoutApi_keyInput> | UserCreateWithoutApi_keyInput[] | UserUncheckedCreateWithoutApi_keyInput[]
     connectOrCreate?: UserCreateOrConnectWithoutApi_keyInput | UserCreateOrConnectWithoutApi_keyInput[]
     createMany?: UserCreateManyApi_keyInputEnvelope
     connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
+  }
+
+  export type TestTypeUncheckedCreateNestedManyWithoutApi_keyInput = {
+    create?: XOR<TestTypeCreateWithoutApi_keyInput, TestTypeUncheckedCreateWithoutApi_keyInput> | TestTypeCreateWithoutApi_keyInput[] | TestTypeUncheckedCreateWithoutApi_keyInput[]
+    connectOrCreate?: TestTypeCreateOrConnectWithoutApi_keyInput | TestTypeCreateOrConnectWithoutApi_keyInput[]
+    createMany?: TestTypeCreateManyApi_keyInputEnvelope
+    connect?: TestTypeWhereUniqueInput | TestTypeWhereUniqueInput[]
+  }
+
+  export type SubjectUncheckedCreateNestedManyWithoutApi_keyInput = {
+    create?: XOR<SubjectCreateWithoutApi_keyInput, SubjectUncheckedCreateWithoutApi_keyInput> | SubjectCreateWithoutApi_keyInput[] | SubjectUncheckedCreateWithoutApi_keyInput[]
+    connectOrCreate?: SubjectCreateOrConnectWithoutApi_keyInput | SubjectCreateOrConnectWithoutApi_keyInput[]
+    createMany?: SubjectCreateManyApi_keyInputEnvelope
+    connect?: SubjectWhereUniqueInput | SubjectWhereUniqueInput[]
   }
 
   export type AppUserUpdateOneRequiredWithoutApi_keysNestedInput = {
@@ -15957,6 +25431,34 @@ export namespace Prisma {
     deleteMany?: UserScalarWhereInput | UserScalarWhereInput[]
   }
 
+  export type TestTypeUpdateManyWithoutApi_keyNestedInput = {
+    create?: XOR<TestTypeCreateWithoutApi_keyInput, TestTypeUncheckedCreateWithoutApi_keyInput> | TestTypeCreateWithoutApi_keyInput[] | TestTypeUncheckedCreateWithoutApi_keyInput[]
+    connectOrCreate?: TestTypeCreateOrConnectWithoutApi_keyInput | TestTypeCreateOrConnectWithoutApi_keyInput[]
+    upsert?: TestTypeUpsertWithWhereUniqueWithoutApi_keyInput | TestTypeUpsertWithWhereUniqueWithoutApi_keyInput[]
+    createMany?: TestTypeCreateManyApi_keyInputEnvelope
+    set?: TestTypeWhereUniqueInput | TestTypeWhereUniqueInput[]
+    disconnect?: TestTypeWhereUniqueInput | TestTypeWhereUniqueInput[]
+    delete?: TestTypeWhereUniqueInput | TestTypeWhereUniqueInput[]
+    connect?: TestTypeWhereUniqueInput | TestTypeWhereUniqueInput[]
+    update?: TestTypeUpdateWithWhereUniqueWithoutApi_keyInput | TestTypeUpdateWithWhereUniqueWithoutApi_keyInput[]
+    updateMany?: TestTypeUpdateManyWithWhereWithoutApi_keyInput | TestTypeUpdateManyWithWhereWithoutApi_keyInput[]
+    deleteMany?: TestTypeScalarWhereInput | TestTypeScalarWhereInput[]
+  }
+
+  export type SubjectUpdateManyWithoutApi_keyNestedInput = {
+    create?: XOR<SubjectCreateWithoutApi_keyInput, SubjectUncheckedCreateWithoutApi_keyInput> | SubjectCreateWithoutApi_keyInput[] | SubjectUncheckedCreateWithoutApi_keyInput[]
+    connectOrCreate?: SubjectCreateOrConnectWithoutApi_keyInput | SubjectCreateOrConnectWithoutApi_keyInput[]
+    upsert?: SubjectUpsertWithWhereUniqueWithoutApi_keyInput | SubjectUpsertWithWhereUniqueWithoutApi_keyInput[]
+    createMany?: SubjectCreateManyApi_keyInputEnvelope
+    set?: SubjectWhereUniqueInput | SubjectWhereUniqueInput[]
+    disconnect?: SubjectWhereUniqueInput | SubjectWhereUniqueInput[]
+    delete?: SubjectWhereUniqueInput | SubjectWhereUniqueInput[]
+    connect?: SubjectWhereUniqueInput | SubjectWhereUniqueInput[]
+    update?: SubjectUpdateWithWhereUniqueWithoutApi_keyInput | SubjectUpdateWithWhereUniqueWithoutApi_keyInput[]
+    updateMany?: SubjectUpdateManyWithWhereWithoutApi_keyInput | SubjectUpdateManyWithWhereWithoutApi_keyInput[]
+    deleteMany?: SubjectScalarWhereInput | SubjectScalarWhereInput[]
+  }
+
   export type UserUncheckedUpdateManyWithoutApi_keyNestedInput = {
     create?: XOR<UserCreateWithoutApi_keyInput, UserUncheckedCreateWithoutApi_keyInput> | UserCreateWithoutApi_keyInput[] | UserUncheckedCreateWithoutApi_keyInput[]
     connectOrCreate?: UserCreateOrConnectWithoutApi_keyInput | UserCreateOrConnectWithoutApi_keyInput[]
@@ -15969,6 +25471,34 @@ export namespace Prisma {
     update?: UserUpdateWithWhereUniqueWithoutApi_keyInput | UserUpdateWithWhereUniqueWithoutApi_keyInput[]
     updateMany?: UserUpdateManyWithWhereWithoutApi_keyInput | UserUpdateManyWithWhereWithoutApi_keyInput[]
     deleteMany?: UserScalarWhereInput | UserScalarWhereInput[]
+  }
+
+  export type TestTypeUncheckedUpdateManyWithoutApi_keyNestedInput = {
+    create?: XOR<TestTypeCreateWithoutApi_keyInput, TestTypeUncheckedCreateWithoutApi_keyInput> | TestTypeCreateWithoutApi_keyInput[] | TestTypeUncheckedCreateWithoutApi_keyInput[]
+    connectOrCreate?: TestTypeCreateOrConnectWithoutApi_keyInput | TestTypeCreateOrConnectWithoutApi_keyInput[]
+    upsert?: TestTypeUpsertWithWhereUniqueWithoutApi_keyInput | TestTypeUpsertWithWhereUniqueWithoutApi_keyInput[]
+    createMany?: TestTypeCreateManyApi_keyInputEnvelope
+    set?: TestTypeWhereUniqueInput | TestTypeWhereUniqueInput[]
+    disconnect?: TestTypeWhereUniqueInput | TestTypeWhereUniqueInput[]
+    delete?: TestTypeWhereUniqueInput | TestTypeWhereUniqueInput[]
+    connect?: TestTypeWhereUniqueInput | TestTypeWhereUniqueInput[]
+    update?: TestTypeUpdateWithWhereUniqueWithoutApi_keyInput | TestTypeUpdateWithWhereUniqueWithoutApi_keyInput[]
+    updateMany?: TestTypeUpdateManyWithWhereWithoutApi_keyInput | TestTypeUpdateManyWithWhereWithoutApi_keyInput[]
+    deleteMany?: TestTypeScalarWhereInput | TestTypeScalarWhereInput[]
+  }
+
+  export type SubjectUncheckedUpdateManyWithoutApi_keyNestedInput = {
+    create?: XOR<SubjectCreateWithoutApi_keyInput, SubjectUncheckedCreateWithoutApi_keyInput> | SubjectCreateWithoutApi_keyInput[] | SubjectUncheckedCreateWithoutApi_keyInput[]
+    connectOrCreate?: SubjectCreateOrConnectWithoutApi_keyInput | SubjectCreateOrConnectWithoutApi_keyInput[]
+    upsert?: SubjectUpsertWithWhereUniqueWithoutApi_keyInput | SubjectUpsertWithWhereUniqueWithoutApi_keyInput[]
+    createMany?: SubjectCreateManyApi_keyInputEnvelope
+    set?: SubjectWhereUniqueInput | SubjectWhereUniqueInput[]
+    disconnect?: SubjectWhereUniqueInput | SubjectWhereUniqueInput[]
+    delete?: SubjectWhereUniqueInput | SubjectWhereUniqueInput[]
+    connect?: SubjectWhereUniqueInput | SubjectWhereUniqueInput[]
+    update?: SubjectUpdateWithWhereUniqueWithoutApi_keyInput | SubjectUpdateWithWhereUniqueWithoutApi_keyInput[]
+    updateMany?: SubjectUpdateManyWithWhereWithoutApi_keyInput | SubjectUpdateManyWithWhereWithoutApi_keyInput[]
+    deleteMany?: SubjectScalarWhereInput | SubjectScalarWhereInput[]
   }
 
   export type AppUserCreateNestedOneWithoutApp_sessionsInput = {
@@ -16261,6 +25791,324 @@ export namespace Prisma {
     update?: XOR<XOR<AppUserUpdateToOneWithWhereWithoutAuth_eventsInput, AppUserUpdateWithoutAuth_eventsInput>, AppUserUncheckedUpdateWithoutAuth_eventsInput>
   }
 
+  export type ApiKeyCreateNestedOneWithoutTest_typesInput = {
+    create?: XOR<ApiKeyCreateWithoutTest_typesInput, ApiKeyUncheckedCreateWithoutTest_typesInput>
+    connectOrCreate?: ApiKeyCreateOrConnectWithoutTest_typesInput
+    connect?: ApiKeyWhereUniqueInput
+  }
+
+  export type TestSubjectCreateNestedManyWithoutTest_typeInput = {
+    create?: XOR<TestSubjectCreateWithoutTest_typeInput, TestSubjectUncheckedCreateWithoutTest_typeInput> | TestSubjectCreateWithoutTest_typeInput[] | TestSubjectUncheckedCreateWithoutTest_typeInput[]
+    connectOrCreate?: TestSubjectCreateOrConnectWithoutTest_typeInput | TestSubjectCreateOrConnectWithoutTest_typeInput[]
+    createMany?: TestSubjectCreateManyTest_typeInputEnvelope
+    connect?: TestSubjectWhereUniqueInput | TestSubjectWhereUniqueInput[]
+  }
+
+  export type TestSubjectUncheckedCreateNestedManyWithoutTest_typeInput = {
+    create?: XOR<TestSubjectCreateWithoutTest_typeInput, TestSubjectUncheckedCreateWithoutTest_typeInput> | TestSubjectCreateWithoutTest_typeInput[] | TestSubjectUncheckedCreateWithoutTest_typeInput[]
+    connectOrCreate?: TestSubjectCreateOrConnectWithoutTest_typeInput | TestSubjectCreateOrConnectWithoutTest_typeInput[]
+    createMany?: TestSubjectCreateManyTest_typeInputEnvelope
+    connect?: TestSubjectWhereUniqueInput | TestSubjectWhereUniqueInput[]
+  }
+
+  export type ApiKeyUpdateOneWithoutTest_typesNestedInput = {
+    create?: XOR<ApiKeyCreateWithoutTest_typesInput, ApiKeyUncheckedCreateWithoutTest_typesInput>
+    connectOrCreate?: ApiKeyCreateOrConnectWithoutTest_typesInput
+    upsert?: ApiKeyUpsertWithoutTest_typesInput
+    disconnect?: ApiKeyWhereInput | boolean
+    delete?: ApiKeyWhereInput | boolean
+    connect?: ApiKeyWhereUniqueInput
+    update?: XOR<XOR<ApiKeyUpdateToOneWithWhereWithoutTest_typesInput, ApiKeyUpdateWithoutTest_typesInput>, ApiKeyUncheckedUpdateWithoutTest_typesInput>
+  }
+
+  export type TestSubjectUpdateManyWithoutTest_typeNestedInput = {
+    create?: XOR<TestSubjectCreateWithoutTest_typeInput, TestSubjectUncheckedCreateWithoutTest_typeInput> | TestSubjectCreateWithoutTest_typeInput[] | TestSubjectUncheckedCreateWithoutTest_typeInput[]
+    connectOrCreate?: TestSubjectCreateOrConnectWithoutTest_typeInput | TestSubjectCreateOrConnectWithoutTest_typeInput[]
+    upsert?: TestSubjectUpsertWithWhereUniqueWithoutTest_typeInput | TestSubjectUpsertWithWhereUniqueWithoutTest_typeInput[]
+    createMany?: TestSubjectCreateManyTest_typeInputEnvelope
+    set?: TestSubjectWhereUniqueInput | TestSubjectWhereUniqueInput[]
+    disconnect?: TestSubjectWhereUniqueInput | TestSubjectWhereUniqueInput[]
+    delete?: TestSubjectWhereUniqueInput | TestSubjectWhereUniqueInput[]
+    connect?: TestSubjectWhereUniqueInput | TestSubjectWhereUniqueInput[]
+    update?: TestSubjectUpdateWithWhereUniqueWithoutTest_typeInput | TestSubjectUpdateWithWhereUniqueWithoutTest_typeInput[]
+    updateMany?: TestSubjectUpdateManyWithWhereWithoutTest_typeInput | TestSubjectUpdateManyWithWhereWithoutTest_typeInput[]
+    deleteMany?: TestSubjectScalarWhereInput | TestSubjectScalarWhereInput[]
+  }
+
+  export type TestSubjectUncheckedUpdateManyWithoutTest_typeNestedInput = {
+    create?: XOR<TestSubjectCreateWithoutTest_typeInput, TestSubjectUncheckedCreateWithoutTest_typeInput> | TestSubjectCreateWithoutTest_typeInput[] | TestSubjectUncheckedCreateWithoutTest_typeInput[]
+    connectOrCreate?: TestSubjectCreateOrConnectWithoutTest_typeInput | TestSubjectCreateOrConnectWithoutTest_typeInput[]
+    upsert?: TestSubjectUpsertWithWhereUniqueWithoutTest_typeInput | TestSubjectUpsertWithWhereUniqueWithoutTest_typeInput[]
+    createMany?: TestSubjectCreateManyTest_typeInputEnvelope
+    set?: TestSubjectWhereUniqueInput | TestSubjectWhereUniqueInput[]
+    disconnect?: TestSubjectWhereUniqueInput | TestSubjectWhereUniqueInput[]
+    delete?: TestSubjectWhereUniqueInput | TestSubjectWhereUniqueInput[]
+    connect?: TestSubjectWhereUniqueInput | TestSubjectWhereUniqueInput[]
+    update?: TestSubjectUpdateWithWhereUniqueWithoutTest_typeInput | TestSubjectUpdateWithWhereUniqueWithoutTest_typeInput[]
+    updateMany?: TestSubjectUpdateManyWithWhereWithoutTest_typeInput | TestSubjectUpdateManyWithWhereWithoutTest_typeInput[]
+    deleteMany?: TestSubjectScalarWhereInput | TestSubjectScalarWhereInput[]
+  }
+
+  export type ApiKeyCreateNestedOneWithoutSubjectsInput = {
+    create?: XOR<ApiKeyCreateWithoutSubjectsInput, ApiKeyUncheckedCreateWithoutSubjectsInput>
+    connectOrCreate?: ApiKeyCreateOrConnectWithoutSubjectsInput
+    connect?: ApiKeyWhereUniqueInput
+  }
+
+  export type SubjectDetailCreateNestedOneWithoutSubjectInput = {
+    create?: XOR<SubjectDetailCreateWithoutSubjectInput, SubjectDetailUncheckedCreateWithoutSubjectInput>
+    connectOrCreate?: SubjectDetailCreateOrConnectWithoutSubjectInput
+    connect?: SubjectDetailWhereUniqueInput
+  }
+
+  export type SubjectLevelCreateNestedManyWithoutSubjectInput = {
+    create?: XOR<SubjectLevelCreateWithoutSubjectInput, SubjectLevelUncheckedCreateWithoutSubjectInput> | SubjectLevelCreateWithoutSubjectInput[] | SubjectLevelUncheckedCreateWithoutSubjectInput[]
+    connectOrCreate?: SubjectLevelCreateOrConnectWithoutSubjectInput | SubjectLevelCreateOrConnectWithoutSubjectInput[]
+    createMany?: SubjectLevelCreateManySubjectInputEnvelope
+    connect?: SubjectLevelWhereUniqueInput | SubjectLevelWhereUniqueInput[]
+  }
+
+  export type TestSubjectCreateNestedManyWithoutSubjectInput = {
+    create?: XOR<TestSubjectCreateWithoutSubjectInput, TestSubjectUncheckedCreateWithoutSubjectInput> | TestSubjectCreateWithoutSubjectInput[] | TestSubjectUncheckedCreateWithoutSubjectInput[]
+    connectOrCreate?: TestSubjectCreateOrConnectWithoutSubjectInput | TestSubjectCreateOrConnectWithoutSubjectInput[]
+    createMany?: TestSubjectCreateManySubjectInputEnvelope
+    connect?: TestSubjectWhereUniqueInput | TestSubjectWhereUniqueInput[]
+  }
+
+  export type SubjectDetailUncheckedCreateNestedOneWithoutSubjectInput = {
+    create?: XOR<SubjectDetailCreateWithoutSubjectInput, SubjectDetailUncheckedCreateWithoutSubjectInput>
+    connectOrCreate?: SubjectDetailCreateOrConnectWithoutSubjectInput
+    connect?: SubjectDetailWhereUniqueInput
+  }
+
+  export type SubjectLevelUncheckedCreateNestedManyWithoutSubjectInput = {
+    create?: XOR<SubjectLevelCreateWithoutSubjectInput, SubjectLevelUncheckedCreateWithoutSubjectInput> | SubjectLevelCreateWithoutSubjectInput[] | SubjectLevelUncheckedCreateWithoutSubjectInput[]
+    connectOrCreate?: SubjectLevelCreateOrConnectWithoutSubjectInput | SubjectLevelCreateOrConnectWithoutSubjectInput[]
+    createMany?: SubjectLevelCreateManySubjectInputEnvelope
+    connect?: SubjectLevelWhereUniqueInput | SubjectLevelWhereUniqueInput[]
+  }
+
+  export type TestSubjectUncheckedCreateNestedManyWithoutSubjectInput = {
+    create?: XOR<TestSubjectCreateWithoutSubjectInput, TestSubjectUncheckedCreateWithoutSubjectInput> | TestSubjectCreateWithoutSubjectInput[] | TestSubjectUncheckedCreateWithoutSubjectInput[]
+    connectOrCreate?: TestSubjectCreateOrConnectWithoutSubjectInput | TestSubjectCreateOrConnectWithoutSubjectInput[]
+    createMany?: TestSubjectCreateManySubjectInputEnvelope
+    connect?: TestSubjectWhereUniqueInput | TestSubjectWhereUniqueInput[]
+  }
+
+  export type IntFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type ApiKeyUpdateOneWithoutSubjectsNestedInput = {
+    create?: XOR<ApiKeyCreateWithoutSubjectsInput, ApiKeyUncheckedCreateWithoutSubjectsInput>
+    connectOrCreate?: ApiKeyCreateOrConnectWithoutSubjectsInput
+    upsert?: ApiKeyUpsertWithoutSubjectsInput
+    disconnect?: ApiKeyWhereInput | boolean
+    delete?: ApiKeyWhereInput | boolean
+    connect?: ApiKeyWhereUniqueInput
+    update?: XOR<XOR<ApiKeyUpdateToOneWithWhereWithoutSubjectsInput, ApiKeyUpdateWithoutSubjectsInput>, ApiKeyUncheckedUpdateWithoutSubjectsInput>
+  }
+
+  export type SubjectDetailUpdateOneWithoutSubjectNestedInput = {
+    create?: XOR<SubjectDetailCreateWithoutSubjectInput, SubjectDetailUncheckedCreateWithoutSubjectInput>
+    connectOrCreate?: SubjectDetailCreateOrConnectWithoutSubjectInput
+    upsert?: SubjectDetailUpsertWithoutSubjectInput
+    disconnect?: SubjectDetailWhereInput | boolean
+    delete?: SubjectDetailWhereInput | boolean
+    connect?: SubjectDetailWhereUniqueInput
+    update?: XOR<XOR<SubjectDetailUpdateToOneWithWhereWithoutSubjectInput, SubjectDetailUpdateWithoutSubjectInput>, SubjectDetailUncheckedUpdateWithoutSubjectInput>
+  }
+
+  export type SubjectLevelUpdateManyWithoutSubjectNestedInput = {
+    create?: XOR<SubjectLevelCreateWithoutSubjectInput, SubjectLevelUncheckedCreateWithoutSubjectInput> | SubjectLevelCreateWithoutSubjectInput[] | SubjectLevelUncheckedCreateWithoutSubjectInput[]
+    connectOrCreate?: SubjectLevelCreateOrConnectWithoutSubjectInput | SubjectLevelCreateOrConnectWithoutSubjectInput[]
+    upsert?: SubjectLevelUpsertWithWhereUniqueWithoutSubjectInput | SubjectLevelUpsertWithWhereUniqueWithoutSubjectInput[]
+    createMany?: SubjectLevelCreateManySubjectInputEnvelope
+    set?: SubjectLevelWhereUniqueInput | SubjectLevelWhereUniqueInput[]
+    disconnect?: SubjectLevelWhereUniqueInput | SubjectLevelWhereUniqueInput[]
+    delete?: SubjectLevelWhereUniqueInput | SubjectLevelWhereUniqueInput[]
+    connect?: SubjectLevelWhereUniqueInput | SubjectLevelWhereUniqueInput[]
+    update?: SubjectLevelUpdateWithWhereUniqueWithoutSubjectInput | SubjectLevelUpdateWithWhereUniqueWithoutSubjectInput[]
+    updateMany?: SubjectLevelUpdateManyWithWhereWithoutSubjectInput | SubjectLevelUpdateManyWithWhereWithoutSubjectInput[]
+    deleteMany?: SubjectLevelScalarWhereInput | SubjectLevelScalarWhereInput[]
+  }
+
+  export type TestSubjectUpdateManyWithoutSubjectNestedInput = {
+    create?: XOR<TestSubjectCreateWithoutSubjectInput, TestSubjectUncheckedCreateWithoutSubjectInput> | TestSubjectCreateWithoutSubjectInput[] | TestSubjectUncheckedCreateWithoutSubjectInput[]
+    connectOrCreate?: TestSubjectCreateOrConnectWithoutSubjectInput | TestSubjectCreateOrConnectWithoutSubjectInput[]
+    upsert?: TestSubjectUpsertWithWhereUniqueWithoutSubjectInput | TestSubjectUpsertWithWhereUniqueWithoutSubjectInput[]
+    createMany?: TestSubjectCreateManySubjectInputEnvelope
+    set?: TestSubjectWhereUniqueInput | TestSubjectWhereUniqueInput[]
+    disconnect?: TestSubjectWhereUniqueInput | TestSubjectWhereUniqueInput[]
+    delete?: TestSubjectWhereUniqueInput | TestSubjectWhereUniqueInput[]
+    connect?: TestSubjectWhereUniqueInput | TestSubjectWhereUniqueInput[]
+    update?: TestSubjectUpdateWithWhereUniqueWithoutSubjectInput | TestSubjectUpdateWithWhereUniqueWithoutSubjectInput[]
+    updateMany?: TestSubjectUpdateManyWithWhereWithoutSubjectInput | TestSubjectUpdateManyWithWhereWithoutSubjectInput[]
+    deleteMany?: TestSubjectScalarWhereInput | TestSubjectScalarWhereInput[]
+  }
+
+  export type SubjectDetailUncheckedUpdateOneWithoutSubjectNestedInput = {
+    create?: XOR<SubjectDetailCreateWithoutSubjectInput, SubjectDetailUncheckedCreateWithoutSubjectInput>
+    connectOrCreate?: SubjectDetailCreateOrConnectWithoutSubjectInput
+    upsert?: SubjectDetailUpsertWithoutSubjectInput
+    disconnect?: SubjectDetailWhereInput | boolean
+    delete?: SubjectDetailWhereInput | boolean
+    connect?: SubjectDetailWhereUniqueInput
+    update?: XOR<XOR<SubjectDetailUpdateToOneWithWhereWithoutSubjectInput, SubjectDetailUpdateWithoutSubjectInput>, SubjectDetailUncheckedUpdateWithoutSubjectInput>
+  }
+
+  export type SubjectLevelUncheckedUpdateManyWithoutSubjectNestedInput = {
+    create?: XOR<SubjectLevelCreateWithoutSubjectInput, SubjectLevelUncheckedCreateWithoutSubjectInput> | SubjectLevelCreateWithoutSubjectInput[] | SubjectLevelUncheckedCreateWithoutSubjectInput[]
+    connectOrCreate?: SubjectLevelCreateOrConnectWithoutSubjectInput | SubjectLevelCreateOrConnectWithoutSubjectInput[]
+    upsert?: SubjectLevelUpsertWithWhereUniqueWithoutSubjectInput | SubjectLevelUpsertWithWhereUniqueWithoutSubjectInput[]
+    createMany?: SubjectLevelCreateManySubjectInputEnvelope
+    set?: SubjectLevelWhereUniqueInput | SubjectLevelWhereUniqueInput[]
+    disconnect?: SubjectLevelWhereUniqueInput | SubjectLevelWhereUniqueInput[]
+    delete?: SubjectLevelWhereUniqueInput | SubjectLevelWhereUniqueInput[]
+    connect?: SubjectLevelWhereUniqueInput | SubjectLevelWhereUniqueInput[]
+    update?: SubjectLevelUpdateWithWhereUniqueWithoutSubjectInput | SubjectLevelUpdateWithWhereUniqueWithoutSubjectInput[]
+    updateMany?: SubjectLevelUpdateManyWithWhereWithoutSubjectInput | SubjectLevelUpdateManyWithWhereWithoutSubjectInput[]
+    deleteMany?: SubjectLevelScalarWhereInput | SubjectLevelScalarWhereInput[]
+  }
+
+  export type TestSubjectUncheckedUpdateManyWithoutSubjectNestedInput = {
+    create?: XOR<TestSubjectCreateWithoutSubjectInput, TestSubjectUncheckedCreateWithoutSubjectInput> | TestSubjectCreateWithoutSubjectInput[] | TestSubjectUncheckedCreateWithoutSubjectInput[]
+    connectOrCreate?: TestSubjectCreateOrConnectWithoutSubjectInput | TestSubjectCreateOrConnectWithoutSubjectInput[]
+    upsert?: TestSubjectUpsertWithWhereUniqueWithoutSubjectInput | TestSubjectUpsertWithWhereUniqueWithoutSubjectInput[]
+    createMany?: TestSubjectCreateManySubjectInputEnvelope
+    set?: TestSubjectWhereUniqueInput | TestSubjectWhereUniqueInput[]
+    disconnect?: TestSubjectWhereUniqueInput | TestSubjectWhereUniqueInput[]
+    delete?: TestSubjectWhereUniqueInput | TestSubjectWhereUniqueInput[]
+    connect?: TestSubjectWhereUniqueInput | TestSubjectWhereUniqueInput[]
+    update?: TestSubjectUpdateWithWhereUniqueWithoutSubjectInput | TestSubjectUpdateWithWhereUniqueWithoutSubjectInput[]
+    updateMany?: TestSubjectUpdateManyWithWhereWithoutSubjectInput | TestSubjectUpdateManyWithWhereWithoutSubjectInput[]
+    deleteMany?: TestSubjectScalarWhereInput | TestSubjectScalarWhereInput[]
+  }
+
+  export type SubjectCreateNestedOneWithoutSubject_detailInput = {
+    create?: XOR<SubjectCreateWithoutSubject_detailInput, SubjectUncheckedCreateWithoutSubject_detailInput>
+    connectOrCreate?: SubjectCreateOrConnectWithoutSubject_detailInput
+    connect?: SubjectWhereUniqueInput
+  }
+
+  export type SubjectUpdateOneRequiredWithoutSubject_detailNestedInput = {
+    create?: XOR<SubjectCreateWithoutSubject_detailInput, SubjectUncheckedCreateWithoutSubject_detailInput>
+    connectOrCreate?: SubjectCreateOrConnectWithoutSubject_detailInput
+    upsert?: SubjectUpsertWithoutSubject_detailInput
+    connect?: SubjectWhereUniqueInput
+    update?: XOR<XOR<SubjectUpdateToOneWithWhereWithoutSubject_detailInput, SubjectUpdateWithoutSubject_detailInput>, SubjectUncheckedUpdateWithoutSubject_detailInput>
+  }
+
+  export type SubjectCreateNestedOneWithoutSubject_levelsInput = {
+    create?: XOR<SubjectCreateWithoutSubject_levelsInput, SubjectUncheckedCreateWithoutSubject_levelsInput>
+    connectOrCreate?: SubjectCreateOrConnectWithoutSubject_levelsInput
+    connect?: SubjectWhereUniqueInput
+  }
+
+  export type SubjectUpdateOneRequiredWithoutSubject_levelsNestedInput = {
+    create?: XOR<SubjectCreateWithoutSubject_levelsInput, SubjectUncheckedCreateWithoutSubject_levelsInput>
+    connectOrCreate?: SubjectCreateOrConnectWithoutSubject_levelsInput
+    upsert?: SubjectUpsertWithoutSubject_levelsInput
+    connect?: SubjectWhereUniqueInput
+    update?: XOR<XOR<SubjectUpdateToOneWithWhereWithoutSubject_levelsInput, SubjectUpdateWithoutSubject_levelsInput>, SubjectUncheckedUpdateWithoutSubject_levelsInput>
+  }
+
+  export type TestTypeCreateNestedOneWithoutTestSubjectsInput = {
+    create?: XOR<TestTypeCreateWithoutTestSubjectsInput, TestTypeUncheckedCreateWithoutTestSubjectsInput>
+    connectOrCreate?: TestTypeCreateOrConnectWithoutTestSubjectsInput
+    connect?: TestTypeWhereUniqueInput
+  }
+
+  export type SubjectCreateNestedOneWithoutTestSubjectsInput = {
+    create?: XOR<SubjectCreateWithoutTestSubjectsInput, SubjectUncheckedCreateWithoutTestSubjectsInput>
+    connectOrCreate?: SubjectCreateOrConnectWithoutTestSubjectsInput
+    connect?: SubjectWhereUniqueInput
+  }
+
+  export type NullableIntFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type TestTypeUpdateOneRequiredWithoutTestSubjectsNestedInput = {
+    create?: XOR<TestTypeCreateWithoutTestSubjectsInput, TestTypeUncheckedCreateWithoutTestSubjectsInput>
+    connectOrCreate?: TestTypeCreateOrConnectWithoutTestSubjectsInput
+    upsert?: TestTypeUpsertWithoutTestSubjectsInput
+    connect?: TestTypeWhereUniqueInput
+    update?: XOR<XOR<TestTypeUpdateToOneWithWhereWithoutTestSubjectsInput, TestTypeUpdateWithoutTestSubjectsInput>, TestTypeUncheckedUpdateWithoutTestSubjectsInput>
+  }
+
+  export type SubjectUpdateOneRequiredWithoutTestSubjectsNestedInput = {
+    create?: XOR<SubjectCreateWithoutTestSubjectsInput, SubjectUncheckedCreateWithoutTestSubjectsInput>
+    connectOrCreate?: SubjectCreateOrConnectWithoutTestSubjectsInput
+    upsert?: SubjectUpsertWithoutTestSubjectsInput
+    connect?: SubjectWhereUniqueInput
+    update?: XOR<XOR<SubjectUpdateToOneWithWhereWithoutTestSubjectsInput, SubjectUpdateWithoutTestSubjectsInput>, SubjectUncheckedUpdateWithoutTestSubjectsInput>
+  }
+
+  export type GlossaryTermCreateNestedManyWithoutCategoryInput = {
+    create?: XOR<GlossaryTermCreateWithoutCategoryInput, GlossaryTermUncheckedCreateWithoutCategoryInput> | GlossaryTermCreateWithoutCategoryInput[] | GlossaryTermUncheckedCreateWithoutCategoryInput[]
+    connectOrCreate?: GlossaryTermCreateOrConnectWithoutCategoryInput | GlossaryTermCreateOrConnectWithoutCategoryInput[]
+    createMany?: GlossaryTermCreateManyCategoryInputEnvelope
+    connect?: GlossaryTermWhereUniqueInput | GlossaryTermWhereUniqueInput[]
+  }
+
+  export type GlossaryTermUncheckedCreateNestedManyWithoutCategoryInput = {
+    create?: XOR<GlossaryTermCreateWithoutCategoryInput, GlossaryTermUncheckedCreateWithoutCategoryInput> | GlossaryTermCreateWithoutCategoryInput[] | GlossaryTermUncheckedCreateWithoutCategoryInput[]
+    connectOrCreate?: GlossaryTermCreateOrConnectWithoutCategoryInput | GlossaryTermCreateOrConnectWithoutCategoryInput[]
+    createMany?: GlossaryTermCreateManyCategoryInputEnvelope
+    connect?: GlossaryTermWhereUniqueInput | GlossaryTermWhereUniqueInput[]
+  }
+
+  export type GlossaryTermUpdateManyWithoutCategoryNestedInput = {
+    create?: XOR<GlossaryTermCreateWithoutCategoryInput, GlossaryTermUncheckedCreateWithoutCategoryInput> | GlossaryTermCreateWithoutCategoryInput[] | GlossaryTermUncheckedCreateWithoutCategoryInput[]
+    connectOrCreate?: GlossaryTermCreateOrConnectWithoutCategoryInput | GlossaryTermCreateOrConnectWithoutCategoryInput[]
+    upsert?: GlossaryTermUpsertWithWhereUniqueWithoutCategoryInput | GlossaryTermUpsertWithWhereUniqueWithoutCategoryInput[]
+    createMany?: GlossaryTermCreateManyCategoryInputEnvelope
+    set?: GlossaryTermWhereUniqueInput | GlossaryTermWhereUniqueInput[]
+    disconnect?: GlossaryTermWhereUniqueInput | GlossaryTermWhereUniqueInput[]
+    delete?: GlossaryTermWhereUniqueInput | GlossaryTermWhereUniqueInput[]
+    connect?: GlossaryTermWhereUniqueInput | GlossaryTermWhereUniqueInput[]
+    update?: GlossaryTermUpdateWithWhereUniqueWithoutCategoryInput | GlossaryTermUpdateWithWhereUniqueWithoutCategoryInput[]
+    updateMany?: GlossaryTermUpdateManyWithWhereWithoutCategoryInput | GlossaryTermUpdateManyWithWhereWithoutCategoryInput[]
+    deleteMany?: GlossaryTermScalarWhereInput | GlossaryTermScalarWhereInput[]
+  }
+
+  export type GlossaryTermUncheckedUpdateManyWithoutCategoryNestedInput = {
+    create?: XOR<GlossaryTermCreateWithoutCategoryInput, GlossaryTermUncheckedCreateWithoutCategoryInput> | GlossaryTermCreateWithoutCategoryInput[] | GlossaryTermUncheckedCreateWithoutCategoryInput[]
+    connectOrCreate?: GlossaryTermCreateOrConnectWithoutCategoryInput | GlossaryTermCreateOrConnectWithoutCategoryInput[]
+    upsert?: GlossaryTermUpsertWithWhereUniqueWithoutCategoryInput | GlossaryTermUpsertWithWhereUniqueWithoutCategoryInput[]
+    createMany?: GlossaryTermCreateManyCategoryInputEnvelope
+    set?: GlossaryTermWhereUniqueInput | GlossaryTermWhereUniqueInput[]
+    disconnect?: GlossaryTermWhereUniqueInput | GlossaryTermWhereUniqueInput[]
+    delete?: GlossaryTermWhereUniqueInput | GlossaryTermWhereUniqueInput[]
+    connect?: GlossaryTermWhereUniqueInput | GlossaryTermWhereUniqueInput[]
+    update?: GlossaryTermUpdateWithWhereUniqueWithoutCategoryInput | GlossaryTermUpdateWithWhereUniqueWithoutCategoryInput[]
+    updateMany?: GlossaryTermUpdateManyWithWhereWithoutCategoryInput | GlossaryTermUpdateManyWithWhereWithoutCategoryInput[]
+    deleteMany?: GlossaryTermScalarWhereInput | GlossaryTermScalarWhereInput[]
+  }
+
+  export type GlossaryCategoryCreateNestedOneWithoutTermsInput = {
+    create?: XOR<GlossaryCategoryCreateWithoutTermsInput, GlossaryCategoryUncheckedCreateWithoutTermsInput>
+    connectOrCreate?: GlossaryCategoryCreateOrConnectWithoutTermsInput
+    connect?: GlossaryCategoryWhereUniqueInput
+  }
+
+  export type GlossaryCategoryUpdateOneRequiredWithoutTermsNestedInput = {
+    create?: XOR<GlossaryCategoryCreateWithoutTermsInput, GlossaryCategoryUncheckedCreateWithoutTermsInput>
+    connectOrCreate?: GlossaryCategoryCreateOrConnectWithoutTermsInput
+    upsert?: GlossaryCategoryUpsertWithoutTermsInput
+    connect?: GlossaryCategoryWhereUniqueInput
+    update?: XOR<XOR<GlossaryCategoryUpdateToOneWithWhereWithoutTermsInput, GlossaryCategoryUpdateWithoutTermsInput>, GlossaryCategoryUncheckedUpdateWithoutTermsInput>
+  }
+
   export type NestedStringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[]
@@ -16445,6 +26293,83 @@ export namespace Prisma {
     _min?: NestedEnumAuthEventStatusFilter<$PrismaModel>
     _max?: NestedEnumAuthEventStatusFilter<$PrismaModel>
   }
+  export type NestedJsonNullableFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<NestedJsonNullableFilterBase<$PrismaModel>>, Exclude<keyof Required<NestedJsonNullableFilterBase<$PrismaModel>>, 'path'>>,
+        Required<NestedJsonNullableFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<NestedJsonNullableFilterBase<$PrismaModel>>, 'path'>>
+
+  export type NestedJsonNullableFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue
+    lte?: InputJsonValue
+    gt?: InputJsonValue
+    gte?: InputJsonValue
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+  }
+
+  export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[]
+    notIn?: number[]
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type NestedFloatFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[]
+    notIn?: number[]
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatFilter<$PrismaModel> | number
+  }
+
+  export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type NestedFloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
 
   export type ApiKeyCreateWithoutApp_userInput = {
     id?: string
@@ -16456,6 +26381,8 @@ export namespace Prisma {
     last_used_at?: Date | string | null
     expires_at?: Date | string | null
     users?: UserCreateNestedManyWithoutApi_keyInput
+    test_types?: TestTypeCreateNestedManyWithoutApi_keyInput
+    subjects?: SubjectCreateNestedManyWithoutApi_keyInput
   }
 
   export type ApiKeyUncheckedCreateWithoutApp_userInput = {
@@ -16468,6 +26395,8 @@ export namespace Prisma {
     last_used_at?: Date | string | null
     expires_at?: Date | string | null
     users?: UserUncheckedCreateNestedManyWithoutApi_keyInput
+    test_types?: TestTypeUncheckedCreateNestedManyWithoutApi_keyInput
+    subjects?: SubjectUncheckedCreateNestedManyWithoutApi_keyInput
   }
 
   export type ApiKeyCreateOrConnectWithoutApp_userInput = {
@@ -16544,8 +26473,8 @@ export namespace Prisma {
     event_type: string
     ip_address?: string | null
     user_agent?: string | null
-    details?: string | null
     created_at?: Date | string
+    additional_info?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type AuthEventUncheckedCreateWithoutApp_userInput = {
@@ -16553,8 +26482,8 @@ export namespace Prisma {
     event_type: string
     ip_address?: string | null
     user_agent?: string | null
-    details?: string | null
     created_at?: Date | string
+    additional_info?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type AuthEventCreateOrConnectWithoutApp_userInput = {
@@ -16685,8 +26614,8 @@ export namespace Prisma {
     event_type?: StringFilter<"AuthEvent"> | string
     ip_address?: StringNullableFilter<"AuthEvent"> | string | null
     user_agent?: StringNullableFilter<"AuthEvent"> | string | null
-    details?: StringNullableFilter<"AuthEvent"> | string | null
     created_at?: DateTimeFilter<"AuthEvent"> | Date | string
+    additional_info?: JsonNullableFilter<"AuthEvent">
   }
 
   export type AppUserCreateWithoutApi_keysInput = {
@@ -16786,6 +26715,74 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type TestTypeCreateWithoutApi_keyInput = {
+    id?: string
+    name: string
+    description?: string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+    testSubjects?: TestSubjectCreateNestedManyWithoutTest_typeInput
+  }
+
+  export type TestTypeUncheckedCreateWithoutApi_keyInput = {
+    id?: string
+    name: string
+    description?: string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+    testSubjects?: TestSubjectUncheckedCreateNestedManyWithoutTest_typeInput
+  }
+
+  export type TestTypeCreateOrConnectWithoutApi_keyInput = {
+    where: TestTypeWhereUniqueInput
+    create: XOR<TestTypeCreateWithoutApi_keyInput, TestTypeUncheckedCreateWithoutApi_keyInput>
+  }
+
+  export type TestTypeCreateManyApi_keyInputEnvelope = {
+    data: TestTypeCreateManyApi_keyInput | TestTypeCreateManyApi_keyInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type SubjectCreateWithoutApi_keyInput = {
+    id?: string
+    name: string
+    description: string
+    slug_materia: string
+    approximate_total_minutes: number
+    total_questions: number
+    order: number
+    created_at?: Date | string
+    updated_at?: Date | string
+    subject_detail?: SubjectDetailCreateNestedOneWithoutSubjectInput
+    subject_levels?: SubjectLevelCreateNestedManyWithoutSubjectInput
+    testSubjects?: TestSubjectCreateNestedManyWithoutSubjectInput
+  }
+
+  export type SubjectUncheckedCreateWithoutApi_keyInput = {
+    id?: string
+    name: string
+    description: string
+    slug_materia: string
+    approximate_total_minutes: number
+    total_questions: number
+    order: number
+    created_at?: Date | string
+    updated_at?: Date | string
+    subject_detail?: SubjectDetailUncheckedCreateNestedOneWithoutSubjectInput
+    subject_levels?: SubjectLevelUncheckedCreateNestedManyWithoutSubjectInput
+    testSubjects?: TestSubjectUncheckedCreateNestedManyWithoutSubjectInput
+  }
+
+  export type SubjectCreateOrConnectWithoutApi_keyInput = {
+    where: SubjectWhereUniqueInput
+    create: XOR<SubjectCreateWithoutApi_keyInput, SubjectUncheckedCreateWithoutApi_keyInput>
+  }
+
+  export type SubjectCreateManyApi_keyInputEnvelope = {
+    data: SubjectCreateManyApi_keyInput | SubjectCreateManyApi_keyInput[]
+    skipDuplicates?: boolean
+  }
+
   export type AppUserUpsertWithoutApi_keysInput = {
     update: XOR<AppUserUpdateWithoutApi_keysInput, AppUserUncheckedUpdateWithoutApi_keysInput>
     create: XOR<AppUserCreateWithoutApi_keysInput, AppUserUncheckedCreateWithoutApi_keysInput>
@@ -16874,6 +26871,66 @@ export namespace Prisma {
     reset_token_expires?: DateTimeNullableFilter<"User"> | Date | string | null
     ip_address?: StringNullableFilter<"User"> | string | null
     user_agent?: StringNullableFilter<"User"> | string | null
+  }
+
+  export type TestTypeUpsertWithWhereUniqueWithoutApi_keyInput = {
+    where: TestTypeWhereUniqueInput
+    update: XOR<TestTypeUpdateWithoutApi_keyInput, TestTypeUncheckedUpdateWithoutApi_keyInput>
+    create: XOR<TestTypeCreateWithoutApi_keyInput, TestTypeUncheckedCreateWithoutApi_keyInput>
+  }
+
+  export type TestTypeUpdateWithWhereUniqueWithoutApi_keyInput = {
+    where: TestTypeWhereUniqueInput
+    data: XOR<TestTypeUpdateWithoutApi_keyInput, TestTypeUncheckedUpdateWithoutApi_keyInput>
+  }
+
+  export type TestTypeUpdateManyWithWhereWithoutApi_keyInput = {
+    where: TestTypeScalarWhereInput
+    data: XOR<TestTypeUpdateManyMutationInput, TestTypeUncheckedUpdateManyWithoutApi_keyInput>
+  }
+
+  export type TestTypeScalarWhereInput = {
+    AND?: TestTypeScalarWhereInput | TestTypeScalarWhereInput[]
+    OR?: TestTypeScalarWhereInput[]
+    NOT?: TestTypeScalarWhereInput | TestTypeScalarWhereInput[]
+    id?: StringFilter<"TestType"> | string
+    name?: StringFilter<"TestType"> | string
+    description?: StringNullableFilter<"TestType"> | string | null
+    api_key_id?: StringNullableFilter<"TestType"> | string | null
+    created_at?: DateTimeFilter<"TestType"> | Date | string
+    updated_at?: DateTimeFilter<"TestType"> | Date | string
+  }
+
+  export type SubjectUpsertWithWhereUniqueWithoutApi_keyInput = {
+    where: SubjectWhereUniqueInput
+    update: XOR<SubjectUpdateWithoutApi_keyInput, SubjectUncheckedUpdateWithoutApi_keyInput>
+    create: XOR<SubjectCreateWithoutApi_keyInput, SubjectUncheckedCreateWithoutApi_keyInput>
+  }
+
+  export type SubjectUpdateWithWhereUniqueWithoutApi_keyInput = {
+    where: SubjectWhereUniqueInput
+    data: XOR<SubjectUpdateWithoutApi_keyInput, SubjectUncheckedUpdateWithoutApi_keyInput>
+  }
+
+  export type SubjectUpdateManyWithWhereWithoutApi_keyInput = {
+    where: SubjectScalarWhereInput
+    data: XOR<SubjectUpdateManyMutationInput, SubjectUncheckedUpdateManyWithoutApi_keyInput>
+  }
+
+  export type SubjectScalarWhereInput = {
+    AND?: SubjectScalarWhereInput | SubjectScalarWhereInput[]
+    OR?: SubjectScalarWhereInput[]
+    NOT?: SubjectScalarWhereInput | SubjectScalarWhereInput[]
+    id?: StringFilter<"Subject"> | string
+    name?: StringFilter<"Subject"> | string
+    description?: StringFilter<"Subject"> | string
+    slug_materia?: StringFilter<"Subject"> | string
+    approximate_total_minutes?: IntFilter<"Subject"> | number
+    total_questions?: IntFilter<"Subject"> | number
+    order?: IntFilter<"Subject"> | number
+    api_key_id?: StringNullableFilter<"Subject"> | string | null
+    created_at?: DateTimeFilter<"Subject"> | Date | string
+    updated_at?: DateTimeFilter<"Subject"> | Date | string
   }
 
   export type AppUserCreateWithoutApp_sessionsInput = {
@@ -16986,6 +27043,8 @@ export namespace Prisma {
     last_used_at?: Date | string | null
     expires_at?: Date | string | null
     app_user: AppUserCreateNestedOneWithoutApi_keysInput
+    test_types?: TestTypeCreateNestedManyWithoutApi_keyInput
+    subjects?: SubjectCreateNestedManyWithoutApi_keyInput
   }
 
   export type ApiKeyUncheckedCreateWithoutUsersInput = {
@@ -16998,6 +27057,8 @@ export namespace Prisma {
     updated_at?: Date | string
     last_used_at?: Date | string | null
     expires_at?: Date | string | null
+    test_types?: TestTypeUncheckedCreateNestedManyWithoutApi_keyInput
+    subjects?: SubjectUncheckedCreateNestedManyWithoutApi_keyInput
   }
 
   export type ApiKeyCreateOrConnectWithoutUsersInput = {
@@ -17116,6 +27177,8 @@ export namespace Prisma {
     last_used_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     expires_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     app_user?: AppUserUpdateOneRequiredWithoutApi_keysNestedInput
+    test_types?: TestTypeUpdateManyWithoutApi_keyNestedInput
+    subjects?: SubjectUpdateManyWithoutApi_keyNestedInput
   }
 
   export type ApiKeyUncheckedUpdateWithoutUsersInput = {
@@ -17128,6 +27191,8 @@ export namespace Prisma {
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     last_used_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     expires_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    test_types?: TestTypeUncheckedUpdateManyWithoutApi_keyNestedInput
+    subjects?: SubjectUncheckedUpdateManyWithoutApi_keyNestedInput
   }
 
   export type UserAccountUpsertWithWhereUniqueWithoutUserInput = {
@@ -17800,6 +27865,748 @@ export namespace Prisma {
     password_resets?: PasswordResetUncheckedUpdateOneWithoutApp_userNestedInput
   }
 
+  export type ApiKeyCreateWithoutTest_typesInput = {
+    id?: string
+    key: string
+    name: string
+    active?: boolean
+    created_at?: Date | string
+    updated_at?: Date | string
+    last_used_at?: Date | string | null
+    expires_at?: Date | string | null
+    app_user: AppUserCreateNestedOneWithoutApi_keysInput
+    users?: UserCreateNestedManyWithoutApi_keyInput
+    subjects?: SubjectCreateNestedManyWithoutApi_keyInput
+  }
+
+  export type ApiKeyUncheckedCreateWithoutTest_typesInput = {
+    id?: string
+    app_user_id: string
+    key: string
+    name: string
+    active?: boolean
+    created_at?: Date | string
+    updated_at?: Date | string
+    last_used_at?: Date | string | null
+    expires_at?: Date | string | null
+    users?: UserUncheckedCreateNestedManyWithoutApi_keyInput
+    subjects?: SubjectUncheckedCreateNestedManyWithoutApi_keyInput
+  }
+
+  export type ApiKeyCreateOrConnectWithoutTest_typesInput = {
+    where: ApiKeyWhereUniqueInput
+    create: XOR<ApiKeyCreateWithoutTest_typesInput, ApiKeyUncheckedCreateWithoutTest_typesInput>
+  }
+
+  export type TestSubjectCreateWithoutTest_typeInput = {
+    assigned_at?: Date | string
+    subject_order_in_test?: number | null
+    subject: SubjectCreateNestedOneWithoutTestSubjectsInput
+  }
+
+  export type TestSubjectUncheckedCreateWithoutTest_typeInput = {
+    subject_id: string
+    assigned_at?: Date | string
+    subject_order_in_test?: number | null
+  }
+
+  export type TestSubjectCreateOrConnectWithoutTest_typeInput = {
+    where: TestSubjectWhereUniqueInput
+    create: XOR<TestSubjectCreateWithoutTest_typeInput, TestSubjectUncheckedCreateWithoutTest_typeInput>
+  }
+
+  export type TestSubjectCreateManyTest_typeInputEnvelope = {
+    data: TestSubjectCreateManyTest_typeInput | TestSubjectCreateManyTest_typeInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ApiKeyUpsertWithoutTest_typesInput = {
+    update: XOR<ApiKeyUpdateWithoutTest_typesInput, ApiKeyUncheckedUpdateWithoutTest_typesInput>
+    create: XOR<ApiKeyCreateWithoutTest_typesInput, ApiKeyUncheckedCreateWithoutTest_typesInput>
+    where?: ApiKeyWhereInput
+  }
+
+  export type ApiKeyUpdateToOneWithWhereWithoutTest_typesInput = {
+    where?: ApiKeyWhereInput
+    data: XOR<ApiKeyUpdateWithoutTest_typesInput, ApiKeyUncheckedUpdateWithoutTest_typesInput>
+  }
+
+  export type ApiKeyUpdateWithoutTest_typesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    key?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    active?: BoolFieldUpdateOperationsInput | boolean
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    last_used_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    expires_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    app_user?: AppUserUpdateOneRequiredWithoutApi_keysNestedInput
+    users?: UserUpdateManyWithoutApi_keyNestedInput
+    subjects?: SubjectUpdateManyWithoutApi_keyNestedInput
+  }
+
+  export type ApiKeyUncheckedUpdateWithoutTest_typesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    app_user_id?: StringFieldUpdateOperationsInput | string
+    key?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    active?: BoolFieldUpdateOperationsInput | boolean
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    last_used_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    expires_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    users?: UserUncheckedUpdateManyWithoutApi_keyNestedInput
+    subjects?: SubjectUncheckedUpdateManyWithoutApi_keyNestedInput
+  }
+
+  export type TestSubjectUpsertWithWhereUniqueWithoutTest_typeInput = {
+    where: TestSubjectWhereUniqueInput
+    update: XOR<TestSubjectUpdateWithoutTest_typeInput, TestSubjectUncheckedUpdateWithoutTest_typeInput>
+    create: XOR<TestSubjectCreateWithoutTest_typeInput, TestSubjectUncheckedCreateWithoutTest_typeInput>
+  }
+
+  export type TestSubjectUpdateWithWhereUniqueWithoutTest_typeInput = {
+    where: TestSubjectWhereUniqueInput
+    data: XOR<TestSubjectUpdateWithoutTest_typeInput, TestSubjectUncheckedUpdateWithoutTest_typeInput>
+  }
+
+  export type TestSubjectUpdateManyWithWhereWithoutTest_typeInput = {
+    where: TestSubjectScalarWhereInput
+    data: XOR<TestSubjectUpdateManyMutationInput, TestSubjectUncheckedUpdateManyWithoutTest_typeInput>
+  }
+
+  export type TestSubjectScalarWhereInput = {
+    AND?: TestSubjectScalarWhereInput | TestSubjectScalarWhereInput[]
+    OR?: TestSubjectScalarWhereInput[]
+    NOT?: TestSubjectScalarWhereInput | TestSubjectScalarWhereInput[]
+    test_type_id?: StringFilter<"TestSubject"> | string
+    subject_id?: StringFilter<"TestSubject"> | string
+    assigned_at?: DateTimeFilter<"TestSubject"> | Date | string
+    subject_order_in_test?: IntNullableFilter<"TestSubject"> | number | null
+  }
+
+  export type ApiKeyCreateWithoutSubjectsInput = {
+    id?: string
+    key: string
+    name: string
+    active?: boolean
+    created_at?: Date | string
+    updated_at?: Date | string
+    last_used_at?: Date | string | null
+    expires_at?: Date | string | null
+    app_user: AppUserCreateNestedOneWithoutApi_keysInput
+    users?: UserCreateNestedManyWithoutApi_keyInput
+    test_types?: TestTypeCreateNestedManyWithoutApi_keyInput
+  }
+
+  export type ApiKeyUncheckedCreateWithoutSubjectsInput = {
+    id?: string
+    app_user_id: string
+    key: string
+    name: string
+    active?: boolean
+    created_at?: Date | string
+    updated_at?: Date | string
+    last_used_at?: Date | string | null
+    expires_at?: Date | string | null
+    users?: UserUncheckedCreateNestedManyWithoutApi_keyInput
+    test_types?: TestTypeUncheckedCreateNestedManyWithoutApi_keyInput
+  }
+
+  export type ApiKeyCreateOrConnectWithoutSubjectsInput = {
+    where: ApiKeyWhereUniqueInput
+    create: XOR<ApiKeyCreateWithoutSubjectsInput, ApiKeyUncheckedCreateWithoutSubjectsInput>
+  }
+
+  export type SubjectDetailCreateWithoutSubjectInput = {
+    id?: string
+    background_image_url?: string | null
+    title: string
+    title_color?: string | null
+    subtitle?: string | null
+    primary_color_hex?: string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+  }
+
+  export type SubjectDetailUncheckedCreateWithoutSubjectInput = {
+    id?: string
+    background_image_url?: string | null
+    title: string
+    title_color?: string | null
+    subtitle?: string | null
+    primary_color_hex?: string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+  }
+
+  export type SubjectDetailCreateOrConnectWithoutSubjectInput = {
+    where: SubjectDetailWhereUniqueInput
+    create: XOR<SubjectDetailCreateWithoutSubjectInput, SubjectDetailUncheckedCreateWithoutSubjectInput>
+  }
+
+  export type SubjectLevelCreateWithoutSubjectInput = {
+    id?: string
+    reference_title?: string | null
+    title: string
+    order: number
+    number_of_questions: number
+    approximate_time_minutes: number
+    created_at?: Date | string
+    updated_at?: Date | string
+  }
+
+  export type SubjectLevelUncheckedCreateWithoutSubjectInput = {
+    id?: string
+    reference_title?: string | null
+    title: string
+    order: number
+    number_of_questions: number
+    approximate_time_minutes: number
+    created_at?: Date | string
+    updated_at?: Date | string
+  }
+
+  export type SubjectLevelCreateOrConnectWithoutSubjectInput = {
+    where: SubjectLevelWhereUniqueInput
+    create: XOR<SubjectLevelCreateWithoutSubjectInput, SubjectLevelUncheckedCreateWithoutSubjectInput>
+  }
+
+  export type SubjectLevelCreateManySubjectInputEnvelope = {
+    data: SubjectLevelCreateManySubjectInput | SubjectLevelCreateManySubjectInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type TestSubjectCreateWithoutSubjectInput = {
+    assigned_at?: Date | string
+    subject_order_in_test?: number | null
+    test_type: TestTypeCreateNestedOneWithoutTestSubjectsInput
+  }
+
+  export type TestSubjectUncheckedCreateWithoutSubjectInput = {
+    test_type_id: string
+    assigned_at?: Date | string
+    subject_order_in_test?: number | null
+  }
+
+  export type TestSubjectCreateOrConnectWithoutSubjectInput = {
+    where: TestSubjectWhereUniqueInput
+    create: XOR<TestSubjectCreateWithoutSubjectInput, TestSubjectUncheckedCreateWithoutSubjectInput>
+  }
+
+  export type TestSubjectCreateManySubjectInputEnvelope = {
+    data: TestSubjectCreateManySubjectInput | TestSubjectCreateManySubjectInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ApiKeyUpsertWithoutSubjectsInput = {
+    update: XOR<ApiKeyUpdateWithoutSubjectsInput, ApiKeyUncheckedUpdateWithoutSubjectsInput>
+    create: XOR<ApiKeyCreateWithoutSubjectsInput, ApiKeyUncheckedCreateWithoutSubjectsInput>
+    where?: ApiKeyWhereInput
+  }
+
+  export type ApiKeyUpdateToOneWithWhereWithoutSubjectsInput = {
+    where?: ApiKeyWhereInput
+    data: XOR<ApiKeyUpdateWithoutSubjectsInput, ApiKeyUncheckedUpdateWithoutSubjectsInput>
+  }
+
+  export type ApiKeyUpdateWithoutSubjectsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    key?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    active?: BoolFieldUpdateOperationsInput | boolean
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    last_used_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    expires_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    app_user?: AppUserUpdateOneRequiredWithoutApi_keysNestedInput
+    users?: UserUpdateManyWithoutApi_keyNestedInput
+    test_types?: TestTypeUpdateManyWithoutApi_keyNestedInput
+  }
+
+  export type ApiKeyUncheckedUpdateWithoutSubjectsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    app_user_id?: StringFieldUpdateOperationsInput | string
+    key?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    active?: BoolFieldUpdateOperationsInput | boolean
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    last_used_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    expires_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    users?: UserUncheckedUpdateManyWithoutApi_keyNestedInput
+    test_types?: TestTypeUncheckedUpdateManyWithoutApi_keyNestedInput
+  }
+
+  export type SubjectDetailUpsertWithoutSubjectInput = {
+    update: XOR<SubjectDetailUpdateWithoutSubjectInput, SubjectDetailUncheckedUpdateWithoutSubjectInput>
+    create: XOR<SubjectDetailCreateWithoutSubjectInput, SubjectDetailUncheckedCreateWithoutSubjectInput>
+    where?: SubjectDetailWhereInput
+  }
+
+  export type SubjectDetailUpdateToOneWithWhereWithoutSubjectInput = {
+    where?: SubjectDetailWhereInput
+    data: XOR<SubjectDetailUpdateWithoutSubjectInput, SubjectDetailUncheckedUpdateWithoutSubjectInput>
+  }
+
+  export type SubjectDetailUpdateWithoutSubjectInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    background_image_url?: NullableStringFieldUpdateOperationsInput | string | null
+    title?: StringFieldUpdateOperationsInput | string
+    title_color?: NullableStringFieldUpdateOperationsInput | string | null
+    subtitle?: NullableStringFieldUpdateOperationsInput | string | null
+    primary_color_hex?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SubjectDetailUncheckedUpdateWithoutSubjectInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    background_image_url?: NullableStringFieldUpdateOperationsInput | string | null
+    title?: StringFieldUpdateOperationsInput | string
+    title_color?: NullableStringFieldUpdateOperationsInput | string | null
+    subtitle?: NullableStringFieldUpdateOperationsInput | string | null
+    primary_color_hex?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SubjectLevelUpsertWithWhereUniqueWithoutSubjectInput = {
+    where: SubjectLevelWhereUniqueInput
+    update: XOR<SubjectLevelUpdateWithoutSubjectInput, SubjectLevelUncheckedUpdateWithoutSubjectInput>
+    create: XOR<SubjectLevelCreateWithoutSubjectInput, SubjectLevelUncheckedCreateWithoutSubjectInput>
+  }
+
+  export type SubjectLevelUpdateWithWhereUniqueWithoutSubjectInput = {
+    where: SubjectLevelWhereUniqueInput
+    data: XOR<SubjectLevelUpdateWithoutSubjectInput, SubjectLevelUncheckedUpdateWithoutSubjectInput>
+  }
+
+  export type SubjectLevelUpdateManyWithWhereWithoutSubjectInput = {
+    where: SubjectLevelScalarWhereInput
+    data: XOR<SubjectLevelUpdateManyMutationInput, SubjectLevelUncheckedUpdateManyWithoutSubjectInput>
+  }
+
+  export type SubjectLevelScalarWhereInput = {
+    AND?: SubjectLevelScalarWhereInput | SubjectLevelScalarWhereInput[]
+    OR?: SubjectLevelScalarWhereInput[]
+    NOT?: SubjectLevelScalarWhereInput | SubjectLevelScalarWhereInput[]
+    id?: StringFilter<"SubjectLevel"> | string
+    reference_title?: StringNullableFilter<"SubjectLevel"> | string | null
+    title?: StringFilter<"SubjectLevel"> | string
+    order?: IntFilter<"SubjectLevel"> | number
+    number_of_questions?: IntFilter<"SubjectLevel"> | number
+    approximate_time_minutes?: IntFilter<"SubjectLevel"> | number
+    created_at?: DateTimeFilter<"SubjectLevel"> | Date | string
+    updated_at?: DateTimeFilter<"SubjectLevel"> | Date | string
+    subject_id?: StringFilter<"SubjectLevel"> | string
+  }
+
+  export type TestSubjectUpsertWithWhereUniqueWithoutSubjectInput = {
+    where: TestSubjectWhereUniqueInput
+    update: XOR<TestSubjectUpdateWithoutSubjectInput, TestSubjectUncheckedUpdateWithoutSubjectInput>
+    create: XOR<TestSubjectCreateWithoutSubjectInput, TestSubjectUncheckedCreateWithoutSubjectInput>
+  }
+
+  export type TestSubjectUpdateWithWhereUniqueWithoutSubjectInput = {
+    where: TestSubjectWhereUniqueInput
+    data: XOR<TestSubjectUpdateWithoutSubjectInput, TestSubjectUncheckedUpdateWithoutSubjectInput>
+  }
+
+  export type TestSubjectUpdateManyWithWhereWithoutSubjectInput = {
+    where: TestSubjectScalarWhereInput
+    data: XOR<TestSubjectUpdateManyMutationInput, TestSubjectUncheckedUpdateManyWithoutSubjectInput>
+  }
+
+  export type SubjectCreateWithoutSubject_detailInput = {
+    id?: string
+    name: string
+    description: string
+    slug_materia: string
+    approximate_total_minutes: number
+    total_questions: number
+    order: number
+    created_at?: Date | string
+    updated_at?: Date | string
+    api_key?: ApiKeyCreateNestedOneWithoutSubjectsInput
+    subject_levels?: SubjectLevelCreateNestedManyWithoutSubjectInput
+    testSubjects?: TestSubjectCreateNestedManyWithoutSubjectInput
+  }
+
+  export type SubjectUncheckedCreateWithoutSubject_detailInput = {
+    id?: string
+    name: string
+    description: string
+    slug_materia: string
+    approximate_total_minutes: number
+    total_questions: number
+    order: number
+    api_key_id?: string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+    subject_levels?: SubjectLevelUncheckedCreateNestedManyWithoutSubjectInput
+    testSubjects?: TestSubjectUncheckedCreateNestedManyWithoutSubjectInput
+  }
+
+  export type SubjectCreateOrConnectWithoutSubject_detailInput = {
+    where: SubjectWhereUniqueInput
+    create: XOR<SubjectCreateWithoutSubject_detailInput, SubjectUncheckedCreateWithoutSubject_detailInput>
+  }
+
+  export type SubjectUpsertWithoutSubject_detailInput = {
+    update: XOR<SubjectUpdateWithoutSubject_detailInput, SubjectUncheckedUpdateWithoutSubject_detailInput>
+    create: XOR<SubjectCreateWithoutSubject_detailInput, SubjectUncheckedCreateWithoutSubject_detailInput>
+    where?: SubjectWhereInput
+  }
+
+  export type SubjectUpdateToOneWithWhereWithoutSubject_detailInput = {
+    where?: SubjectWhereInput
+    data: XOR<SubjectUpdateWithoutSubject_detailInput, SubjectUncheckedUpdateWithoutSubject_detailInput>
+  }
+
+  export type SubjectUpdateWithoutSubject_detailInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    slug_materia?: StringFieldUpdateOperationsInput | string
+    approximate_total_minutes?: IntFieldUpdateOperationsInput | number
+    total_questions?: IntFieldUpdateOperationsInput | number
+    order?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    api_key?: ApiKeyUpdateOneWithoutSubjectsNestedInput
+    subject_levels?: SubjectLevelUpdateManyWithoutSubjectNestedInput
+    testSubjects?: TestSubjectUpdateManyWithoutSubjectNestedInput
+  }
+
+  export type SubjectUncheckedUpdateWithoutSubject_detailInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    slug_materia?: StringFieldUpdateOperationsInput | string
+    approximate_total_minutes?: IntFieldUpdateOperationsInput | number
+    total_questions?: IntFieldUpdateOperationsInput | number
+    order?: IntFieldUpdateOperationsInput | number
+    api_key_id?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    subject_levels?: SubjectLevelUncheckedUpdateManyWithoutSubjectNestedInput
+    testSubjects?: TestSubjectUncheckedUpdateManyWithoutSubjectNestedInput
+  }
+
+  export type SubjectCreateWithoutSubject_levelsInput = {
+    id?: string
+    name: string
+    description: string
+    slug_materia: string
+    approximate_total_minutes: number
+    total_questions: number
+    order: number
+    created_at?: Date | string
+    updated_at?: Date | string
+    api_key?: ApiKeyCreateNestedOneWithoutSubjectsInput
+    subject_detail?: SubjectDetailCreateNestedOneWithoutSubjectInput
+    testSubjects?: TestSubjectCreateNestedManyWithoutSubjectInput
+  }
+
+  export type SubjectUncheckedCreateWithoutSubject_levelsInput = {
+    id?: string
+    name: string
+    description: string
+    slug_materia: string
+    approximate_total_minutes: number
+    total_questions: number
+    order: number
+    api_key_id?: string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+    subject_detail?: SubjectDetailUncheckedCreateNestedOneWithoutSubjectInput
+    testSubjects?: TestSubjectUncheckedCreateNestedManyWithoutSubjectInput
+  }
+
+  export type SubjectCreateOrConnectWithoutSubject_levelsInput = {
+    where: SubjectWhereUniqueInput
+    create: XOR<SubjectCreateWithoutSubject_levelsInput, SubjectUncheckedCreateWithoutSubject_levelsInput>
+  }
+
+  export type SubjectUpsertWithoutSubject_levelsInput = {
+    update: XOR<SubjectUpdateWithoutSubject_levelsInput, SubjectUncheckedUpdateWithoutSubject_levelsInput>
+    create: XOR<SubjectCreateWithoutSubject_levelsInput, SubjectUncheckedCreateWithoutSubject_levelsInput>
+    where?: SubjectWhereInput
+  }
+
+  export type SubjectUpdateToOneWithWhereWithoutSubject_levelsInput = {
+    where?: SubjectWhereInput
+    data: XOR<SubjectUpdateWithoutSubject_levelsInput, SubjectUncheckedUpdateWithoutSubject_levelsInput>
+  }
+
+  export type SubjectUpdateWithoutSubject_levelsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    slug_materia?: StringFieldUpdateOperationsInput | string
+    approximate_total_minutes?: IntFieldUpdateOperationsInput | number
+    total_questions?: IntFieldUpdateOperationsInput | number
+    order?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    api_key?: ApiKeyUpdateOneWithoutSubjectsNestedInput
+    subject_detail?: SubjectDetailUpdateOneWithoutSubjectNestedInput
+    testSubjects?: TestSubjectUpdateManyWithoutSubjectNestedInput
+  }
+
+  export type SubjectUncheckedUpdateWithoutSubject_levelsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    slug_materia?: StringFieldUpdateOperationsInput | string
+    approximate_total_minutes?: IntFieldUpdateOperationsInput | number
+    total_questions?: IntFieldUpdateOperationsInput | number
+    order?: IntFieldUpdateOperationsInput | number
+    api_key_id?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    subject_detail?: SubjectDetailUncheckedUpdateOneWithoutSubjectNestedInput
+    testSubjects?: TestSubjectUncheckedUpdateManyWithoutSubjectNestedInput
+  }
+
+  export type TestTypeCreateWithoutTestSubjectsInput = {
+    id?: string
+    name: string
+    description?: string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+    api_key?: ApiKeyCreateNestedOneWithoutTest_typesInput
+  }
+
+  export type TestTypeUncheckedCreateWithoutTestSubjectsInput = {
+    id?: string
+    name: string
+    description?: string | null
+    api_key_id?: string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+  }
+
+  export type TestTypeCreateOrConnectWithoutTestSubjectsInput = {
+    where: TestTypeWhereUniqueInput
+    create: XOR<TestTypeCreateWithoutTestSubjectsInput, TestTypeUncheckedCreateWithoutTestSubjectsInput>
+  }
+
+  export type SubjectCreateWithoutTestSubjectsInput = {
+    id?: string
+    name: string
+    description: string
+    slug_materia: string
+    approximate_total_minutes: number
+    total_questions: number
+    order: number
+    created_at?: Date | string
+    updated_at?: Date | string
+    api_key?: ApiKeyCreateNestedOneWithoutSubjectsInput
+    subject_detail?: SubjectDetailCreateNestedOneWithoutSubjectInput
+    subject_levels?: SubjectLevelCreateNestedManyWithoutSubjectInput
+  }
+
+  export type SubjectUncheckedCreateWithoutTestSubjectsInput = {
+    id?: string
+    name: string
+    description: string
+    slug_materia: string
+    approximate_total_minutes: number
+    total_questions: number
+    order: number
+    api_key_id?: string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+    subject_detail?: SubjectDetailUncheckedCreateNestedOneWithoutSubjectInput
+    subject_levels?: SubjectLevelUncheckedCreateNestedManyWithoutSubjectInput
+  }
+
+  export type SubjectCreateOrConnectWithoutTestSubjectsInput = {
+    where: SubjectWhereUniqueInput
+    create: XOR<SubjectCreateWithoutTestSubjectsInput, SubjectUncheckedCreateWithoutTestSubjectsInput>
+  }
+
+  export type TestTypeUpsertWithoutTestSubjectsInput = {
+    update: XOR<TestTypeUpdateWithoutTestSubjectsInput, TestTypeUncheckedUpdateWithoutTestSubjectsInput>
+    create: XOR<TestTypeCreateWithoutTestSubjectsInput, TestTypeUncheckedCreateWithoutTestSubjectsInput>
+    where?: TestTypeWhereInput
+  }
+
+  export type TestTypeUpdateToOneWithWhereWithoutTestSubjectsInput = {
+    where?: TestTypeWhereInput
+    data: XOR<TestTypeUpdateWithoutTestSubjectsInput, TestTypeUncheckedUpdateWithoutTestSubjectsInput>
+  }
+
+  export type TestTypeUpdateWithoutTestSubjectsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    api_key?: ApiKeyUpdateOneWithoutTest_typesNestedInput
+  }
+
+  export type TestTypeUncheckedUpdateWithoutTestSubjectsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    api_key_id?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SubjectUpsertWithoutTestSubjectsInput = {
+    update: XOR<SubjectUpdateWithoutTestSubjectsInput, SubjectUncheckedUpdateWithoutTestSubjectsInput>
+    create: XOR<SubjectCreateWithoutTestSubjectsInput, SubjectUncheckedCreateWithoutTestSubjectsInput>
+    where?: SubjectWhereInput
+  }
+
+  export type SubjectUpdateToOneWithWhereWithoutTestSubjectsInput = {
+    where?: SubjectWhereInput
+    data: XOR<SubjectUpdateWithoutTestSubjectsInput, SubjectUncheckedUpdateWithoutTestSubjectsInput>
+  }
+
+  export type SubjectUpdateWithoutTestSubjectsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    slug_materia?: StringFieldUpdateOperationsInput | string
+    approximate_total_minutes?: IntFieldUpdateOperationsInput | number
+    total_questions?: IntFieldUpdateOperationsInput | number
+    order?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    api_key?: ApiKeyUpdateOneWithoutSubjectsNestedInput
+    subject_detail?: SubjectDetailUpdateOneWithoutSubjectNestedInput
+    subject_levels?: SubjectLevelUpdateManyWithoutSubjectNestedInput
+  }
+
+  export type SubjectUncheckedUpdateWithoutTestSubjectsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    slug_materia?: StringFieldUpdateOperationsInput | string
+    approximate_total_minutes?: IntFieldUpdateOperationsInput | number
+    total_questions?: IntFieldUpdateOperationsInput | number
+    order?: IntFieldUpdateOperationsInput | number
+    api_key_id?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    subject_detail?: SubjectDetailUncheckedUpdateOneWithoutSubjectNestedInput
+    subject_levels?: SubjectLevelUncheckedUpdateManyWithoutSubjectNestedInput
+  }
+
+  export type GlossaryTermCreateWithoutCategoryInput = {
+    id?: string
+    word: string
+    description: string
+    created_at?: Date | string
+    updated_at?: Date | string
+    active?: boolean
+  }
+
+  export type GlossaryTermUncheckedCreateWithoutCategoryInput = {
+    id?: string
+    word: string
+    description: string
+    created_at?: Date | string
+    updated_at?: Date | string
+    active?: boolean
+  }
+
+  export type GlossaryTermCreateOrConnectWithoutCategoryInput = {
+    where: GlossaryTermWhereUniqueInput
+    create: XOR<GlossaryTermCreateWithoutCategoryInput, GlossaryTermUncheckedCreateWithoutCategoryInput>
+  }
+
+  export type GlossaryTermCreateManyCategoryInputEnvelope = {
+    data: GlossaryTermCreateManyCategoryInput | GlossaryTermCreateManyCategoryInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type GlossaryTermUpsertWithWhereUniqueWithoutCategoryInput = {
+    where: GlossaryTermWhereUniqueInput
+    update: XOR<GlossaryTermUpdateWithoutCategoryInput, GlossaryTermUncheckedUpdateWithoutCategoryInput>
+    create: XOR<GlossaryTermCreateWithoutCategoryInput, GlossaryTermUncheckedCreateWithoutCategoryInput>
+  }
+
+  export type GlossaryTermUpdateWithWhereUniqueWithoutCategoryInput = {
+    where: GlossaryTermWhereUniqueInput
+    data: XOR<GlossaryTermUpdateWithoutCategoryInput, GlossaryTermUncheckedUpdateWithoutCategoryInput>
+  }
+
+  export type GlossaryTermUpdateManyWithWhereWithoutCategoryInput = {
+    where: GlossaryTermScalarWhereInput
+    data: XOR<GlossaryTermUpdateManyMutationInput, GlossaryTermUncheckedUpdateManyWithoutCategoryInput>
+  }
+
+  export type GlossaryTermScalarWhereInput = {
+    AND?: GlossaryTermScalarWhereInput | GlossaryTermScalarWhereInput[]
+    OR?: GlossaryTermScalarWhereInput[]
+    NOT?: GlossaryTermScalarWhereInput | GlossaryTermScalarWhereInput[]
+    id?: StringFilter<"GlossaryTerm"> | string
+    word?: StringFilter<"GlossaryTerm"> | string
+    description?: StringFilter<"GlossaryTerm"> | string
+    created_at?: DateTimeFilter<"GlossaryTerm"> | Date | string
+    updated_at?: DateTimeFilter<"GlossaryTerm"> | Date | string
+    active?: BoolFilter<"GlossaryTerm"> | boolean
+    category_id?: StringFilter<"GlossaryTerm"> | string
+  }
+
+  export type GlossaryCategoryCreateWithoutTermsInput = {
+    id?: string
+    name: string
+    description?: string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+    active?: boolean
+  }
+
+  export type GlossaryCategoryUncheckedCreateWithoutTermsInput = {
+    id?: string
+    name: string
+    description?: string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+    active?: boolean
+  }
+
+  export type GlossaryCategoryCreateOrConnectWithoutTermsInput = {
+    where: GlossaryCategoryWhereUniqueInput
+    create: XOR<GlossaryCategoryCreateWithoutTermsInput, GlossaryCategoryUncheckedCreateWithoutTermsInput>
+  }
+
+  export type GlossaryCategoryUpsertWithoutTermsInput = {
+    update: XOR<GlossaryCategoryUpdateWithoutTermsInput, GlossaryCategoryUncheckedUpdateWithoutTermsInput>
+    create: XOR<GlossaryCategoryCreateWithoutTermsInput, GlossaryCategoryUncheckedCreateWithoutTermsInput>
+    where?: GlossaryCategoryWhereInput
+  }
+
+  export type GlossaryCategoryUpdateToOneWithWhereWithoutTermsInput = {
+    where?: GlossaryCategoryWhereInput
+    data: XOR<GlossaryCategoryUpdateWithoutTermsInput, GlossaryCategoryUncheckedUpdateWithoutTermsInput>
+  }
+
+  export type GlossaryCategoryUpdateWithoutTermsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    active?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type GlossaryCategoryUncheckedUpdateWithoutTermsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    active?: BoolFieldUpdateOperationsInput | boolean
+  }
+
   export type ApiKeyCreateManyApp_userInput = {
     id?: string
     key: string
@@ -17829,8 +28636,8 @@ export namespace Prisma {
     event_type: string
     ip_address?: string | null
     user_agent?: string | null
-    details?: string | null
     created_at?: Date | string
+    additional_info?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type ApiKeyUpdateWithoutApp_userInput = {
@@ -17843,6 +28650,8 @@ export namespace Prisma {
     last_used_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     expires_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     users?: UserUpdateManyWithoutApi_keyNestedInput
+    test_types?: TestTypeUpdateManyWithoutApi_keyNestedInput
+    subjects?: SubjectUpdateManyWithoutApi_keyNestedInput
   }
 
   export type ApiKeyUncheckedUpdateWithoutApp_userInput = {
@@ -17855,6 +28664,8 @@ export namespace Prisma {
     last_used_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     expires_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     users?: UserUncheckedUpdateManyWithoutApi_keyNestedInput
+    test_types?: TestTypeUncheckedUpdateManyWithoutApi_keyNestedInput
+    subjects?: SubjectUncheckedUpdateManyWithoutApi_keyNestedInput
   }
 
   export type ApiKeyUncheckedUpdateManyWithoutApp_userInput = {
@@ -17912,8 +28723,8 @@ export namespace Prisma {
     event_type?: StringFieldUpdateOperationsInput | string
     ip_address?: NullableStringFieldUpdateOperationsInput | string | null
     user_agent?: NullableStringFieldUpdateOperationsInput | string | null
-    details?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    additional_info?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type AuthEventUncheckedUpdateWithoutApp_userInput = {
@@ -17921,8 +28732,8 @@ export namespace Prisma {
     event_type?: StringFieldUpdateOperationsInput | string
     ip_address?: NullableStringFieldUpdateOperationsInput | string | null
     user_agent?: NullableStringFieldUpdateOperationsInput | string | null
-    details?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    additional_info?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type AuthEventUncheckedUpdateManyWithoutApp_userInput = {
@@ -17930,8 +28741,8 @@ export namespace Prisma {
     event_type?: StringFieldUpdateOperationsInput | string
     ip_address?: NullableStringFieldUpdateOperationsInput | string | null
     user_agent?: NullableStringFieldUpdateOperationsInput | string | null
-    details?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    additional_info?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type UserCreateManyApi_keyInput = {
@@ -17949,6 +28760,26 @@ export namespace Prisma {
     reset_token_expires?: Date | string | null
     ip_address?: string | null
     user_agent?: string | null
+  }
+
+  export type TestTypeCreateManyApi_keyInput = {
+    id?: string
+    name: string
+    description?: string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+  }
+
+  export type SubjectCreateManyApi_keyInput = {
+    id?: string
+    name: string
+    description: string
+    slug_materia: string
+    approximate_total_minutes: number
+    total_questions: number
+    order: number
+    created_at?: Date | string
+    updated_at?: Date | string
   }
 
   export type UserUpdateWithoutApi_keyInput = {
@@ -18006,6 +28837,74 @@ export namespace Prisma {
     reset_token_expires?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     ip_address?: NullableStringFieldUpdateOperationsInput | string | null
     user_agent?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type TestTypeUpdateWithoutApi_keyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    testSubjects?: TestSubjectUpdateManyWithoutTest_typeNestedInput
+  }
+
+  export type TestTypeUncheckedUpdateWithoutApi_keyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    testSubjects?: TestSubjectUncheckedUpdateManyWithoutTest_typeNestedInput
+  }
+
+  export type TestTypeUncheckedUpdateManyWithoutApi_keyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SubjectUpdateWithoutApi_keyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    slug_materia?: StringFieldUpdateOperationsInput | string
+    approximate_total_minutes?: IntFieldUpdateOperationsInput | number
+    total_questions?: IntFieldUpdateOperationsInput | number
+    order?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    subject_detail?: SubjectDetailUpdateOneWithoutSubjectNestedInput
+    subject_levels?: SubjectLevelUpdateManyWithoutSubjectNestedInput
+    testSubjects?: TestSubjectUpdateManyWithoutSubjectNestedInput
+  }
+
+  export type SubjectUncheckedUpdateWithoutApi_keyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    slug_materia?: StringFieldUpdateOperationsInput | string
+    approximate_total_minutes?: IntFieldUpdateOperationsInput | number
+    total_questions?: IntFieldUpdateOperationsInput | number
+    order?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    subject_detail?: SubjectDetailUncheckedUpdateOneWithoutSubjectNestedInput
+    subject_levels?: SubjectLevelUncheckedUpdateManyWithoutSubjectNestedInput
+    testSubjects?: TestSubjectUncheckedUpdateManyWithoutSubjectNestedInput
+  }
+
+  export type SubjectUncheckedUpdateManyWithoutApi_keyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    slug_materia?: StringFieldUpdateOperationsInput | string
+    approximate_total_minutes?: IntFieldUpdateOperationsInput | number
+    total_questions?: IntFieldUpdateOperationsInput | number
+    order?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type UserAccountCreateManyUserInput = {
@@ -18154,6 +29053,134 @@ export namespace Prisma {
     user_id?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type TestSubjectCreateManyTest_typeInput = {
+    subject_id: string
+    assigned_at?: Date | string
+    subject_order_in_test?: number | null
+  }
+
+  export type TestSubjectUpdateWithoutTest_typeInput = {
+    assigned_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    subject_order_in_test?: NullableIntFieldUpdateOperationsInput | number | null
+    subject?: SubjectUpdateOneRequiredWithoutTestSubjectsNestedInput
+  }
+
+  export type TestSubjectUncheckedUpdateWithoutTest_typeInput = {
+    subject_id?: StringFieldUpdateOperationsInput | string
+    assigned_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    subject_order_in_test?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type TestSubjectUncheckedUpdateManyWithoutTest_typeInput = {
+    subject_id?: StringFieldUpdateOperationsInput | string
+    assigned_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    subject_order_in_test?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type SubjectLevelCreateManySubjectInput = {
+    id?: string
+    reference_title?: string | null
+    title: string
+    order: number
+    number_of_questions: number
+    approximate_time_minutes: number
+    created_at?: Date | string
+    updated_at?: Date | string
+  }
+
+  export type TestSubjectCreateManySubjectInput = {
+    test_type_id: string
+    assigned_at?: Date | string
+    subject_order_in_test?: number | null
+  }
+
+  export type SubjectLevelUpdateWithoutSubjectInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    reference_title?: NullableStringFieldUpdateOperationsInput | string | null
+    title?: StringFieldUpdateOperationsInput | string
+    order?: IntFieldUpdateOperationsInput | number
+    number_of_questions?: IntFieldUpdateOperationsInput | number
+    approximate_time_minutes?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SubjectLevelUncheckedUpdateWithoutSubjectInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    reference_title?: NullableStringFieldUpdateOperationsInput | string | null
+    title?: StringFieldUpdateOperationsInput | string
+    order?: IntFieldUpdateOperationsInput | number
+    number_of_questions?: IntFieldUpdateOperationsInput | number
+    approximate_time_minutes?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SubjectLevelUncheckedUpdateManyWithoutSubjectInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    reference_title?: NullableStringFieldUpdateOperationsInput | string | null
+    title?: StringFieldUpdateOperationsInput | string
+    order?: IntFieldUpdateOperationsInput | number
+    number_of_questions?: IntFieldUpdateOperationsInput | number
+    approximate_time_minutes?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type TestSubjectUpdateWithoutSubjectInput = {
+    assigned_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    subject_order_in_test?: NullableIntFieldUpdateOperationsInput | number | null
+    test_type?: TestTypeUpdateOneRequiredWithoutTestSubjectsNestedInput
+  }
+
+  export type TestSubjectUncheckedUpdateWithoutSubjectInput = {
+    test_type_id?: StringFieldUpdateOperationsInput | string
+    assigned_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    subject_order_in_test?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type TestSubjectUncheckedUpdateManyWithoutSubjectInput = {
+    test_type_id?: StringFieldUpdateOperationsInput | string
+    assigned_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    subject_order_in_test?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type GlossaryTermCreateManyCategoryInput = {
+    id?: string
+    word: string
+    description: string
+    created_at?: Date | string
+    updated_at?: Date | string
+    active?: boolean
+  }
+
+  export type GlossaryTermUpdateWithoutCategoryInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    word?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    active?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type GlossaryTermUncheckedUpdateWithoutCategoryInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    word?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    active?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type GlossaryTermUncheckedUpdateManyWithoutCategoryInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    word?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    active?: BoolFieldUpdateOperationsInput | boolean
   }
 
 

@@ -248,13 +248,90 @@ exports.Prisma.AuthEventScalarFieldEnum = {
   event_type: 'event_type',
   ip_address: 'ip_address',
   user_agent: 'user_agent',
-  details: 'details',
-  created_at: 'created_at'
+  created_at: 'created_at',
+  additional_info: 'additional_info'
+};
+
+exports.Prisma.TestTypeScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  description: 'description',
+  api_key_id: 'api_key_id',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+};
+
+exports.Prisma.SubjectScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  description: 'description',
+  slug_materia: 'slug_materia',
+  approximate_total_minutes: 'approximate_total_minutes',
+  total_questions: 'total_questions',
+  order: 'order',
+  api_key_id: 'api_key_id',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+};
+
+exports.Prisma.SubjectDetailScalarFieldEnum = {
+  id: 'id',
+  background_image_url: 'background_image_url',
+  title: 'title',
+  title_color: 'title_color',
+  subtitle: 'subtitle',
+  primary_color_hex: 'primary_color_hex',
+  created_at: 'created_at',
+  updated_at: 'updated_at',
+  subject_id: 'subject_id'
+};
+
+exports.Prisma.SubjectLevelScalarFieldEnum = {
+  id: 'id',
+  reference_title: 'reference_title',
+  title: 'title',
+  order: 'order',
+  number_of_questions: 'number_of_questions',
+  approximate_time_minutes: 'approximate_time_minutes',
+  created_at: 'created_at',
+  updated_at: 'updated_at',
+  subject_id: 'subject_id'
+};
+
+exports.Prisma.TestSubjectScalarFieldEnum = {
+  test_type_id: 'test_type_id',
+  subject_id: 'subject_id',
+  assigned_at: 'assigned_at',
+  subject_order_in_test: 'subject_order_in_test'
+};
+
+exports.Prisma.GlossaryCategoryScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  description: 'description',
+  created_at: 'created_at',
+  updated_at: 'updated_at',
+  active: 'active'
+};
+
+exports.Prisma.GlossaryTermScalarFieldEnum = {
+  id: 'id',
+  word: 'word',
+  description: 'description',
+  created_at: 'created_at',
+  updated_at: 'updated_at',
+  active: 'active',
+  category_id: 'category_id'
 };
 
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
+};
+
+exports.Prisma.NullableJsonNullValueInput = {
+  DbNull: Prisma.DbNull,
+  JsonNull: Prisma.JsonNull
 };
 
 exports.Prisma.NullsOrder = {
@@ -344,13 +421,73 @@ exports.Prisma.PasswordResetOrderByRelevanceFieldEnum = {
   token: 'token'
 };
 
+exports.Prisma.JsonNullValueFilter = {
+  DbNull: Prisma.DbNull,
+  JsonNull: Prisma.JsonNull,
+  AnyNull: Prisma.AnyNull
+};
+
+exports.Prisma.QueryMode = {
+  default: 'default',
+  insensitive: 'insensitive'
+};
+
 exports.Prisma.AuthEventOrderByRelevanceFieldEnum = {
   id: 'id',
   app_user_id: 'app_user_id',
   event_type: 'event_type',
   ip_address: 'ip_address',
-  user_agent: 'user_agent',
-  details: 'details'
+  user_agent: 'user_agent'
+};
+
+exports.Prisma.TestTypeOrderByRelevanceFieldEnum = {
+  id: 'id',
+  name: 'name',
+  description: 'description',
+  api_key_id: 'api_key_id'
+};
+
+exports.Prisma.SubjectOrderByRelevanceFieldEnum = {
+  id: 'id',
+  name: 'name',
+  description: 'description',
+  slug_materia: 'slug_materia',
+  api_key_id: 'api_key_id'
+};
+
+exports.Prisma.SubjectDetailOrderByRelevanceFieldEnum = {
+  id: 'id',
+  background_image_url: 'background_image_url',
+  title: 'title',
+  title_color: 'title_color',
+  subtitle: 'subtitle',
+  primary_color_hex: 'primary_color_hex',
+  subject_id: 'subject_id'
+};
+
+exports.Prisma.SubjectLevelOrderByRelevanceFieldEnum = {
+  id: 'id',
+  reference_title: 'reference_title',
+  title: 'title',
+  subject_id: 'subject_id'
+};
+
+exports.Prisma.TestSubjectOrderByRelevanceFieldEnum = {
+  test_type_id: 'test_type_id',
+  subject_id: 'subject_id'
+};
+
+exports.Prisma.GlossaryCategoryOrderByRelevanceFieldEnum = {
+  id: 'id',
+  name: 'name',
+  description: 'description'
+};
+
+exports.Prisma.GlossaryTermOrderByRelevanceFieldEnum = {
+  id: 'id',
+  word: 'word',
+  description: 'description',
+  category_id: 'category_id'
 };
 exports.AuthEventType = exports.$Enums.AuthEventType = {
   REGISTER: 'REGISTER',
@@ -380,7 +517,14 @@ exports.Prisma.ModelName = {
   AuthLog: 'AuthLog',
   EmailVerification: 'EmailVerification',
   PasswordReset: 'PasswordReset',
-  AuthEvent: 'AuthEvent'
+  AuthEvent: 'AuthEvent',
+  TestType: 'TestType',
+  Subject: 'Subject',
+  SubjectDetail: 'SubjectDetail',
+  SubjectLevel: 'SubjectLevel',
+  TestSubject: 'TestSubject',
+  GlossaryCategory: 'GlossaryCategory',
+  GlossaryTerm: 'GlossaryTerm'
 };
 
 /**

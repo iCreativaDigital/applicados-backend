@@ -11,106 +11,108 @@ datasource db {
 
 // Usuario de la aplicación (los que solicitan el servicio y generan API Keys)
 model AppUser {
-  id                 String        @id @default(uuid())
-  email              String        @unique
-  username           String        @unique // Nombre de usuario único para inicio de sesión
-  password_hash      String
-  name               String?
-  company_name       String?
-  phone              String?
-  website            String?
-  active             Boolean       @default(true)
-  created_at         DateTime      @default(now())
-  updated_at         DateTime      @updatedAt
-  email_verified     Boolean       @default(false)
-  email_verified_at  DateTime?
-  reset_token        String?       // Token para recuperación de contraseña
-  reset_token_expires DateTime?    // Fecha de expiración del token
-  
+  id                  String    @id @default(uuid())
+  email               String    @unique
+  username            String    @unique // Nombre de usuario único para inicio de sesión
+  password_hash       String
+  name                String?
+  company_name        String?
+  phone               String?
+  website             String?
+  active              Boolean   @default(true)
+  created_at          DateTime  @default(now())
+  updated_at          DateTime  @updatedAt
+  email_verified      Boolean   @default(false)
+  email_verified_at   DateTime?
+  reset_token         String? // Token para recuperación de contraseña
+  reset_token_expires DateTime? // Fecha de expiración del token
+
   // Relaciones
-  api_keys           ApiKey[]      // API Keys generadas por este usuario
-  app_sessions       AppSession[]  // Sesiones del usuario de la aplicación
-  password_resets    PasswordReset? // Solicitudes de restablecimiento de contraseña
-  auth_events        AuthEvent[]   // Eventos de autenticación
+  api_keys        ApiKey[] // API Keys generadas por este usuario
+  app_sessions    AppSession[] // Sesiones del usuario de la aplicación
+  password_resets PasswordReset? // Solicitudes de restablecimiento de contraseña
+  auth_events     AuthEvent[] // Eventos de autenticación
 }
 
 // API Keys generadas por los usuarios de la aplicación
 model ApiKey {
-  id                 String        @id @default(uuid())
-  app_user_id        String        // ID del usuario de la aplicación que generó la API Key
-  key                String        @unique // La API Key en sí
-  name               String        // Nombre descriptivo para la API Key
-  active             Boolean       @default(true)
-  created_at         DateTime      @default(now())
-  updated_at         DateTime      @updatedAt
-  last_used_at       DateTime?
-  expires_at         DateTime?
-  
+  id           String    @id @default(uuid())
+  app_user_id  String // ID del usuario de la aplicación que generó la API Key
+  key          String    @unique // La API Key en sí
+  name         String // Nombre descriptivo para la API Key
+  active       Boolean   @default(true)
+  created_at   DateTime  @default(now())
+  updated_at   DateTime  @updatedAt
+  last_used_at DateTime?
+  expires_at   DateTime?
+
   // Relaciones
-  app_user           AppUser       @relation(fields: [app_user_id], references: [id], onDelete: Cascade)
-  users              User[]        // Usuarios creados con esta API Key
-  
+  app_user   AppUser    @relation(fields: [app_user_id], references: [id], onDelete: Cascade)
+  users      User[] // Usuarios creados con esta API Key
+  test_types TestType[] // Tipos de prueba asociados a esta API Key
+  subjects   Subject[] // Materias asociadas a esta API Key
+
   @@index([app_user_id])
 }
 
 // Sesiones de los usuarios de la aplicación
 model AppSession {
-  id            String   @id @default(uuid())
+  id            String    @id @default(uuid())
   app_user_id   String
-  token         String   @unique // Token de sesión (JWT)
-  refresh_token String?  @unique // Token de refresco (opcional)
-  ip_address    String?  // Dirección IP desde donde se inició sesión
-  user_agent    String?  // Navegador/dispositivo usado
+  token         String    @unique // Token de sesión (JWT)
+  refresh_token String?   @unique // Token de refresco (opcional)
+  ip_address    String? // Dirección IP desde donde se inició sesión
+  user_agent    String? // Navegador/dispositivo usado
   expires_at    DateTime // Fecha de expiración
-  created_at    DateTime @default(now())
-  updated_at    DateTime @updatedAt
-  revoked       Boolean  @default(false) // Si la sesión ha sido revocada
+  created_at    DateTime  @default(now())
+  updated_at    DateTime  @updatedAt
+  revoked       Boolean   @default(false) // Si la sesión ha sido revocada
   revoked_at    DateTime? // Cuándo fue revocada
-  
+
   // Relaciones
-  app_user      AppUser  @relation(fields: [app_user_id], references: [id], onDelete: Cascade)
-  
+  app_user AppUser @relation(fields: [app_user_id], references: [id], onDelete: Cascade)
+
   @@index([app_user_id])
 }
 
 // Modelo de usuarios que se autentican mediante la API
 model User {
-  id                 String        @id @default(uuid())
-  api_key_id         String        // ID de la API Key con la que se creó este usuario
-  email              String
-  username           String        // Nombre de usuario para inicio de sesión
-  password_hash      String
-  name               String?
-  active             Boolean       @default(true)
-  created_at         DateTime      @default(now())
-  updated_at         DateTime      @updatedAt
-  email_verified     Boolean       @default(false)
-  email_verified_at  DateTime?
-  reset_token        String?       // Token para recuperación de contraseña
-  reset_token_expires DateTime?    // Fecha de expiración del token
-  ip_address         String?
-  user_agent         String?
-  
+  id                  String    @id @default(uuid())
+  api_key_id          String // ID de la API Key con la que se creó este usuario
+  email               String
+  username            String // Nombre de usuario para inicio de sesión
+  password_hash       String
+  name                String?
+  active              Boolean   @default(true)
+  created_at          DateTime  @default(now())
+  updated_at          DateTime  @updatedAt
+  email_verified      Boolean   @default(false)
+  email_verified_at   DateTime?
+  reset_token         String? // Token para recuperación de contraseña
+  reset_token_expires DateTime? // Fecha de expiración del token
+  ip_address          String?
+  user_agent          String?
+
   // Relaciones
-  api_key            ApiKey        @relation(fields: [api_key_id], references: [id])
-  accounts           UserAccount[] // Cuentas a las que tiene acceso
-  sessions           Session[]     // Sesiones activas
-  auth_logs          AuthLog[]     // Logs de autenticación
-  
-  @@index([api_key_id])
-  @@unique([email, api_key_id])    // Un email debe ser único para cada API Key
+  api_key   ApiKey        @relation(fields: [api_key_id], references: [id])
+  accounts  UserAccount[] // Cuentas a las que tiene acceso
+  sessions  Session[] // Sesiones activas
+  auth_logs AuthLog[] // Logs de autenticación
+
+  @@unique([email, api_key_id]) // Un email debe ser único para cada API Key
   @@unique([username, api_key_id]) // Un username debe ser único para cada API Key
+  @@index([api_key_id])
 }
 
 // Cuentas o aplicaciones que usan el sistema
 model Account {
-  id          String        @id @default(uuid())
-  name        String        // Nombre de la cuenta o aplicación
-  api_key     String        @unique // Clave API para identificar la aplicación
-  active      Boolean       @default(true)
-  created_at  DateTime      @default(now())
-  updated_at  DateTime      @updatedAt
-  
+  id         String   @id @default(uuid())
+  name       String // Nombre de la cuenta o aplicación
+  api_key    String   @unique // Clave API para identificar la aplicación
+  active     Boolean  @default(true)
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
   // Relaciones
   user_accounts UserAccount[] // Usuarios con acceso a esta cuenta
 }
@@ -121,12 +123,12 @@ model UserAccount {
   user_id    String
   account_id String
   created_at DateTime @default(now())
-  created_by String?  // ID del usuario que creó la relación
-  
+  created_by String? // ID del usuario que creó la relación
+
   // Relaciones
-  user       User     @relation(fields: [user_id], references: [id], onDelete: Cascade)
-  account    Account  @relation(fields: [account_id], references: [id], onDelete: Cascade)
-  
+  user    User    @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  account Account @relation(fields: [account_id], references: [id], onDelete: Cascade)
+
   @@unique([user_id, account_id]) // Un usuario no puede estar asociado a la misma cuenta más de una vez
   @@index([user_id])
   @@index([account_id])
@@ -134,38 +136,38 @@ model UserAccount {
 
 // Sesiones activas
 model Session {
-  id            String   @id @default(uuid())
+  id            String    @id @default(uuid())
   user_id       String
-  token         String   @db.VarChar(1000) @unique // Token de sesión (JWT)
-  refresh_token String?  @db.VarChar(1000) @unique // Token de refresco (opcional)
-  ip_address    String?  // Dirección IP desde donde se inició sesión
-  user_agent    String?  // Navegador/dispositivo usado
+  token         String    @unique @db.VarChar(1000) // Token de sesión (JWT)
+  refresh_token String?   @unique @db.VarChar(1000) // Token de refresco (opcional)
+  ip_address    String? // Dirección IP desde donde se inició sesión
+  user_agent    String? // Navegador/dispositivo usado
   expires_at    DateTime // Fecha de expiración
-  created_at    DateTime @default(now())
-  updated_at    DateTime @updatedAt
-  revoked       Boolean  @default(false) // Si la sesión ha sido revocada
+  created_at    DateTime  @default(now())
+  updated_at    DateTime  @updatedAt
+  revoked       Boolean   @default(false) // Si la sesión ha sido revocada
   revoked_at    DateTime? // Cuándo fue revocada
-  
+
   // Relaciones
-  user          User     @relation(fields: [user_id], references: [id], onDelete: Cascade)
-  
+  user User @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
   @@index([user_id])
 }
 
 // Logs de autenticación
 model AuthLog {
-  id          String   @id @default(uuid())
-  user_id     String?  // Puede ser nulo si el intento de login falló
-  event_type  AuthEventType // Tipo de evento (login, logout, etc.)
-  status      AuthEventStatus // Éxito o fracaso
-  ip_address  String?  // Dirección IP
-  user_agent  String?  // Navegador/dispositivo
-  details     String?  @db.Text // Detalles adicionales (JSON)
-  created_at  DateTime @default(now())
-  
+  id         String          @id @default(uuid())
+  user_id    String? // Puede ser nulo si el intento de login falló
+  event_type AuthEventType // Tipo de evento (login, logout, etc.)
+  status     AuthEventStatus // Éxito o fracaso
+  ip_address String? // Dirección IP
+  user_agent String? // Navegador/dispositivo
+  details    String?         @db.Text // Detalles adicionales (JSON)
+  created_at DateTime        @default(now())
+
   // Relaciones
-  user        User?    @relation(fields: [user_id], references: [id], onDelete: SetNull)
-  
+  user User? @relation(fields: [user_id], references: [id], onDelete: SetNull)
+
   @@index([user_id])
   @@index([event_type])
   @@index([status])
@@ -179,40 +181,39 @@ model EmailVerification {
   token      String   @unique
   expires_at DateTime
   created_at DateTime @default(now())
-  
+
   @@index([email])
   @@index([token])
 }
 
 // Restablecimiento de contraseña
 model PasswordReset {
-  id           String    @id @default(uuid())
-  app_user_id  String    @unique
-  token        String    @unique
-  expires_at   DateTime
-  created_at   DateTime  @default(now())
-  updated_at   DateTime  @updatedAt
-  used         Boolean   @default(false)
-  
+  id          String   @id @default(uuid())
+  app_user_id String   @unique
+  token       String   @unique
+  expires_at  DateTime
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+  used        Boolean  @default(false)
+
   // Relaciones
-  app_user     AppUser   @relation(fields: [app_user_id], references: [id], onDelete: Cascade)
-  
+  app_user AppUser @relation(fields: [app_user_id], references: [id], onDelete: Cascade)
+
   @@index([token])
 }
 
 // Eventos de autenticación
 model AuthEvent {
-  id           String    @id @default(uuid())
-  app_user_id  String
-  event_type   String    // Tipo de evento (login, logout, password_reset, etc.)
-  ip_address   String?   // Dirección IP
-  user_agent   String?   // Navegador/dispositivo
-  details      String?   @db.Text // Detalles adicionales (JSON)
-  created_at   DateTime  @default(now())
-  
-  // Relaciones
-  app_user     AppUser   @relation(fields: [app_user_id], references: [id], onDelete: Cascade)
-  
+  id              String   @id @default(uuid())
+  app_user_id     String
+  event_type      String // login, logout, password_reset, etc.
+  ip_address      String?
+  user_agent      String?
+  created_at      DateTime @default(now())
+  additional_info Json?
+
+  app_user AppUser @relation(fields: [app_user_id], references: [id], onDelete: Cascade)
+
   @@index([app_user_id])
   @@index([event_type])
   @@index([created_at])
@@ -234,4 +235,134 @@ enum AuthEventType {
 enum AuthEventStatus {
   SUCCESS
   FAILURE
+}
+
+// Tipos de Pruebas (ej. Saber 11, Presaber)
+model TestType {
+  id          String  @id @default(uuid())
+  name        String // Nombre de la prueba, ej: "Saber 11", "Presaber"
+  description String? // Descripción opcional de la prueba
+  api_key_id  String? // ID de la API Key asociada (opcional para compatibilidad con datos existentes)
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  // Relaciones
+  api_key      ApiKey?       @relation(fields: [api_key_id], references: [id], onDelete: SetNull)
+  testSubjects TestSubject[] // Relación a la tabla de unión TestSubject
+
+  // Índice compuesto para garantizar que el nombre sea único por API Key (o globalmente si no hay API Key)
+  @@unique([name, api_key_id])
+  // Índice para mejorar el rendimiento de las consultas por api_key_id
+  @@index([api_key_id])
+}
+
+// Materias (ej. Matemáticas, Lectura Crítica)
+model Subject {
+  id                        String  @id @default(uuid())
+  name                      String // Nombre de la materia, ej: "Matemáticas", "Lectura Crítica"
+  description               String // Descripción de la materia, puede contener HTML enriquecido
+  slug_materia              String  @unique // Slug para URLs amigables, ej: "matematicas-saber-11"
+  approximate_total_minutes Int // Número total de minutos estimado para completar todos los niveles
+  total_questions           Int // Número total de preguntas en todos los niveles
+  order                     Int // Orden de aparición en el frontend
+  api_key_id                String? // ID de la API Key asociada (opcional)
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  // Relaciones
+  api_key        ApiKey?        @relation(fields: [api_key_id], references: [id], onDelete: SetNull)
+  subject_detail SubjectDetail?
+  subject_levels SubjectLevel[]
+  testSubjects   TestSubject[] // Relación a la tabla de unión TestSubject
+
+  // Índices y restricciones
+  @@unique([name, api_key_id]) // Nombre único por API Key
+  @@index([api_key_id])
+}
+
+// Detalles visuales y de presentación para una materia
+model SubjectDetail {
+  id                   String  @id @default(uuid())
+  background_image_url String? // URL de la imagen de fondo
+  title                String // Título a mostrar en la vista de detalle
+  title_color          String? // Color para el título, ej: "#FFFFFF"
+  subtitle             String? // Subtítulo para la vista de detalle
+  primary_color_hex    String? // Color principal en formato hexadecimal, ej: "#4A90E2"
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  // Relación uno a uno con Subject
+  subject_id String  @unique // Clave foránea para Subject
+  subject    Subject @relation(fields: [subject_id], references: [id], onDelete: Cascade)
+}
+
+// Niveles de una materia
+model SubjectLevel {
+  id                       String  @id @default(uuid())
+  reference_title          String? // Título de referencia descriptivo
+  title                    String // Título corto del nivel
+  order                    Int // Orden de aparición dentro de su materia
+  number_of_questions      Int // Número de preguntas estimadas
+  approximate_time_minutes Int // Tiempo estimado en minutos
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  // Relación con Subject
+  subject_id String // Clave foránea para Subject
+  subject    Subject @relation(fields: [subject_id], references: [id], onDelete: Cascade)
+
+  // Relación con Questionnaire (comentada por ahora)
+  // questionnaire_id        String?
+  // questionnaire           Questionnaire? @relation(fields: [questionnaire_id], references: [id])
+
+  // Índices
+  @@index([subject_id])
+}
+
+// Tabla de unión entre TestType y Subject
+model TestSubject {
+  test_type_id          String // Parte de la clave primaria compuesta
+  subject_id            String // Parte de la clave primaria compuesta
+  assigned_at           DateTime @default(now()) // Cuándo se asignó esta materia a esta prueba
+  subject_order_in_test Int? // Orden de la materia específico para cada prueba (opcional)
+
+  // Relaciones
+  test_type TestType @relation(fields: [test_type_id], references: [id], onDelete: Cascade)
+  subject   Subject  @relation(fields: [subject_id], references: [id], onDelete: Cascade)
+
+  // Clave primaria compuesta
+  @@id([test_type_id, subject_id])
+}
+
+// Categorías del glosario
+model GlossaryCategory {
+  id          String   @id @default(uuid())
+  name        String   @unique
+  description String?  @db.Text
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+  active      Boolean  @default(true)
+
+  // Relaciones
+  terms GlossaryTerm[]
+}
+
+// Términos del glosario
+model GlossaryTerm {
+  id          String   @id @default(uuid())
+  word        String   @unique
+  description String   @db.Text
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+  active      Boolean  @default(true)
+
+  // Relaciones
+  category_id String
+  category    GlossaryCategory @relation(fields: [category_id], references: [id])
+
+  @@index([category_id])
 }
