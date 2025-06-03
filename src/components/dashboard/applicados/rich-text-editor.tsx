@@ -1,21 +1,25 @@
 "use client"
 
-import { useCallback, useState, useEffect } from "react"
+import { useCallback, useState, useEffect, useRef } from "react"
+
 import { useEditor, EditorContent } from "@tiptap/react"
 import StarterKit from "@tiptap/starter-kit"
-import Underline from "@tiptap/extension-underline"
-import Link from "@tiptap/extension-link"
 import Image from "@tiptap/extension-image"
-import TextAlign from "@tiptap/extension-text-align"
-import Highlight from "@tiptap/extension-highlight"
+import Link from "@tiptap/extension-link"
+import Underline from "@tiptap/extension-underline"
 import Superscript from "@tiptap/extension-superscript"
 import Subscript from "@tiptap/extension-subscript"
+import TextAlign from "@tiptap/extension-text-align"
+import Typography from "@tiptap/extension-typography"
+import Highlight from "@tiptap/extension-highlight"
 import TaskList from "@tiptap/extension-task-list"
 import TaskItem from "@tiptap/extension-task-item"
-import Typography from "@tiptap/extension-typography"
+
 import { 
   Bold, 
   Italic, 
+  Strikethrough,
+  Code,
   Underline as UnderlineIcon, 
   Link as LinkIcon,
   AlignLeft,
@@ -33,7 +37,11 @@ import {
   Subscript as SubscriptIcon,
   CheckSquare,
   Undo,
-  Redo
+  Redo,
+  ExternalLink,
+  Trash2,
+  CornerDownLeft,
+  Quote
 } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
@@ -105,18 +113,47 @@ export function RichTextEditor({ value, onChange, className }: RichTextEditorPro
     }
   }, [editor, value])
   
+  // Estados para controlar los popovers
+  const [linkPopoverOpen, setLinkPopoverOpen] = useState(false)
+  const [imagePopoverOpen, setImagePopoverOpen] = useState(false)
+  
+  // Función para detectar enlaces activos y actualizar el estado
+  useEffect(() => {
+    if (!editor) return
+    
+    const updateLinkState = () => {
+      const { href } = editor.getAttributes('link')
+      if (editor.isActive('link') && !linkUrl) {
+        setLinkUrl(href || '')
+      }
+    }
+    
+    editor.on('selectionUpdate', updateLinkState)
+    return () => {
+      editor.off('selectionUpdate', updateLinkState)
+    }
+  }, [editor, linkUrl])
+  
   // Función para agregar un enlace
   const setLink = useCallback(() => {
     if (!editor) return
     
     // Si hay una URL, establecer el enlace
     if (linkUrl) {
+      // Obtener el texto seleccionado
+      const { from, to } = editor.state.selection
+      const text = editor.state.doc.textBetween(from, to)
+      
       editor
         .chain()
         .focus()
         .extendMarkRange('link')
         .setLink({ href: linkUrl })
         .run()
+      
+      // Cerrar el popover y limpiar la URL
+      setLinkPopoverOpen(false)
+      setTimeout(() => setLinkUrl(""), 100)
     } else {
       // Si no hay URL, eliminar el enlace
       editor
@@ -128,6 +165,27 @@ export function RichTextEditor({ value, onChange, className }: RichTextEditorPro
     }
   }, [editor, linkUrl])
   
+  // Función para abrir el enlace en una nueva ventana
+  const openLink = useCallback(() => {
+    if (!linkUrl) return
+    window.open(linkUrl, '_blank')
+  }, [linkUrl])
+  
+  // Función para eliminar el enlace
+  const removeLink = useCallback(() => {
+    if (!editor) return
+    
+    editor
+      .chain()
+      .focus()
+      .extendMarkRange('link')
+      .unsetLink()
+      .run()
+    
+    setLinkUrl('')
+    setLinkPopoverOpen(false)
+  }, [editor])
+  
   // Función para agregar una imagen
   const addImage = useCallback(() => {
     if (!editor || !imageUrl) return
@@ -138,7 +196,9 @@ export function RichTextEditor({ value, onChange, className }: RichTextEditorPro
       .setImage({ src: imageUrl })
       .run()
     
-    setImageUrl("")
+    // Cerrar el popover y limpiar la URL
+    setImagePopoverOpen(false)
+    setTimeout(() => setImageUrl(""), 100)
   }, [editor, imageUrl])
   
   if (!editor) {
@@ -374,7 +434,7 @@ export function RichTextEditor({ value, onChange, className }: RichTextEditorPro
           
           {/* Enlace */}
           <div className="flex gap-1 mr-2">
-            <Popover>
+            <Popover open={linkPopoverOpen} onOpenChange={setLinkPopoverOpen}>
               <PopoverTrigger asChild>
                 <Toggle
                   size="sm"
@@ -384,18 +444,49 @@ export function RichTextEditor({ value, onChange, className }: RichTextEditorPro
                 </Toggle>
               </PopoverTrigger>
               <PopoverContent className="w-80">
-                <div className="flex flex-col gap-2">
-                  <Label htmlFor="link-url">URL del enlace</Label>
-                  <div className="flex gap-2">
-                    <Input
-                      id="link-url"
-                      placeholder="https://ejemplo.com"
-                      value={linkUrl}
-                      onChange={(e) => setLinkUrl(e.target.value)}
-                    />
-                    <Button size="sm" onClick={setLink}>
-                      Aplicar
-                    </Button>
+                <div className="flex flex-col gap-3">
+                  <div className="flex flex-col gap-2">
+                    <Label htmlFor="link-url">URL del enlace</Label>
+                    <div className="flex gap-2">
+                      <Input
+                        id="link-url"
+                        placeholder="https://ejemplo.com"
+                        value={linkUrl}
+                        onChange={(e) => setLinkUrl(e.target.value)}
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter') {
+                            e.preventDefault();
+                            setLink();
+                          }
+                        }}
+                      />
+                      <Button size="sm" onClick={setLink} disabled={!linkUrl}>
+                        <CornerDownLeft className="h-4 w-4" />
+                      </Button>
+                    </div>
+                  </div>
+                  
+                  <div className="border-t pt-2">
+                    <div className="flex justify-between">
+                      <Button 
+                        size="sm" 
+                        variant="outline" 
+                        onClick={openLink} 
+                        disabled={!linkUrl}
+                      >
+                        <ExternalLink className="h-4 w-4 mr-1" />
+                        Abrir enlace
+                      </Button>
+                      <Button 
+                        size="sm" 
+                        variant="outline" 
+                        onClick={removeLink}
+                        disabled={!editor.isActive("link")}
+                      >
+                        <Trash2 className="h-4 w-4 mr-1" />
+                        Eliminar
+                      </Button>
+                    </div>
                   </div>
                 </div>
               </PopoverContent>
@@ -404,25 +495,47 @@ export function RichTextEditor({ value, onChange, className }: RichTextEditorPro
           
           {/* Imagen */}
           <div className="flex gap-1 mr-2">
-            <Popover>
+            <Popover open={imagePopoverOpen} onOpenChange={setImagePopoverOpen}>
               <PopoverTrigger asChild>
-                <Toggle size="sm">
+                <Toggle 
+                  size="sm"
+                  pressed={editor.isActive("image")}
+                >
                   <ImageIcon className="h-4 w-4" />
                 </Toggle>
               </PopoverTrigger>
               <PopoverContent className="w-80">
-                <div className="flex flex-col gap-2">
-                  <Label htmlFor="image-url">URL de la imagen</Label>
-                  <div className="flex gap-2">
-                    <Input
-                      id="image-url"
-                      placeholder="https://ejemplo.com/imagen.jpg"
-                      value={imageUrl}
-                      onChange={(e) => setImageUrl(e.target.value)}
-                    />
-                    <Button size="sm" onClick={addImage}>
-                      Insertar
-                    </Button>
+                <div className="flex flex-col gap-3">
+                  <div className="flex flex-col gap-2">
+                    <Label htmlFor="image-url">URL de la imagen</Label>
+                    <div className="flex gap-2">
+                      <Input
+                        id="image-url"
+                        placeholder="https://ejemplo.com/imagen.jpg"
+                        value={imageUrl}
+                        onChange={(e) => setImageUrl(e.target.value)}
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter' && imageUrl) {
+                            e.preventDefault();
+                            addImage();
+                          }
+                        }}
+                      />
+                      <Button 
+                        size="sm" 
+                        onClick={addImage} 
+                        disabled={!imageUrl}
+                      >
+                        <CornerDownLeft className="h-4 w-4" />
+                      </Button>
+                    </div>
+                  </div>
+                  
+                  <div className="border-t pt-2">
+                    <div className="flex flex-col gap-2">
+                      <p className="text-xs text-muted-foreground">Ingresa la URL de una imagen para insertarla en el editor.</p>
+                      <p className="text-xs text-muted-foreground">Formatos soportados: JPG, PNG, GIF, SVG, WebP</p>
+                    </div>
                   </div>
                 </div>
               </PopoverContent>

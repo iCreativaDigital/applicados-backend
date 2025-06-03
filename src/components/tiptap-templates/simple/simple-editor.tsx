@@ -128,6 +128,7 @@ const MainToolbarContent = ({
       </ToolbarGroup>
 
       <ToolbarSeparator />
+      
 
       <ToolbarGroup>
         <TextAlignButton align="left" />

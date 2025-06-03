@@ -94,10 +94,13 @@ model User {
   user_agent          String?
 
   // Relaciones
-  api_key   ApiKey        @relation(fields: [api_key_id], references: [id])
-  accounts  UserAccount[] // Cuentas a las que tiene acceso
-  sessions  Session[] // Sesiones activas
-  auth_logs AuthLog[] // Logs de autenticación
+  api_key               ApiKey                     @relation(fields: [api_key_id], references: [id])
+  accounts              UserAccount[] // Cuentas a las que tiene acceso
+  sessions              Session[] // Sesiones activas
+  auth_logs             AuthLog[] // Logs de autenticación
+  questionnaireAttempts UserQuestionnaireAttempt[] // Intentos de cuestionarios realizados por el usuario
+  questionAnswers       UserQuestionAnswer[] // Respuestas a preguntas individuales
+  testSelections        UserTestSelection[] // Tipos de pruebas seleccionadas por el usuario
 
   @@unique([email, api_key_id]) // Un email debe ser único para cada API Key
   @@unique([username, api_key_id]) // Un username debe ser único para cada API Key
@@ -248,8 +251,9 @@ model TestType {
   updated_at DateTime @updatedAt
 
   // Relaciones
-  api_key      ApiKey?       @relation(fields: [api_key_id], references: [id], onDelete: SetNull)
-  testSubjects TestSubject[] // Relación a la tabla de unión TestSubject
+  api_key           ApiKey?             @relation(fields: [api_key_id], references: [id], onDelete: SetNull)
+  testSubjects      TestSubject[] // Relación a la tabla de unión TestSubject
+  UserTestSelection UserTestSelection[]
 
   // Índice compuesto para garantizar que el nombre sea único por API Key (o globalmente si no hay API Key)
   @@unique([name, api_key_id])
@@ -315,9 +319,8 @@ model SubjectLevel {
   subject_id String // Clave foránea para Subject
   subject    Subject @relation(fields: [subject_id], references: [id], onDelete: Cascade)
 
-  // Relación con Questionnaire (comentada por ahora)
-  // questionnaire_id        String?
-  // questionnaire           Questionnaire? @relation(fields: [questionnaire_id], references: [id])
+  // Relación con Questionnaire
+  questionnaires Questionnaire[] // Un nivel puede tener varios cuestionarios
 
   // Índices
   @@index([subject_id])
@@ -336,6 +339,21 @@ model TestSubject {
 
   // Clave primaria compuesta
   @@id([test_type_id, subject_id])
+}
+
+// Tipos de preguntas
+enum QuestionType {
+  MULTIPLE_CHOICE_SINGLE // Opción múltiple, una respuesta correcta
+  MULTIPLE_CHOICE_MULTIPLE // Opción múltiple, varias respuestas correctas
+  TRUE_FALSE
+}
+
+// Estados de intento
+enum AttemptStatus {
+  IN_PROGRESS
+  COMPLETED
+  PASSED
+  FAILED
 }
 
 // Categorías del glosario
@@ -365,4 +383,172 @@ model GlossaryTerm {
   category    GlossaryCategory @relation(fields: [category_id], references: [id])
 
   @@index([category_id])
+}
+
+// Questionnaire (Cuestionario)
+// Representa un conjunto de preguntas, usualmente asociado a un SubjectLevel.
+model Questionnaire {
+  id          String  @id @default(uuid())
+  name        String // Nombre del cuestionario, ej: "Diagnóstico Álgebra Nivel 1"
+  description String? // Descripción opcional del cuestionario
+  order       Int? // Orden del cuestionario dentro de un nivel (si un nivel tiene varios)
+  published   Boolean @default(false) // Si el cuestionario está disponible para los usuarios
+
+  subject_level_id String // A qué nivel de materia pertenece
+  subjectLevel     SubjectLevel @relation(fields: [subject_level_id], references: [id], onDelete: Cascade)
+
+  questions    Question[] // Un cuestionario tiene muchas preguntas
+  userAttempts UserQuestionnaireAttempt[] // Intentos realizados por usuarios en este cuestionario
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  @@index([subject_level_id])
+  @@index([published]) // Índice para filtrar por estado de publicación
+}
+
+// Question (Pregunta)
+// Define una pregunta individual dentro de un cuestionario.
+
+model Question {
+  id            String       @id @default(uuid())
+  text          String // El enunciado de la pregunta (puede ser HTML si usas TipTap aquí también)
+  question_type QuestionType // Tipo de pregunta (ej. opción múltiple, verdadero/falso)
+  explanation   String? // Explicación que se muestra después de responder
+  points        Int          @default(1) // Puntos por respuesta correcta
+  order         Int? // Orden de la pregunta dentro del cuestionario
+  difficulty    Int?         @default(1) // Nivel de dificultad (1-5)
+  tags          String? // Etiquetas separadas por comas para categorizar preguntas
+  active        Boolean      @default(true) // Si la pregunta está activa o no
+
+  questionnaire_id String // A qué cuestionario pertenece
+  questionnaire    Questionnaire @relation(fields: [questionnaire_id], references: [id], onDelete: Cascade)
+
+  answerOptions AnswerOption[] // Una pregunta tiene varias opciones de respuesta
+  userAnswers   UserQuestionAnswer[] // Respuestas de los usuarios a esta pregunta
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  @@index([questionnaire_id])
+  @@index([active])
+  @@index([difficulty])
+  @@index([question_type])
+}
+
+// AnswerOption (Opción de Respuesta)
+// Define una opción de respuesta para una pregunta (especialmente útil para opción múltiple).
+
+model AnswerOption {
+  id         String  @id @default(uuid())
+  text       String // Texto de la opción de respuesta
+  is_correct Boolean // Indica si esta opción es la correcta (o una de las correctas)
+  order      Int? // Orden de la opción dentro de la pregunta
+
+  question_id String // A qué pregunta pertenece esta opción
+  question    Question @relation(fields: [question_id], references: [id], onDelete: Cascade)
+
+  userAnswers UserQuestionAnswer[] // Para rastrear si esta opción fue seleccionada
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  @@index([question_id])
+}
+
+// Modelos de Progreso del Usuario
+// Estos modelos rastrearán cómo los usuarios interactúan con los cuestionarios y las preguntas.
+
+// UserQuestionnaireAttempt (Intento de Cuestionario por Usuario)
+// Registra un intento completo de un usuario en un cuestionario.
+
+model UserQuestionnaireAttempt {
+  id                    String        @id @default(uuid())
+  score                 Float? // Puntuación obtenida en el intento
+  status                AttemptStatus // Estado del intento (ej. COMPLETADO, APROBADO)
+  started_at            DateTime      @default(now())
+  completed_at          DateTime? // Cuándo se completó el intento
+  time_spent_seconds    Int? // Tiempo total empleado en segundos
+  correct_answers_count Int? // Número de respuestas correctas
+  total_questions_count Int? // Número total de preguntas respondidas
+  attempt_number        Int           @default(1) // Número de intento (1 para el primer intento, 2 para el segundo, etc.)
+
+  user_id String // Qué usuario realizó el intento
+  user    User   @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
+  questionnaire_id String // Qué cuestionario se intentó
+  questionnaire    Questionnaire @relation(fields: [questionnaire_id], references: [id], onDelete: Cascade)
+
+  answers UserQuestionAnswer[] // Respuestas dadas durante este intento
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  @@index([user_id])
+  @@index([questionnaire_id])
+  @@index([user_id, questionnaire_id]) // Para buscar intentos de un usuario en un cuestionario específico
+  @@index([status]) // Para filtrar por estado
+  @@index([completed_at]) // Para ordenar por fecha de finalización
+}
+
+// UserQuestionAnswer (Respuesta de Usuario a Pregunta)
+// Registra la respuesta específica de un usuario a una pregunta dentro de un intento de cuestionario.
+
+model UserQuestionAnswer {
+  id                     String   @id @default(uuid())
+  is_correct             Boolean? // Si la respuesta dada fue correcta
+  answered_at            DateTime @default(now())
+  time_to_answer_seconds Int? // Tiempo que tardó en responder en segundos
+  points_earned          Float? // Puntos obtenidos por esta respuesta
+
+  user_id String // Qué usuario respondió
+  user    User   @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
+  question_id String // Qué pregunta se respondió
+  question    Question @relation(fields: [question_id], references: [id], onDelete: Cascade)
+
+  // Para opción múltiple, cuál opción se seleccionó
+  selected_answer_option_id String?
+  selectedAnswerOption      AnswerOption? @relation(fields: [selected_answer_option_id], references: [id], onDelete: SetNull)
+
+  // Para rellenar huecos o respuestas abiertas
+  answered_text String?
+
+  // A qué intento de cuestionario pertenece esta respuesta
+  user_questionnaire_attempt_id String
+  userQuestionnaireAttempt      UserQuestionnaireAttempt @relation(fields: [user_questionnaire_attempt_id], references: [id], onDelete: Cascade)
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  @@unique([user_questionnaire_attempt_id, question_id]) // Un usuario solo debe tener una respuesta por pregunta en un intento específico
+  @@index([user_id])
+  @@index([question_id])
+  @@index([selected_answer_option_id])
+  @@index([user_questionnaire_attempt_id])
+}
+
+// Modelo de Selección de Prueba del Usuario
+// UserTestSelection (Selección de Prueba del Usuario)
+// Para guardar qué prueba(s) está preparando activamente un usuario.
+
+model UserTestSelection {
+  id          String   @id @default(uuid())
+  is_active   Boolean  @default(true) // Si esta es la selección activa (si permites varias)
+  selected_at DateTime @default(now()) // Cuándo se seleccionó/comenzó a preparar
+
+  user_id String // Qué usuario
+  user    User   @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
+  test_type_id String // Qué tipo de prueba
+  testType     TestType @relation(fields: [test_type_id], references: [id], onDelete: Cascade)
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  // Un usuario puede estar "inscrito" o preparando un tipo de prueba una sola vez
+  @@unique([user_id, test_type_id])
+  @@index([user_id])
+  @@index([test_type_id])
+  @@index([is_active]) // Índice para consultas filtradas por estado activo
 }

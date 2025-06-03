@@ -324,6 +324,83 @@ exports.Prisma.GlossaryTermScalarFieldEnum = {
   category_id: 'category_id'
 };
 
+exports.Prisma.QuestionnaireScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  description: 'description',
+  order: 'order',
+  published: 'published',
+  subject_level_id: 'subject_level_id',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+};
+
+exports.Prisma.QuestionScalarFieldEnum = {
+  id: 'id',
+  text: 'text',
+  question_type: 'question_type',
+  explanation: 'explanation',
+  points: 'points',
+  order: 'order',
+  difficulty: 'difficulty',
+  tags: 'tags',
+  active: 'active',
+  questionnaire_id: 'questionnaire_id',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+};
+
+exports.Prisma.AnswerOptionScalarFieldEnum = {
+  id: 'id',
+  text: 'text',
+  is_correct: 'is_correct',
+  order: 'order',
+  question_id: 'question_id',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+};
+
+exports.Prisma.UserQuestionnaireAttemptScalarFieldEnum = {
+  id: 'id',
+  score: 'score',
+  status: 'status',
+  started_at: 'started_at',
+  completed_at: 'completed_at',
+  time_spent_seconds: 'time_spent_seconds',
+  correct_answers_count: 'correct_answers_count',
+  total_questions_count: 'total_questions_count',
+  attempt_number: 'attempt_number',
+  user_id: 'user_id',
+  questionnaire_id: 'questionnaire_id',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+};
+
+exports.Prisma.UserQuestionAnswerScalarFieldEnum = {
+  id: 'id',
+  is_correct: 'is_correct',
+  answered_at: 'answered_at',
+  time_to_answer_seconds: 'time_to_answer_seconds',
+  points_earned: 'points_earned',
+  user_id: 'user_id',
+  question_id: 'question_id',
+  selected_answer_option_id: 'selected_answer_option_id',
+  answered_text: 'answered_text',
+  user_questionnaire_attempt_id: 'user_questionnaire_attempt_id',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+};
+
+exports.Prisma.UserTestSelectionScalarFieldEnum = {
+  id: 'id',
+  is_active: 'is_active',
+  selected_at: 'selected_at',
+  user_id: 'user_id',
+  test_type_id: 'test_type_id',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -489,6 +566,48 @@ exports.Prisma.GlossaryTermOrderByRelevanceFieldEnum = {
   description: 'description',
   category_id: 'category_id'
 };
+
+exports.Prisma.QuestionnaireOrderByRelevanceFieldEnum = {
+  id: 'id',
+  name: 'name',
+  description: 'description',
+  subject_level_id: 'subject_level_id'
+};
+
+exports.Prisma.QuestionOrderByRelevanceFieldEnum = {
+  id: 'id',
+  text: 'text',
+  explanation: 'explanation',
+  tags: 'tags',
+  questionnaire_id: 'questionnaire_id'
+};
+
+exports.Prisma.AnswerOptionOrderByRelevanceFieldEnum = {
+  id: 'id',
+  text: 'text',
+  question_id: 'question_id'
+};
+
+exports.Prisma.UserQuestionnaireAttemptOrderByRelevanceFieldEnum = {
+  id: 'id',
+  user_id: 'user_id',
+  questionnaire_id: 'questionnaire_id'
+};
+
+exports.Prisma.UserQuestionAnswerOrderByRelevanceFieldEnum = {
+  id: 'id',
+  user_id: 'user_id',
+  question_id: 'question_id',
+  selected_answer_option_id: 'selected_answer_option_id',
+  answered_text: 'answered_text',
+  user_questionnaire_attempt_id: 'user_questionnaire_attempt_id'
+};
+
+exports.Prisma.UserTestSelectionOrderByRelevanceFieldEnum = {
+  id: 'id',
+  user_id: 'user_id',
+  test_type_id: 'test_type_id'
+};
 exports.AuthEventType = exports.$Enums.AuthEventType = {
   REGISTER: 'REGISTER',
   LOGIN: 'LOGIN',
@@ -504,6 +623,19 @@ exports.AuthEventType = exports.$Enums.AuthEventType = {
 exports.AuthEventStatus = exports.$Enums.AuthEventStatus = {
   SUCCESS: 'SUCCESS',
   FAILURE: 'FAILURE'
+};
+
+exports.QuestionType = exports.$Enums.QuestionType = {
+  MULTIPLE_CHOICE_SINGLE: 'MULTIPLE_CHOICE_SINGLE',
+  MULTIPLE_CHOICE_MULTIPLE: 'MULTIPLE_CHOICE_MULTIPLE',
+  TRUE_FALSE: 'TRUE_FALSE'
+};
+
+exports.AttemptStatus = exports.$Enums.AttemptStatus = {
+  IN_PROGRESS: 'IN_PROGRESS',
+  COMPLETED: 'COMPLETED',
+  PASSED: 'PASSED',
+  FAILED: 'FAILED'
 };
 
 exports.Prisma.ModelName = {
@@ -524,7 +656,13 @@ exports.Prisma.ModelName = {
   SubjectLevel: 'SubjectLevel',
   TestSubject: 'TestSubject',
   GlossaryCategory: 'GlossaryCategory',
-  GlossaryTerm: 'GlossaryTerm'
+  GlossaryTerm: 'GlossaryTerm',
+  Questionnaire: 'Questionnaire',
+  Question: 'Question',
+  AnswerOption: 'AnswerOption',
+  UserQuestionnaireAttempt: 'UserQuestionnaireAttempt',
+  UserQuestionAnswer: 'UserQuestionAnswer',
+  UserTestSelection: 'UserTestSelection'
 };
 
 /**
