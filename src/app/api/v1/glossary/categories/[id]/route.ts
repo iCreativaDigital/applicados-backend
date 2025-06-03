@@ -5,7 +5,8 @@ import { validateApiKey } from "@/lib/api-key-validator";
 // GET /api/v1/glossary/categories/[id] - Obtener una categoría del glosario por ID
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params } : { params: Promise<{ id: string }> }
+
 ) {
   try {
     // Validar la API Key
@@ -15,7 +16,7 @@ export async function GET(
       return NextResponse.json({ error: validation.error }, { status: validation.status });
     }
     
-    const { id } = params;
+    const { id } = await params;
     
     // Obtener la categoría por ID
     const category = await prisma.glossaryCategory.findUnique({

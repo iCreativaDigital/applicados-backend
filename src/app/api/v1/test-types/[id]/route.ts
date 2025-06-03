@@ -5,10 +5,10 @@ import { validateApiKey } from "@/lib/api-key-validator";
 // GET /api/v1/test-types/[id] - Obtener un tipo de prueba por ID
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params } : { params: Promise<{ id: string }> }
 ) {
   try {
-    const { id } = params;
+    const { id } = await params;
     
     // Validar la API Key
     const validation = await validateApiKey(request);

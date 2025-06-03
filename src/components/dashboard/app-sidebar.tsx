@@ -87,6 +87,7 @@ const applicadosItems = [
     title: "Materias",
     url: "/dashboard/applicados/subjects",
     icon: BookOpen,
+    hasSubMenu: true,
   },
   {
     title: "Cuestionarios",
@@ -98,6 +99,7 @@ const applicadosItems = [
 export function AppSidebar({ user }: AppSidebarProps) {
   const pathname = usePathname()
   const [glossaryOpen, setGlossaryOpen] = useState(false)
+  const [subjectsOpen, setSubjectsOpen] = useState(false)
   
   // Función para verificar si un enlace está activo
   const isActive = (path: string) => {
@@ -111,6 +113,10 @@ export function AppSidebar({ user }: AppSidebarProps) {
   const isGlossaryActive = 
     isActive("/dashboard/applicados/glossary") || 
     isActive("/dashboard/applicados/glossary-categories")
+    
+  // Verificar si alguna sección de materias está activa
+  const isSubjectsActive = 
+    isActive("/dashboard/applicados/subjects")
 
   // Obtener las iniciales del usuario para el avatar
   const getUserInitials = () => {
@@ -163,16 +169,63 @@ export function AppSidebar({ user }: AppSidebarProps) {
           <SidebarGroupContent>
             <SidebarMenu>
               {/* Elementos regulares */}
-              {applicadosItems.map((item) => (
-                <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild isActive={isActive(item.url)}>
-                    <Link href={item.url}>
-                      <item.icon className="h-4 w-4 mr-2" />
-                      <span>{item.title}</span>
-                    </Link>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              ))}
+              {applicadosItems.map((item) => {
+                // Si el elemento tiene un submenú, renderizarlo de forma especial
+                if (item.hasSubMenu) {
+                  return (
+                    <li key={item.title} data-slot="sidebar-menu-item" data-sidebar="menu-item" className="group/menu-item relative">
+                      <div className="flex flex-col w-full">
+                        {/* Botón principal de Materias */}
+                        <SidebarMenuButton 
+                          isActive={isSubjectsActive}
+                          onClick={() => setSubjectsOpen(!subjectsOpen)}
+                          className="flex justify-between items-center"
+                        >
+                          <div className="flex items-center">
+                            <item.icon className="h-4 w-4 mr-2" />
+                            <span>{item.title}</span>
+                          </div>
+                          <ChevronDown className={`h-4 w-4 transition-transform ${subjectsOpen ? "rotate-180" : ""}`} />
+                        </SidebarMenuButton>
+                        
+                        {/* Submenú de Materias */}
+                        {subjectsOpen && (
+                          <div className="ml-6 mt-1 flex flex-col gap-1">
+                            <div className="group/menu-item relative">
+                              <SidebarMenuButton asChild isActive={isActive("/dashboard/applicados/subjects")}>
+                                <Link href="/dashboard/applicados/subjects">
+                                  <BookOpen className="h-4 w-4 mr-2" />
+                                  <span>Lista de Materias</span>
+                                </Link>
+                              </SidebarMenuButton>
+                            </div>
+                            <div className="group/menu-item relative">
+                              <SidebarMenuButton asChild isActive={isActive("/dashboard/applicados/subjects")}>
+                                <Link href="/dashboard/applicados/subjects">
+                                  <ListTree className="h-4 w-4 mr-2" />
+                                  <span>Niveles</span>
+                                </Link>
+                              </SidebarMenuButton>
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    </li>
+                  );
+                }
+                
+                // Renderizar elementos regulares
+                return (
+                  <SidebarMenuItem key={item.title}>
+                    <SidebarMenuButton asChild isActive={isActive(item.url)}>
+                      <Link href={item.url}>
+                        <item.icon className="h-4 w-4 mr-2" />
+                        <span>{item.title}</span>
+                      </Link>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                );
+              })}
               
               {/* Menú desplegable para Glosario */}
               <li data-slot="sidebar-menu-item" data-sidebar="menu-item" className="group/menu-item relative">

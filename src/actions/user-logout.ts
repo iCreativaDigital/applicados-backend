@@ -83,7 +83,7 @@ export async function logoutUser(data: {
             event_type: "LOGOUT",
             ip_address: data.ip_address || "0.0.0.0",
             user_agent: data.user_agent || "Unknown",
-            details: JSON.stringify({
+            additional_info: JSON.stringify({
               session_id: session.id,
               api_key_id: apiKey.id,
             }),
