@@ -20,12 +20,12 @@ exports.Prisma = Prisma
 exports.$Enums = {}
 
 /**
- * Prisma Client JS version: 6.7.0
- * Query Engine version: 3cff47a7f5d65c3ea74883f1d736e41d68ce91ed
+ * Prisma Client JS version: 6.9.0
+ * Query Engine version: 81e4af48011447c3cc503a190e86995b66d2a28e
  */
 Prisma.prismaVersion = {
-  client: "6.7.0",
-  engine: "3cff47a7f5d65c3ea74883f1d736e41d68ce91ed"
+  client: "6.9.0",
+  engine: "81e4af48011447c3cc503a190e86995b66d2a28e"
 }
 
 Prisma.PrismaClientKnownRequestError = () => {
@@ -340,6 +340,7 @@ exports.Prisma.QuestionScalarFieldEnum = {
   text: 'text',
   question_type: 'question_type',
   explanation: 'explanation',
+  extra_info: 'extra_info',
   points: 'points',
   order: 'order',
   difficulty: 'difficulty',
@@ -578,6 +579,7 @@ exports.Prisma.QuestionOrderByRelevanceFieldEnum = {
   id: 'id',
   text: 'text',
   explanation: 'explanation',
+  extra_info: 'extra_info',
   tags: 'tags',
   questionnaire_id: 'questionnaire_id'
 };

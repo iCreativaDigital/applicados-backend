@@ -350,3 +350,41 @@ export async function deleteSubjectLevel(id: string) {
     }
   }
 }
+
+/**
+ * Obtener todos los niveles de materia con sus materias relacionadas
+ */
+export async function getAllSubjectLevels() {
+  try {
+    // Verificar autenticación
+    const session = await auth()
+    if (!session) {
+      return {
+        errors: { _form: ["No autorizado"] },
+        success: false,
+      }
+    }
+
+    // Obtener todos los niveles con sus materias relacionadas
+    const levels = await prisma.subjectLevel.findMany({
+      include: {
+        subject: true,
+      },
+      orderBy: [
+        { subject_id: "asc" },
+        { order: "asc" },
+      ],
+    })
+
+    return {
+      data: levels,
+      success: true,
+    }
+  } catch (error) {
+    console.error("Error al obtener niveles de materia:", error)
+    return {
+      errors: { _form: ["Error al obtener los niveles de materia"] },
+      success: false,
+    }
+  }
+}

@@ -415,6 +415,7 @@ model Question {
   text          String // El enunciado de la pregunta (puede ser HTML si usas TipTap aquí también)
   question_type QuestionType // Tipo de pregunta (ej. opción múltiple, verdadero/falso)
   explanation   String? // Explicación que se muestra después de responder
+  extra_info    String? // Información adicional para ayudar al estudiante (HTML, videos incrustados, etc.)
   points        Int          @default(1) // Puntos por respuesta correcta
   order         Int? // Orden de la pregunta dentro del cuestionario
   difficulty    Int?         @default(1) // Nivel de dificultad (1-5)
